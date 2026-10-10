@@ -44,7 +44,7 @@ jobs:
       # SPA fallback: GitHub Pages serves 404.html for unknown routes,
       # so client-side routing (e.g. /services, /contact) keeps working.
       - name: Add SPA fallback
-        run: cp dist/frontend/index.html dist/frontend/404.html
+        run: cp dist/frontend/browser/index.html dist/frontend/browser/404.html
         working-directory: frontend
 
       # Project sites live under /repo-name/, so absolute asset paths
@@ -54,7 +54,7 @@ jobs:
         run: |
           base="${BASE_HREF#/}"
           base="${base%/}"
-          find dist/frontend -type f \( -name "*.js" -o -name "*.css" \) -exec sed -i "s|/images/|/${base}/images/|g" {} +
+          find dist/frontend/browser -type f \( -name "*.js" -o -name "*.css" \) -exec sed -i "s|/images/|/${base}/images/|g" {} +
         working-directory: frontend
 
       - name: Setup Pages
@@ -63,7 +63,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: frontend/dist/frontend
+          path: frontend/dist/frontend/browser
 
   deploy:
     needs: build
