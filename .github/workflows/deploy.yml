@@ -6,10 +6,9 @@ on:
   workflow_dispatch:
 
 # BASE_HREF: use "/" for a user/organization site (username.github.io).
-# For a project site (username.github.io/repo-name) set it to "/repo-name/"
-# and note that absolute /images/... asset paths require a user site.
+# For a project site (username.github.io/repo-name) set it to "/repo-name/".
 env:
-  BASE_HREF: "/"
+  BASE_HREF: "/Fanuels-website/"
 
 permissions:
   contents: read
@@ -46,6 +45,16 @@ jobs:
       # so client-side routing (e.g. /services, /contact) keeps working.
       - name: Add SPA fallback
         run: cp dist/frontend/index.html dist/frontend/404.html
+        working-directory: frontend
+
+      # Project sites live under /repo-name/, so absolute asset paths
+      # (/images/...) must be rewritten to the project base.
+      - name: Rewrite asset paths for project site
+        if: env.BASE_HREF != '/'
+        run: |
+          base="${BASE_HREF#/}"
+          base="${base%/}"
+          find dist/frontend -type f \( -name "*.js" -o -name "*.css" \) -exec sed -i "s|/images/|/${base}/images/|g" {} +
         working-directory: frontend
 
       - name: Setup Pages
