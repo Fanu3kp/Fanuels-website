@@ -1,0 +1,28 @@
+# Node
+node_modules/
+npm-debug.log*
+yarn-error.log*
+
+# Angular build output
+frontend/dist/
+frontend/.angular/
+frontend/tmp/
+
+# Laravel backend
+backend/vendor/
+backend/node_modules/
+backend/storage/logs/
+backend/storage/framework/cache/
+backend/storage/framework/sessions/
+backend/storage/framework/views/
+backend/storage/app/
+backend/.env
+backend/database/*.sqlite
+backend/database/fanuel_website
+
+# OS / editors
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.log

@@ -1,0 +1,41 @@
+<svg width="1920" height="1080" viewBox="0 0 1920 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1920" height="1080" fill="#F8FAFC"/>
+  <path d="M0 400 C320 280 640 520 960 400 C1280 280 1600 520 1920 400 L1920 1080 L0 1080 Z" fill="url(#wave1)" opacity="0.3"/>
+  <path d="M0 500 C320 380 640 620 960 500 C1280 380 1600 620 1920 500 L1920 1080 L0 1080 Z" fill="url(#wave2)" opacity="0.2"/>
+  <path d="M0 600 C320 480 640 720 960 600 C1280 480 1600 720 1920 600 L1920 1080 L0 1080 Z" fill="url(#wave3)" opacity="0.15"/>
+  <ellipse cx="150" cy="150" rx="200" ry="100" fill="url(#blob1)" opacity="0.15" transform="rotate(-30 150 150)" filter="url(#blur)"/>
+  <ellipse cx="1770" cy="930" rx="250" ry="120" fill="url(#blob2)" opacity="0.12" transform="rotate(45 1770 930)" filter="url(#blur)"/>
+  <ellipse cx="960" cy="540" rx="180" ry="90" fill="url(#blob3)" opacity="0.08" transform="rotate(15 960 540)" filter="url(#blur)"/>
+  <defs>
+    <linearGradient id="wave1" x1="0" y1="0" x2="1920" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#EC4899"/>
+      <stop offset="50%" stop-color="#06B6D4"/>
+      <stop offset="100%" stop-color="#8B5CF6"/>
+    </linearGradient>
+    <linearGradient id="wave2" x1="0" y1="0" x2="1920" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#06B6D4"/>
+      <stop offset="50%" stop-color="#8B5CF6"/>
+      <stop offset="100%" stop-color="#EC4899"/>
+    </linearGradient>
+    <linearGradient id="wave3" x1="0" y1="0" x2="1920" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#8B5CF6"/>
+      <stop offset="50%" stop-color="#EC4899"/>
+      <stop offset="100%" stop-color="#06B6D4"/>
+    </linearGradient>
+    <radialGradient id="blob1" cx="150" cy="150" r="200" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#EC4899"/>
+      <stop offset="100%" stop-color="#8B5CF6" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="blob2" cx="1770" cy="930" r="250" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#06B6D4"/>
+      <stop offset="100%" stop-color="#8B5CF6" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="blob3" cx="960" cy="540" r="180" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#EC4899"/>
+      <stop offset="100%" stop-color="#06B6D4" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="blur">
+      <feGaussianBlur stdDeviation="60"/>
+    </filter>
+  </defs>
+</svg>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" fill="none">
+  <defs>
+    <linearGradient id="g3" x1="0" y1="0" x2="800" y2="600">
+      <stop offset="0%" stop-color="#c41f72"/>
+      <stop offset="100%" stop-color="#0b1b33"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#g3)"/>
+  <circle cx="680" cy="110" r="190" fill="white" fill-opacity="0.05"/>
+  <circle cx="110" cy="530" r="150" fill="white" fill-opacity="0.04"/>
+  <text x="400" y="262" font-family="Inter, system-ui" font-size="42" font-weight="800" fill="white" text-anchor="middle" opacity="0.95">Patient Scheduling</text>
+  <text x="400" y="316" font-family="Inter, system-ui" font-size="42" font-weight="800" fill="white" text-anchor="middle" opacity="0.95">System</text>
+  <text x="400" y="368" font-family="Inter, system-ui" font-size="18" fill="white" text-anchor="middle" opacity="0.7">Clearview Clinics</text>
+  <rect x="330" y="416" width="140" height="4" rx="2" fill="white" opacity="0.3"/>
+  <rect x="330" y="416" width="84" height="4" rx="2" fill="white" opacity="0.9"/>
+</svg>

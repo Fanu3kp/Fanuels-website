@@ -1,0 +1,5 @@
+Get-ChildItem: 
+Line |
+   4 |  Get-ChildItem -Path "frontend/dist/frontend/images" -File 2>$ErrorAct …
+     |  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     | Cannot find path 'C:\xampp\htdocs\Fanuels website\frontend\dist\frontend\images' because it does not exist.

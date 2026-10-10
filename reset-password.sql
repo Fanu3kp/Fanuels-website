@@ -1,0 +1,6 @@
+FLUSH PRIVILEGES;
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'fanatech';
+ALTER USER 'root'@'127.0.0.1' IDENTIFIED BY 'fanatech';
+FLUSH PRIVILEGES;
+
+CREATE DATABASE IF NOT EXISTS otuyaelite CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
