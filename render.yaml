@@ -1,0 +1,69 @@
+# Otuya Global — free-tier deployment on Render.
+# Repo root file so Render auto-detects it. Commands run from the repo
+# root, hence the `cd backend` prefixes (Laravel app lives in backend/).
+services:
+  - type: web
+    name: otuya-api
+    env: php
+    plan: free
+    buildCommand: cd backend && composer install --no-dev --optimize-autoloader
+    preDeployCommand: cd backend && php artisan migrate --force
+    startCommand: cd backend && php artisan serve --host=0.0.0.0 --port=$PORT --env=production
+    envVars:
+      - key: APP_KEY
+        generateValue: true
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: false
+      - key: APP_URL
+        value: https://otuya-api.onrender.com
+      - key: DB_CONNECTION
+        value: pgsql
+      - key: DB_HOST
+        fromDatabase:
+          name: otuya-db
+          property: host
+      - key: DB_PORT
+        fromDatabase:
+          name: otuya-db
+          property: port
+      - key: DB_DATABASE
+        fromDatabase:
+          name: otuya-db
+          property: database
+      - key: DB_USERNAME
+        fromDatabase:
+          name: otuya-db
+          property: user
+      - key: DB_PASSWORD
+        fromDatabase:
+          name: otuya-db
+          property: password
+      - key: CORS_ALLOWED_ORIGINS
+        value: https://fanu3kp.github.io,http://localhost:4200,http://127.0.0.1:4200
+      # Contact-form email notifications (optional — messages are still
+      # saved in the database without these). To enable, uncomment and
+      # set a Gmail app password (Google Account > Security > App passwords):
+      # - key: MAIL_MAILER
+      #   value: smtp
+      # - key: MAIL_HOST
+      #   value: smtp.gmail.com
+      # - key: MAIL_PORT
+      #   value: 587
+      # - key: MAIL_USERNAME
+      #   value: your@gmail.com
+      # - key: MAIL_PASSWORD
+      #   value: your-16-char-app-password
+      # - key: MAIL_FROM_ADDRESS
+      #   value: your@gmail.com
+      # - key: MAIL_FROM_NAME
+      #   value: Otuya Global
+      # - key: MAIL_ENCRYPTION
+      #   value: tls
+
+databases:
+  - name: otuya-db
+    databaseName: otuya
+    user: otuya
+    free: true
