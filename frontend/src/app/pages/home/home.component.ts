@@ -15,7 +15,7 @@ import { ProcessStep, Service, SiteSettings, Testimonial, Project, Post, Paginat
 const MOCK_SERVICES: Service[] = [
   { id: 1, title: 'Digital Transformation', slug: 'digital-transformation', summary: 'End-to-end transformation programs that align people, process, and technology around measurable business outcomes.', body: '', icon: 'strategy', image: '/images/real/cloud-architecture.svg', highlights: null, sort_order: 1, is_featured: true, is_active: true },
   { id: 2, title: 'Custom Software Development', slug: 'custom-software-development', summary: 'Product-minded engineering teams delivering scalable, maintainable software — from greenfield products to platform modernization.', body: '', icon: 'code', image: '/images/real/coding-session.svg', highlights: null, sort_order: 2, is_featured: true, is_active: true },
-  { id: 3, title: 'ERP Implementation', slug: 'erp-implementation', summary: 'Proven methodology for ERP deployments that minimize risk, accelerate time-to-value, and ensure user adoption.', body: '', icon: 'erp', image: '/images/solutions/erp-supply-chain.png', highlights: null, sort_order: 3, is_featured: true, is_active: true },
+  { id: 3, title: 'ERP Implementation', slug: 'erp-implementation', summary: 'Proven methodology for ERP deployments that minimize risk, accelerate time-to-value, and ensure user adoption.', body: '', icon: 'erp', image: '/images/solutions/erp-supply-chain.jpg', highlights: null, sort_order: 3, is_featured: true, is_active: true },
   { id: 4, title: 'Cloud Migration', slug: 'cloud-migration', summary: 'Structured migration programs that reduce cost, improve resilience, and unlock cloud-native capabilities.', body: '', icon: 'cloud', image: '/images/real/server-room.svg', highlights: null, sort_order: 4, is_featured: false, is_active: true },
   { id: 5, title: 'Vertical Solutions', slug: 'vertical-solutions', summary: 'Industry-specific platforms and accelerators for financial services, healthcare, manufacturing, retail, public sector, and energy.', body: '', icon: 'products', image: '/images/real/data-pipeline.svg', highlights: null, sort_order: 5, is_featured: false, is_active: true },
 ];
@@ -109,14 +109,14 @@ const MOCK_PROCESS_STEPS: ProcessStep[] = [
         <div class="solutions-grid">
           <div class="solution-item" appReveal="up" [appRevealDelay]="0">
             <div class="solution-item__media">
-              <img src="/images/solutions/erp-supply-chain.png" alt="ERP systems for supply chain management" loading="lazy" />
+               <img src="/images/solutions/erp-supply-chain.jpg" alt="ERP systems for supply chain management" loading="lazy" decoding="async" />
             </div>
             <h3>ERP <br/>Implementation</h3>
             <p>End-to-end ERP deployments that minimize risk and accelerate time-to-value.</p>
           </div>
           <div class="solution-item" appReveal="up" [appRevealDelay]="80">
             <div class="solution-item__media">
-              <img src="/images/solutions/pos-software.png" alt="Point of Sale (POS) software" loading="lazy" />
+               <img src="/images/solutions/pos-software.jpg" alt="Point of Sale (POS) software" loading="lazy" decoding="async" />
             </div>
             <h3>POS <br/>Systems</h3>
             <p>Custom point-of-sale platforms built for retail, hospitality, and field operations.</p>
@@ -214,7 +214,7 @@ const MOCK_PROCESS_STEPS: ProcessStep[] = [
             appReveal="up"
             [appRevealDelay]="i * 80"
           >
-            <img *ngIf="post.image" [src]="post.image" [alt]="post.title" loading="lazy" />
+            <img *ngIf="post.image" [src]="post.image" [alt]="post.title" loading="lazy" decoding="async" />
             <div class="insight-card__body">
               <h3>{{ post.title }}</h3>
               <p class="excerpt">{{ post.excerpt || (post.body.substring(0, 120) + '...') }}</p>

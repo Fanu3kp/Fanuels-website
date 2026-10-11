@@ -18,7 +18,7 @@ const MOCK_POSTS: Post[] = [
     body: `Discover how our integrated hospital management system is revolutionizing patient care and operational efficiency across healthcare facilities.
 
 Otuya e-Health Hospital ERP provides centralized patient management across multiple hospitals, electronic health records with lab/imaging integration, financial management and automated billing, pharmacy and inventory management, appointment and queue management, and telemedicine modules.`,
-    image: '/images/solutions/erp-supply-chain.png',
+    image: '/images/solutions/erp-supply-chain.jpg',
     is_published: true,
     published_at: '2024-01-15',
     views: 12450,
@@ -63,7 +63,7 @@ Otuya Insure provides insurance master data management, multi-product definition
     body: `Leveraging smart manufacturing ERP to optimize manufacturing processes and supply chain management for African industries.
 
 Otuya Manufacturing ERP provides real-time production monitoring dashboard, predictive maintenance scheduling, quality management & traceability, supply chain & procurement automation, MES/ERP convergence, and OT/IT security integration.`,
-    image: '/images/solutions/erp-supply-chain.png',
+    image: '/images/solutions/erp-supply-chain.jpg',
     is_published: true,
     published_at: '2024-01-08',
     views: 11200,
@@ -78,7 +78,7 @@ Otuya Manufacturing ERP provides real-time production monitoring dashboard, pred
     body: `How educational institutions across Africa are embracing technology for better student management and improved learning outcomes.
 
 Otuya Academics provides course creation & management, student progress tracking, assessment & certification engine, virtual classroom & live sessions, content library & resource management, and analytics & learning insights.`,
-    image: '/images/real/data-pipeline.svg',
+    image: '/images/posts/education-campus-management.svg',
     is_published: true,
     published_at: '2024-01-05',
     views: 9840,
@@ -108,7 +108,7 @@ This guide covers domain event extraction, contract testing strategies, feature 
     body: `Best practices and lessons learned from helping African businesses successfully migrate to cloud infrastructure.
 
 Otuya Cloud provides migration services, platform engineering, and managed services for enterprises.`,
-    image: '/images/solutions/pos-software.png',
+    image: '/images/solutions/pos-software.jpg',
     is_published: true,
     published_at: '2023-12-28',
     views: 11200,
@@ -134,7 +134,7 @@ Otuya Cloud provides migration services, platform engineering, and managed servi
     slug: 'data-security-compliance-african-digital-solutions',
     excerpt: 'Ensuring robust data protection and regulatory compliance in our technology solutions for African markets.',
     body: `Ensuring robust data protection and regulatory compliance in our technology solutions for African markets.`,
-    image: '/images/solutions/pos-software.png',
+    image: '/images/solutions/pos-software.jpg',
     is_published: true,
     published_at: '2023-12-20',
     views: 8930,

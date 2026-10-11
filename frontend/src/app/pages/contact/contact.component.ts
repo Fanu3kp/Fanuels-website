@@ -575,7 +575,15 @@ export class ContactComponent {
         },
         error: (error: ApiError) => {
           this.fieldErrors = error.errors ?? {};
-          this.serverError = this.fieldErrors['name']?.[0] ?? error.firstError ?? error.message;
+          if (error.status === 0) {
+            // Network-level failure (API unreachable or blocked by CORS).
+            const email = this.settings()?.['contact_email'];
+            this.serverError = email
+              ? `We couldn't reach our server just now. Please try again in a moment — or email us directly at ${email}.`
+              : 'We couldn\'t reach our server just now. Please try again in a moment.';
+          } else {
+            this.serverError = this.fieldErrors['name']?.[0] ?? error.firstError ?? error.message;
+          }
           this.sending = false;
         },
       });

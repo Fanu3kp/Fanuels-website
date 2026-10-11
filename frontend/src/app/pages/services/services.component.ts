@@ -19,7 +19,7 @@ const MOCK_SERVICES: Service[] = [
     summary: 'Comprehensive point-of-sale and retail management system for modern retail operations.',
     body: '',
     icon: 'pos',
-    image: '/images/solutions/pos-software.png',
+    image: '/images/solutions/pos-software.jpg',
     highlights: [
       'Multi-store POS Management',
       'Real-time Inventory Tracking & Management',
@@ -59,7 +59,7 @@ const MOCK_SERVICES: Service[] = [
     summary: 'Comprehensive hospital management system for multi-hospital networks.',
     body: '',
     icon: 'health',
-    image: '/images/solutions/erp-supply-chain.png',
+    image: '/images/solutions/erp-supply-chain.jpg',
     highlights: [
       'Centralized Patient Management across multiple hospitals',
       'Electronic Health Records (EHR) with lab/imaging integration',
@@ -119,7 +119,7 @@ const MOCK_SERVICES: Service[] = [
     summary: 'Smart manufacturing ERP with real-time production monitoring and AI-driven insights.',
     body: '',
     icon: 'manufacturing',
-    image: '/images/solutions/erp-supply-chain.png',
+    image: '/images/solutions/erp-supply-chain.jpg',
     highlights: [
       'Real-time Production Monitoring Dashboard',
       'Predictive Maintenance Scheduling',
@@ -179,7 +179,7 @@ const MOCK_SERVICES: Service[] = [
     summary: 'Microservice-powered e-learning platform for delivering quality education.',
     body: '',
     icon: 'education',
-    image: '/images/real/data-pipeline.svg',
+    image: '/images/products/otuya-academics.svg',
     highlights: [
       'Course Creation & Management',
       'Student Progress Tracking',
@@ -227,7 +227,7 @@ const MOCK_SERVICES: Service[] = [
               <span class="product-card__category">{{ getCategory(service.title) }}</span>
             </div>
             <div class="product-card__media" *ngIf="service.image">
-              <img [src]="service.image" [alt]="service.title" loading="lazy" />
+              <img [src]="service.image" [alt]="service.title" loading="lazy" decoding="async" />
             </div>
             <div class="product-card__body">
               <h3>{{ service.title }}</h3>

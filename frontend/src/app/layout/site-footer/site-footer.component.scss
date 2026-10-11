@@ -138,9 +138,13 @@
   box-shadow: var(--shadow-lg);
 }
 
+.footer__social a:hover img {
+  filter: brightness(0) invert(1);
+}
+
 .footer__social img {
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   display: block;
 }
 

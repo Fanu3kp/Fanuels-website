@@ -194,7 +194,7 @@ Energy & Utilities: Smart grid analytics, asset performance management, decarbon
         <div class="container detail">
           <article class="detail__body">
             <figure class="detail__media" *ngIf="svc.image">
-              <img [src]="svc.image" [alt]="svc.title" loading="lazy" appLazyImage />
+               <img [src]="svc.image" [alt]="svc.title" loading="lazy" decoding="async" appLazyImage />
             </figure>
 
             <div class="detail__content">
@@ -219,7 +219,7 @@ Energy & Utilities: Smart grid analytics, asset performance management, decarbon
             <div class="card">
               <h3>Technology & Partners</h3>
               <div class="tech-partners" *ngIf="resolvedService()?.slug === 'erp-implementation'">
-                <img src="/images/solutions/erp-business-central.svg" alt="Business Central ERP platform" class="tech-platform-img" />
+                 <img src="/images/solutions/erp-business-central.svg" alt="Business Central ERP platform" class="tech-platform-img" decoding="async" />
               </div>
                 <div class="tech-tags" *ngFor="let tech of technologies()">
                 <span class="tech-tag" [attr.data-category]="tech.category">{{ tech.name }}</span>

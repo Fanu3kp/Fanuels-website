@@ -41,7 +41,7 @@ import { ApiService } from '../../core/api.service';
         <div class="projects-grid" *ngIf="filteredProjects().length; else spinner">
           <article class="project-card" *ngFor="let project of filteredProjects(); let i = index" appReveal="up" [appRevealDelay]="i * 70">
             <div class="project-card__media" *ngIf="project.cover_image">
-              <img [src]="project.cover_image" [alt]="project.title" loading="lazy" />
+              <img [src]="project.cover_image" [alt]="project.title" loading="lazy" decoding="async" />
               <span class="project-card__badge" *ngIf="project.is_featured">Featured</span>
             </div>
             <div class="project-card__body">

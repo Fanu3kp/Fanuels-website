@@ -19,6 +19,7 @@ class BlogSeeder extends Seeder
             ['name' => 'Cloud', 'description' => 'Infrastructure, operations and keeping cloud spend under control.'],
             ['name' => 'Business', 'description' => 'How technology decisions affect the commercial outcome.'],
             ['name' => 'Security', 'description' => 'Practical hardening and compliance guidance.'],
+            ['name' => 'Education', 'description' => 'Education technology and campus transformation.'],
         ];
 
         $categoryIds = [];
@@ -80,6 +81,14 @@ class BlogSeeder extends Seeder
                 'image' => '/images/posts/infrastructure-as-code.svg',
                 'body' => "Infrastructure as code started as a way to stop clicking through consoles. It has a tendency to grow into a platform engineering programme with its own roadmap.\n\nThe signal that it has grown too far: the pipeline takes longer to change than the application it deploys.\n\nStart with the infrastructure that is genuinely painful to recreate. Version control the network and the core services, describe the rest in documentation, and resist building abstractions for problems you have not hit yet.",
                 'days_ago' => 120,
+            ],
+            [
+                'category' => 'Education',
+                'title' => 'Digital Transformation in Education: Next-Generation Campus Management',
+                'excerpt' => 'How educational institutions across Africa are embracing technology for better student management and improved learning outcomes.',
+                'image' => '/images/posts/education-campus-management.svg',
+                'body' => "How educational institutions across Africa are embracing technology for better student management and improved learning outcomes.\n\nOtuya Academics provides course creation & management, student progress tracking, assessment & certification engine, virtual classroom & live sessions, content library & resource management, and analytics & learning insights.",
+                'days_ago' => 150,
             ],
         ];
 

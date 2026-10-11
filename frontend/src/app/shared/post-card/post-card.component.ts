@@ -12,7 +12,7 @@ import { Post } from '../../core/models';
   template: `
     <a class="post" [routerLink]="['/insights', post.slug]">
       <div class="post__media" *ngIf="post.image">
-        <img [src]="post.image" [alt]="post.title" loading="lazy" />
+        <img [src]="post.image" [alt]="post.title" loading="lazy" decoding="async" />
       </div>
       <div class="post__body">
         <span class="badge" *ngIf="post.category">{{ post.category.name }}</span>

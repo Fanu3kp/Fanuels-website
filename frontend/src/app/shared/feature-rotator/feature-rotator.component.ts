@@ -71,7 +71,7 @@ const DRAG_THRESHOLD_PX = 6;
 
               @if (card.item.image) {
                 <div class="rotor__media">
-                  <img [src]="card.item.image" [alt]="card.item.title" loading="lazy" appLazyImage />
+                   <img [src]="card.item.image" [alt]="card.item.title" loading="lazy" decoding="async" appLazyImage />
                 </div>
               }
 

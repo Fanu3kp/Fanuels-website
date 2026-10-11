@@ -36,7 +36,7 @@ import { Project } from '../../core/models';
         <div class="container detail">
           <article class="detail__body">
             <figure class="detail__media" *ngIf="p.cover_image">
-              <img [src]="p.cover_image" [alt]="p.title" loading="lazy" />
+              <img [src]="p.cover_image" [alt]="p.title" loading="lazy" decoding="async" />
             </figure>
             <p class="lead" appReveal="mask" [appRevealDelay]="80">{{ p.summary }}</p>
             <p *ngFor="let paragraph of paragraphs(p.body)">{{ paragraph }}</p>
@@ -51,7 +51,7 @@ import { Project } from '../../core/models';
             <ng-container *ngIf="p.gallery?.length">
               <h2 appReveal="mask">Gallery</h2>
               <div class="gallery">
-                <img *ngFor="let img of p.gallery" [src]="img" [alt]="p.title" loading="lazy" />
+                <img *ngFor="let img of p.gallery" [src]="img" [alt]="p.title" loading="lazy" decoding="async" />
               </div>
             </ng-container>
           </article>
