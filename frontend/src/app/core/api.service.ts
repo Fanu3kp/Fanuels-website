@@ -61,8 +61,19 @@ export class ApiService {
     return this.token;
   }
 
+  private baseUrl(): string {
+    // Local development: the ng-serve proxy forwards /api to the
+    // Laravel API on 127.0.0.1:8001 (see proxy.conf.json), so the
+    // admin panel and database-backed features work offline.
+    const host = window.location.hostname;
+    if (host === 'localhost' || host === '127.0.0.1') {
+      return '/api';
+    }
+    return this.config.apiUrl;
+  }
+
   private url(path: string): string {
-    return `${this.config.apiUrl}/${path.replace(/^\//, '')}`;
+    return `${this.baseUrl()}/${path.replace(/^\//, '')}`;
   }
 
   private authHeaders(): HttpHeaders {
