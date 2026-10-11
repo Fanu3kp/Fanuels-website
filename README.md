@@ -2,6 +2,11 @@
 
 Corporate website for Otuya Elite Digital & Business Solutions.
 
+> **Ops runbook:** hosting, deployment, and troubleshooting live in
+> [`OPS.md`](OPS.md) — read that first. Note the site's local MySQL
+> is on port **3307** (database `fanuel_website`) and the local API
+> serves on **8001**, which differ from some older notes below.
+
 - **Frontend:** Angular 18 (standalone components, lazy-loaded routes, signals)
 - **Sub-sites:** four independently deployable Angular apps in a shared workspace
 - **Backend:** Laravel 12 API with Sanctum token auth
