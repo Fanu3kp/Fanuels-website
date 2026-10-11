@@ -433,9 +433,14 @@ const BUDGET_OPTIONS = [
       .btn--full { width: 100%; }
 
       @media (max-width: 900px) {
-        .contact { grid-template-columns: 1fr; gap: 34px; }
+        .contact { grid-template-columns: 1fr; gap: 28px; }
         .row { grid-template-columns: 1fr; }
-        .contact__form-wrap { position: sticky; top: 20px; }
+        .contact__form-wrap {
+          position: static;
+          top: auto;
+          padding: 22px;
+        }
+        .card { padding: 20px; }
       }
     `,
   ],
