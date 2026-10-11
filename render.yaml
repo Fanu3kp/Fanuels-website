@@ -1,14 +1,12 @@
 # Otuya Global — free-tier deployment on Render.
-# Repo root file so Render auto-detects it. Commands run from the repo
-# root, hence the `cd backend` prefixes (Laravel app lives in backend/).
+# Laravel backend (backend/) runs as a Docker service built
+# from the root Dockerfile (php:8.2-cli + pdo_pgsql).
 services:
   - type: web
     name: otuya-api
-    env: php
+    env: docker
     plan: free
-    buildCommand: cd backend && composer install --no-dev --optimize-autoloader
-    preDeployCommand: cd backend && php artisan migrate --force
-    startCommand: cd backend && php artisan serve --host=0.0.0.0 --port=$PORT --env=production
+    dockerfilePath: Dockerfile
     envVars:
       - key: APP_KEY
         generateValue: true
