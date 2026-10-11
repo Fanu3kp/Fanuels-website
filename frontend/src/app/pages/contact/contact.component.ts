@@ -155,6 +155,10 @@ const BUDGET_OPTIONS = [
         <div class="contact__form-wrap" appReveal="left">
           <div class="alert alert--success" *ngIf="success">{{ success }}</div>
           <div class="alert alert--error" *ngIf="serverError">{{ serverError }}</div>
+          <div class="alert alert--info" *ngIf="networkError" role="status">
+            <p>Our message service is unreachable right now — but you can still reach us instantly:</p>
+            <button type="button" class="btn btn--sky" (click)="emailFallback()">Send via email instead</button>
+          </div>
 
           <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
             <div class="row">
@@ -457,6 +461,7 @@ export class ContactComponent {
   sending = false;
   success = '';
   serverError = '';
+  networkError = false;
   private fieldErrors: Record<string, string[]> = {};
 
   readonly groupedTypes = computed(() => {
@@ -515,6 +520,29 @@ export class ContactComponent {
     });
   }
 
+  /** Opens the visitor's mail client with the enquiry pre-filled. */
+  emailFallback(): void {
+    const f = this.form.value;
+    const email = this.settings()?.['contact_email'] || 'info@otuyaglobal.com';
+    const product = PRODUCT_TYPES.find((p) => p.value === f.type);
+    const subject = encodeURIComponent(`Website inquiry from ${f.name}`);
+    const body = encodeURIComponent(
+      [
+        `Name: ${f.name}`,
+        `Email: ${f.email}`,
+        f.phone ? `Phone: ${f.phone}` : null,
+        f.company ? `Company: ${f.company}` : null,
+        `Interest: ${product?.label ?? f.type}`,
+        f.teamSize ? `Team size / users: ${f.teamSize}` : null,
+        `Timeline: ${f.timeline ?? 'ASAP'}`,
+        '',
+        'Project details:',
+        f.message ?? '',
+      ].filter(Boolean).join('\n')
+    );
+    window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
+  }
+
   showError(field: string): boolean {
     const control = this.form.get(field);
     return !!control && control.invalid && (control.touched || control.dirty);
@@ -541,6 +569,7 @@ export class ContactComponent {
   submit(): void {
     this.success = '';
     this.serverError = '';
+    this.networkError = false;
     this.fieldErrors = {};
 
     if (this.form.invalid) {
@@ -577,6 +606,7 @@ export class ContactComponent {
           this.fieldErrors = error.errors ?? {};
           if (error.status === 0) {
             // Network-level failure (API unreachable or blocked by CORS).
+            this.networkError = true;
             const email = this.settings()?.['contact_email'];
             this.serverError = email
               ? `We couldn't reach our server just now. Please try again in a moment — or email us directly at ${email}.`
