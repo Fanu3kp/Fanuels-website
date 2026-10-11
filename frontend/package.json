@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve --proxy-config proxy.conf.json",
     "build": "ng build",
+    "postbuild": "node -e \"require('fs').copyFileSync('dist/frontend/browser/index.html','dist/frontend/browser/404.html')\"",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
