@@ -5,6 +5,7 @@ import { RouterLink } from '@angular/router';
 import { toObservable, toSignal } from '@angular/core/rxjs-interop';
 import { catchError, of, switchMap, tap } from 'rxjs';
 import { ApiService } from '../../core/api.service';
+import { MOCK_PRODUCTS } from '../../core/mock-catalog';
 import { LazyImageDirective } from '../../shared/lazy-image/lazy-image.directive';
 import { Service } from '../../core/models';
 
@@ -581,13 +582,13 @@ export class ServiceDetailComponent {
 
   readonly all = computed(() => {
     const apiServices = this.allFromApi();
-    return apiServices.length > 0 ? apiServices : MOCK_SERVICES;
+    return apiServices.length > 0 ? apiServices : [...MOCK_SERVICES, ...MOCK_PRODUCTS];
   });
 
   readonly resolvedService = computed(() => {
     const fromApi = this.service();
     if (fromApi) return fromApi;
-    return MOCK_SERVICES.find((s) => s.slug === this.slug()) ?? null;
+    return [...MOCK_SERVICES, ...MOCK_PRODUCTS].find((s) => s.slug === this.slug()) ?? null;
   });
 
   readonly notFound = computed(() => this.loaded() && !this.resolvedService());
