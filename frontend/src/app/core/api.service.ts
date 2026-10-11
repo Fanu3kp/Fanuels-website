@@ -193,32 +193,39 @@ export class ApiService {
    * unreachable, so messages still arrive even without the backend.
    */
   sendContactByEmail(payload: ContactPayload, recipient: string): Observable<unknown> {
-    const body: Record<string, string> = {
-      _subject: `Website inquiry from ${payload.name}`,
-      _replyto: payload.email,
-      name: payload.name,
-      email: payload.email,
-      phone: payload.phone ?? '',
-      company: payload.company ?? '',
-      interest: payload.subject ?? payload.type ?? '',
-      team_size: payload.teamSize ? String(payload.teamSize) : '',
-      timeline: payload.timeline ?? '',
-      budget: payload.budget ?? '',
-      message: payload.message,
-    };
+    const params = new URLSearchParams();
+    params.set('_subject', `Website inquiry from ${payload.name}`);
+    params.set('_replyto', payload.email);
+    params.set('name', payload.name);
+    params.set('email', payload.email);
+    params.set('phone', payload.phone ?? '');
+    params.set('company', payload.company ?? '');
+    params.set('interest', payload.subject ?? payload.type ?? '');
+    params.set('team_size', payload.teamSize ? String(payload.teamSize) : '');
+    params.set('timeline', payload.timeline ?? '');
+    params.set('budget', payload.budget ?? '');
+    params.set('message', payload.message);
 
     const dynamic = payload.dynamicData ?? {};
     if (dynamic['area_of_interest']) {
-      body['area_of_interest'] = String(dynamic['area_of_interest']);
+      params.set('area_of_interest', String(dynamic['area_of_interest']));
     }
     if (dynamic['linkedin_url']) {
-      body['linkedin'] = String(dynamic['linkedin_url']);
+      params.set('linkedin', String(dynamic['linkedin_url']));
     }
 
+    // Form-encoded body = CORS "simple request" (no preflight),
+    // which is FormSubmit's native integration format. The /ajax/
+    // endpoint replies with JSON so success is detectable.
     return this.http.post(
-      `https://formsubmit.co/${encodeURIComponent(recipient)}`,
-      body,
-      { headers: { 'Content-Type': 'application/json' } },
+      `https://formsubmit.co/ajax/${encodeURIComponent(recipient)}`,
+      params.toString(),
+      {
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          Accept: 'application/json',
+        },
+      },
     );
   }
 
