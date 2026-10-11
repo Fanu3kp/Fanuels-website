@@ -1,27 +1,48 @@
-# Frontend
+# Frontend — Otuya Global (Angular 18)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.21.
+The public corporate site. Source in `src/`, production build in
+`dist/frontend/browser/`.
 
-## Development server
+## Commands
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+```bash
+npm install
+npm start          # ng serve on http://localhost:4200 (with API proxy)
+npm run build      # production build; postbuild copies index.html -> 404.html
+npx tsc --noEmit --project tsconfig.json   # type-check
+```
 
-## Code scaffolding
+## Configuration
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- `src/environments/environment.ts` — compiled-in `apiUrl`
+  (Render API) and site metadata.
+- `proxy.conf.json` — `ng serve` forwards `/api` to
+  `http://127.0.0.1:8001` (local Laravel).
+- `src/app/core/api.service.ts` — when the page is opened from
+  `localhost`/`127.0.0.1`, API calls use the relative `/api`
+  (dev proxy); otherwise the compiled-in Render URL. This is why
+  the admin panel works locally without CORS setup.
 
-## Build
+## Structure
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```
+src/app/
+├── pages/      route components (home, services, products, contact, …)
+├── admin/      admin panel (login, services, team, messages, settings, …)
+├── layout/     site header, footer
+├── core/       ApiService, models, mock-catalog (offline product data)
+└── shared/     page hero, lazy image, reveal, newsletter, cookie consent
+```
 
-## Running unit tests
+## Hosting notes
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- GitHub Pages serves the `gh-pages` branch (custom domain
+  `otuyaglobal.duckdns.org` via `CNAME`).
+- `404.html` (generated from `index.html` by `postbuild`) is the
+  SPA fallback — **never delete it** or client-side routes like
+  `/services/otuya-pos` show GitHub's default 404.
+- Images live in `public/images/` and are copied into the build by
+  the Angular asset pipeline.
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+For the full deploy procedure (worktree push to `gh-pages`) and
+troubleshooting, see [`../OPS.md`](../OPS.md).
