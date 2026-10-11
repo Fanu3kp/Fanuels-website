@@ -5,10 +5,10 @@ on:
     branches: [main]
   workflow_dispatch:
 
-# BASE_HREF: use "/" for a user/organization site (username.github.io).
-# For a project site (username.github.io/repo-name) set it to "/repo-name/".
+# BASE_HREF: the site is served from the domain root
+# (custom domain otuyaglobal.duckdns.org), so use "/".
 env:
-  BASE_HREF: "/Fanuels-website/"
+  BASE_HREF: "/"
 
 permissions:
   contents: read
