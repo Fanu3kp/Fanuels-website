@@ -2,6 +2,7 @@ import { Component, inject, signal, effect, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { DOCUMENT } from '@angular/common';
+import { CookieConsentService } from './cookie-consent.service';
 
 @Component({
   selector: 'app-cookie-consent',
@@ -346,6 +347,7 @@ import { DOCUMENT } from '@angular/common';
 })
 export class CookieConsentComponent implements OnInit {
   private readonly document = inject(DOCUMENT);
+  private readonly consentService = inject(CookieConsentService);
   readonly show = signal(false);
   readonly settingsOpen = signal(false);
 
@@ -355,8 +357,15 @@ export class CookieConsentComponent implements OnInit {
 
   private readonly CONSENT_KEY = 'otuyaelite_cookie_consent';
   private readonly SETTINGS_KEY = 'otuyaelite_cookie_settings';
+  /**
+   * Google Analytics measurement ID (format G-XXXXXXXXXX).
+   * Leave empty to keep analytics cookies disabled until a real ID is configured.
+   */
+  private readonly GA_MEASUREMENT_ID = '';
 
   ngOnInit() {
+    this.consentService.openSettings$.subscribe(() => this.settingsOpen.set(true));
+
     const consent = this.document.defaultView?.localStorage.getItem(this.CONSENT_KEY);
     if (!consent) {
       this.show.set(true);
@@ -423,16 +432,16 @@ export class CookieConsentComponent implements OnInit {
   }
 
   private applyCookies() {
-    // Load Google Analytics if enabled
-    if (this.analytics && typeof window !== 'undefined' && !(window as any).gaLoaded) {
+    // Load Google Analytics only when a real measurement ID is configured.
+    if (this.analytics && this.GA_MEASUREMENT_ID && typeof window !== 'undefined' && !(window as any).gaLoaded) {
       const script = this.document.createElement('script');
       script.async = true;
-      script.src = 'https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX';
+      script.src = `https://www.googletagmanager.com/gtag/js?id=${this.GA_MEASUREMENT_ID}`;
       this.document.head.appendChild(script);
       (window as any).dataLayer = (window as any).dataLayer || [];
       (window as any).gtag = function() { (window as any).dataLayer.push(arguments); };
       (window as any).gtag('js', new Date());
-      (window as any).gtag('config', 'G-XXXXXXXXXX');
+      (window as any).gtag('config', this.GA_MEASUREMENT_ID);
       (window as any).gaLoaded = true;
     }
   }

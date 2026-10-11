@@ -78,7 +78,7 @@ Otuya Manufacturing ERP provides real-time production monitoring dashboard, pred
     body: `How educational institutions across Africa are embracing technology for better student management and improved learning outcomes.
 
 Otuya Academics provides course creation & management, student progress tracking, assessment & certification engine, virtual classroom & live sessions, content library & resource management, and analytics & learning insights.`,
-    image: '/images/solutions/data-pipeline.svg',
+    image: '/images/real/data-pipeline.svg',
     is_published: true,
     published_at: '2024-01-05',
     views: 9840,

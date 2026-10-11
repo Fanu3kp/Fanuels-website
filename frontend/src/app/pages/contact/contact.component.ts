@@ -222,7 +222,7 @@ const BUDGET_OPTIONS = [
 
             <div class="row" *ngIf="cfg().showTeamSize || cfg().showBudget || cfg().showTimeline">
               <div class="field" *ngIf="cfg().showTeamSize">
-                <label for="teamSize">Team size / Users <span class="hint">(estimated)</span></label>
+                <label for="teamSize">Team size / Users <span class="hint">(optional)</span></label>
                 <input
                   id="teamSize"
                   formControlName="teamSize"

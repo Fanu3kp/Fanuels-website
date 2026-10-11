@@ -4,6 +4,7 @@ import { DatePipe, NgFor, NgIf } from '@angular/common';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ApiService } from '../../core/api.service';
 import { APP_CONFIG } from '../../../environments/app-config.model';
+import { CookieConsentService } from '../../shared/cookie-consent/cookie-consent.service';
 
 @Component({
   selector: 'app-site-footer',
@@ -90,6 +91,7 @@ import { APP_CONFIG } from '../../../environments/app-config.model';
             <a routerLink="/privacy">Privacy Policy</a>
             <a routerLink="/terms">Terms of Service</a>
             <a routerLink="/cookies">Cookie Policy</a>
+            <button type="button" class="footer__cookies" (click)="cookieConsent.requestSettings()">Cookie preferences</button>
           </div>
         </div>
       </div>
@@ -101,6 +103,7 @@ export class SiteFooterComponent {
   readonly config = inject(APP_CONFIG);
   readonly currentYear = new Date().getFullYear();
   readonly settings = toSignal(inject(ApiService).settings(), { initialValue: null });
+  protected readonly cookieConsent = inject(CookieConsentService);
 
   private static readonly DEFAULT_SOCIALS: Record<string, string> = {
     facebook: 'https://www.facebook.com/otuyaelite',
