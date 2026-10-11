@@ -605,15 +605,27 @@ export class ContactComponent {
         error: (error: ApiError) => {
           this.fieldErrors = error.errors ?? {};
           if (error.status === 0) {
-            // Network-level failure (API unreachable or blocked by CORS).
-            this.networkError = true;
-            const email = this.settings()?.['contact_email'];
-            this.serverError = email
-              ? `We couldn't reach our server just now. Please try again in a moment — or email us directly at ${email}.`
-              : 'We couldn\'t reach our server just now. Please try again in a moment.';
-          } else {
-            this.serverError = this.fieldErrors['name']?.[0] ?? error.firstError ?? error.message;
+            // API unreachable — deliver the enquiry to the mailbox directly.
+            const recipient = this.settings()?.['contact_email'] || 'fanuelotuya2@gmail.com';
+            this.sending = true;
+            this.api
+              .sendContactByEmail(payload, recipient)
+              .pipe(finalize(() => (this.sending = false)))
+              .subscribe({
+                next: () => {
+                  this.success = 'Thanks — your message was sent to our team by email.';
+                  this.networkError = false;
+                  this.form.reset();
+                },
+                error: () => {
+                  this.networkError = true;
+                  this.serverError = 'We couldn\'t reach our server just now. Please try again in a moment.';
+                },
+              });
+            return;
           }
+
+          this.serverError = this.fieldErrors['name']?.[0] ?? error.firstError ?? error.message;
           this.sending = false;
         },
       });

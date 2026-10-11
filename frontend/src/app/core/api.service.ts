@@ -187,6 +187,41 @@ export class ApiService {
     return this.send<ContactResponse>('contact', payload);
   }
 
+  /**
+   * Delivers a contact enquiry straight to the mailbox via FormSubmit
+   * (free, no account, CORS-enabled). Used when the Laravel API is
+   * unreachable, so messages still arrive even without the backend.
+   */
+  sendContactByEmail(payload: ContactPayload, recipient: string): Observable<unknown> {
+    const body: Record<string, string> = {
+      _subject: `Website inquiry from ${payload.name}`,
+      _replyto: payload.email,
+      name: payload.name,
+      email: payload.email,
+      phone: payload.phone ?? '',
+      company: payload.company ?? '',
+      interest: payload.subject ?? payload.type ?? '',
+      team_size: payload.teamSize ? String(payload.teamSize) : '',
+      timeline: payload.timeline ?? '',
+      budget: payload.budget ?? '',
+      message: payload.message,
+    };
+
+    const dynamic = payload.dynamicData ?? {};
+    if (dynamic['area_of_interest']) {
+      body['area_of_interest'] = String(dynamic['area_of_interest']);
+    }
+    if (dynamic['linkedin_url']) {
+      body['linkedin'] = String(dynamic['linkedin_url']);
+    }
+
+    return this.http.post(
+      `https://formsubmit.co/${encodeURIComponent(recipient)}`,
+      body,
+      { headers: { 'Content-Type': 'application/json' } },
+    );
+  }
+
   adminServices(): Observable<Service[]> {
     return this.get<Service[]>('admin/services');
   }
