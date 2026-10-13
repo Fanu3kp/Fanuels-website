@@ -78,6 +78,7 @@ export class AdminSettingsComponent {
     { key: 'contact_email', label: 'Contact email', hint: 'Enquiry notifications are sent here.' },
     { key: 'contact_phone', label: 'Contact phone' },
     { key: 'contact_address', label: 'Address', multiline: true },
+    { key: 'contact_map_embed', label: 'Map embed URL', hint: 'Google Maps (or any) embed URL pasted into an <iframe>.' },
     { key: 'office_hours', label: 'Office hours' },
     { key: 'social_facebook', label: 'Facebook URL' },
     { key: 'social_linkedin', label: 'LinkedIn URL' },

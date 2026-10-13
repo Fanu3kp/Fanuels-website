@@ -1,6 +1,7 @@
 import { Component, inject, computed, signal } from '@angular/core';
 import { NgFor, NgIf } from '@angular/common';
 import { FormsModule, ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
+import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { finalize } from 'rxjs/operators';
 import { ApiError, ApiService } from '../../core/api.service';
@@ -304,6 +305,19 @@ const BUDGET_OPTIONS = [
             </ul>
           </div>
 
+          <div class="card contact__map" *ngIf="mapEmbed()">
+            <h3>Find us</h3>
+            <iframe
+              [src]="mapEmbed()"
+              width="100%"
+              height="300"
+              style="border:0"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              aria-label="Map showing Otuya Global location"
+            ></iframe>
+          </div>
+
           <div class="card">
             <h3>What happens next?</h3>
             <ol class="steps">
@@ -327,6 +341,7 @@ const BUDGET_OPTIONS = [
         top: 30px;
       }
       .row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+      .contact__map iframe { width: 100%; height: 300px; border: 0; border-radius: var(--radius-md); }
       .trap { position: absolute; left: -9999px; opacity: 0; height: 0; }
       .required { color: var(--rose-500); margin-left: 2px; }
 
@@ -469,9 +484,16 @@ export class ContactComponent {
   });
 
   readonly context = signal<ContactContext>('general');
-  readonly cfg = computed(() => CONTACT_CONTEXTS[this.context()]);
+    readonly cfg = computed(() => CONTACT_CONTEXTS[this.context()]);
   readonly interestAreas = INTEREST_AREAS;
   readonly budgetOptions = BUDGET_OPTIONS;
+
+  private readonly sanitizer = inject(DomSanitizer);
+
+  readonly mapEmbed = computed(() => {
+    const raw = this.settings()?.['contact_map_embed'] as string | undefined;
+    return raw ? this.sanitizer.bypassSecurityTrustResourceUrl(raw) : null;
+  });
 
   readonly form = this.fb.nonNullable.group({
     name: ['', [Validators.required, Validators.maxLength(255)]],
