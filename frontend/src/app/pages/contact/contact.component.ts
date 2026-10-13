@@ -285,11 +285,7 @@ const BUDGET_OPTIONS = [
         <aside class="contact__side" appReveal="right" [appRevealDelay]="110">
           <div class="card">
             <h3>Contact Information</h3>
-            <ul class="details">
-              <li *ngIf="settings()?.['contact_email']">
-                <strong>Email</strong>
-                <a [href]="'mailto:' + settings()?.['contact_email']">{{ settings()?.['contact_email'] }}</a>
-              </li>
+              <ul class="details">
               <li *ngIf="settings()?.['contact_phone']">
                 <strong>Phone</strong>
                 <span>{{ settings()?.['contact_phone'] }}</span>

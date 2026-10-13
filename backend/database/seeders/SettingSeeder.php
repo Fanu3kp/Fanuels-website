@@ -22,7 +22,7 @@ class SettingSeeder extends Seeder
             'contact_phone' => '+254705774020',
             'contact_address' => 'Waiyaki Way,.P.O BOX 40034-00100, Nairobi , Kenya',
             'contact_map_embed' => 'https://www.google.com/maps?q=-1.2864,36.8172&hl=en&z=14&output=embed',
-            'office_hours' => 'Monday to Friday, 7:45am - 18:00pm',
+            'office_hours' => 'Monday to Friday, 8:30am - 5:00pm',
             'social_facebook' => 'https://www.facebook.com/otuyaelite',
             'social_linkedin' => 'https://www.linkedin.com/company/otuyaelite',
             'social_instagram' => 'https://www.instagram.com/otuyaelite',
