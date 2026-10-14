@@ -49,8 +49,9 @@ netsh advfirewall firewall add rule name="Apache HTTPS" dir=in action=allow prot
 ### Access URLs
 - **Local (trusted SSL)**: `https://localhost/`
 - **Local (HTTP)**: `http://localhost/`
-- **Public tunnel**: `https://otuya-global.loca.lt/`
-- **Production**: `https://otuyaglobal.duckdns.org/` (needs firewall open)
+- **Public tunnel (Cloudflare)**: `https://draw-dod-basically-projectors.trycloudflare.com` (outbound-only, no port forwarding needed)
+- **Public tunnel (localtunnel)**: `https://otuya-global.loca.lt/` (rate-limited, temporary)
+- **Production**: `https://otuyaglobal.duckdns.org/` (needs ISP to allow inbound ports 80/443)
 
 ## Notes
 - Angular build is production-optimized (AOT, minification, cssnano)
