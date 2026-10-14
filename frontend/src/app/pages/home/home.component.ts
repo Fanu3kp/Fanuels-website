@@ -9,7 +9,6 @@ import { APP_CONFIG } from '../../../environments/app-config.model';
 import { LazyImageDirective } from '../../shared/lazy-image/lazy-image.directive';
 import { CounterDirective } from '../../shared/counter/counter.directive';
 import { RevealDirective } from '../../shared/reveal/reveal.directive';
-import { VantaBackgroundComponent } from '../../shared/vanta-background/vanta-background.component';
 import { ProcessStep, Service, SiteSettings, Testimonial, Project, Post, Paginated } from '../../core/models';
 
 const MOCK_SERVICES: Service[] = [
@@ -31,10 +30,10 @@ const MOCK_PROCESS_STEPS: ProcessStep[] = [
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RouterLink, NgFor, NgIf, LazyImageDirective, CounterDirective, RevealDirective, VantaBackgroundComponent],
+   imports: [RouterLink, NgFor, NgIf, LazyImageDirective, CounterDirective, RevealDirective],
   template: `
     <section class="hero parallax-container">
-      <app-vanta-bg effect="WAVES" [color]="vantaColor" [backgroundColor]="vantaBgColor" [options]="vantaOptions"></app-vanta-bg>
+      <div class="hero__gradient"></div>
       <div class="hero__bg" appReveal="blur"></div>
       <div class="decorative-orb decorative-orb--pink" style="top: -100px; right: -80px; width: 320px; height: 320px;"></div>
       <div class="decorative-orb decorative-orb--teal" style="bottom: -120px; left: -100px; width: 280px; height: 280px;"></div>
@@ -238,10 +237,6 @@ const MOCK_PROCESS_STEPS: ProcessStep[] = [
 export class HomeComponent {
   private readonly api = inject(ApiService);
   readonly config = inject(APP_CONFIG);
-
-  readonly vantaColor = 0xec4899;
-  readonly vantaBgColor = 0x0f172a;
-  readonly vantaOptions = { shininess: 50, waveHeight: 15, waveSpeed: 0.4 };
 
   readonly settings = toSignal(this.api.settings().pipe(catchError(() => of({} as SiteSettings))), {
     initialValue: null,

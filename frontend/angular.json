@@ -54,8 +54,7 @@
               }
             ],
             "styles": [
-              "src/styles.scss",
-              "src/styles-admin.scss"
+              "src/styles.scss"
             ],
             "scripts": []
           },
@@ -73,7 +72,10 @@
                   "maximumError": "24kB"
                 }
               ],
-              "outputHashing": "all"
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractLicenses": true
             },
             "development": {
               "optimization": false,

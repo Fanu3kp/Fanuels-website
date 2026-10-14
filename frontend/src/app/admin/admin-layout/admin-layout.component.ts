@@ -7,6 +7,7 @@ import { AuthService } from '../../core/auth.service';
   selector: 'app-admin-layout',
   standalone: true,
   imports: [RouterOutlet, RouterLink, RouterLinkActive, NgIf],
+  styleUrls: ['../../../styles-admin.scss'],
   template: `
     <div class="admin-layout">
       <aside class="admin-side">

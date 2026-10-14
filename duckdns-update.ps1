@@ -13,7 +13,7 @@
 param(
     [string]$TokenFile = $env:DUCKDNS_TOKEN_FILE,
     [string]$Domain = "otuyaglobal",
-    [string]$IpAddress = "196.96.176.241"
+    [string]$IpAddress = ""
 )
 
 if (-not $TokenFile) {
@@ -33,6 +33,15 @@ $Token = $Token.Trim()
 if (-not $Token -or $Token.Length -lt 10) {
     Write-Error "Invalid DuckDNS token in $TokenFile"
     exit 1
+}
+
+if (-not $IpAddress) {
+    try {
+        $IpAddress = Invoke-RestMethod -Uri 'https://api.ipify.org' -TimeoutSec 10
+    } catch {
+        Write-Error "$(Get-Date -Format 'yyyy-MM-dd HH:mm:ss') - Failed to detect public IP: $($_.Exception.Message)"
+        exit 1
+    }
 }
 
 $Url = "https://www.duckdns.org/update?domains=$Domain&token=$Token&ip=$IpAddress"
