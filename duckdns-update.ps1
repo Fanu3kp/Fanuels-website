@@ -6,7 +6,8 @@
 # USAGE:
 #   1. Get your DuckDNS token from https://www.duckdns.org/
 #   2. Save it in a file: C:\Config\duckdns-token.txt  (one line, just the token)
-#   3. Run this script periodically (Task Scheduler recommended, every 5 min)
+#   3. Run this script periodically (Task Scheduler recommended, every 12 min)
+#      DuckDNS rate limit: 5 updates per hour → 12 min interval = 5/hour
 #
 # The token file location can be overridden with the DUCKDNS_TOKEN_FILE env var.
 
