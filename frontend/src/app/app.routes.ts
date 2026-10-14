@@ -85,10 +85,6 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/projects/projects.component').then((m) => m.ProjectsComponent),
     title: 'Projects | Otuya Global Business & Technology Company',
   },
-{
-    path: 'insights/:slug',
-    loadComponent: () => import('./pages/post-detail/post-detail.component').then((m) => m.PostDetailComponent),
-  },
   {
     path: 'lab',
     loadComponent: () => import('./pages/lab/lab.component').then((m) => m.LabComponent),
