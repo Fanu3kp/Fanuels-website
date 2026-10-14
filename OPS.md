@@ -7,39 +7,34 @@ Otuya Global website. Last verified 2026-10-11.
 
 ```
 Browser
-  └─ Local site  http://localhost  (Apache on port 80/443)
-       ├─ Frontend: Angular SPA from dist/frontend/browser/
-       ├─ API calls → /api/ proxied → http://127.0.0.1:8001/api  (Laravel artisan serve)
-       │    └─ MySQL 127.0.0.1:3307, database fanuel_website
-       └─ Public HTTPS tunnel: https://otuya-global.loca.lt  (localtunnel)
-
-External access (once DuckDNS token is configured):
-  ├─ http://otuyaglobal.duckdns.org → 196.96.176.241 (Apache)
-  └─ Let's Encrypt SSL via win-acme (C:\Users\HomePC\win-acme)
+  ├─ Live site  http://otuyaglobal.duckdns.org   (GitHub Pages, gh-pages branch)
+  │    └─ API calls → https://otuya-api.onrender.com/api  (Laravel on Render)
+  │         └─ PostgreSQL (Render "otuya-db") + Gmail SMTP
+  └─ Local site http://localhost:4200            (Angular dev server)
+       └─ /api proxied → http://127.0.0.1:8001  (Laravel, `php artisan serve`)
+            └─ MySQL 127.0.0.1:3307, database fanuel_website
 ```
 
 - **Frontend:** Angular 18 SPA, source in `frontend/`, build output
-  `frontend/dist/frontend/browser/`. Served by Apache (DocumentRoot).
+  `frontend/dist/frontend/browser/`.
 - **Backend:** Laravel in `backend/`, routes under `/api` (see README.md for
-  the endpoint table). ProxyPass in Apache forwards `/api` → Laravel on port 8001.
-- **Hosting:** Apache (XAMPP) on the local machine. Apache serves the frontend
-  and acts as a reverse proxy for the API. For external access, update the
-  DuckDNS record `otuyaglobal.duckdns.org` to point to the public IP
-  `196.96.176.241` using the DuckDNS update API.
+  the endpoint table).
+- **Hosting:** the static SPA lives on GitHub Pages (branch `gh-pages`,
+  custom domain via `CNAME` = `otuyaglobal.duckdns.org`). The Laravel API is
+  a separate free-tier Render service (`render.yaml` at the repo root).
 
 ## Key addresses & credentials
 
 | What | Where |
 | --- | --- |
-| Live site (local) | http://localhost or https://localhost |
-| Public HTTPS tunnel | https://otuya-global.loca.lt |
-| External access (pending DuckDNS update) | http://otuyaglobal.duckdns.org → 196.96.176.241 |
-| Local site | http://localhost |
+| Live site | http://otuyaglobal.duckdns.org |
+| Local site | http://localhost:4200 |
 | Local API | http://127.0.0.1:8001 |
-| Admin login (local) | http://localhost/admin/login |
+| Admin login (local) | http://localhost:4200/admin/login |
 | Admin credentials | `admin@otuyaelite.com` / `password` (change after first login) |
 | phpMyAdmin | http://localhost/phpmyadmin (auto-login, MySQL `127.0.0.1:3307`, root, no password) |
 | Local database | MySQL `fanuel_website` on port **3307** (port 3306 is a *different*, password-protected instance — not used by the site) |
+| Render API | https://otuya-api.onrender.com/api |
 | Contact mailbox | fanuelotuya2@gmail.com |
 
 ## Local development
@@ -71,17 +66,9 @@ Prereqs: XAMPP (Apache + MySQL running), Node.js, PHP, Composer.
 ### Why the admin panel works locally but not on the live site
 
 `ApiService.baseUrl()` (frontend/src/app/core/api.service.ts) returns the
-relative `/api` for `localhost`/`127.0.0.1` (dev proxy → local Laravel) and
-also for the production Apache vhost (same-origin, no CORS needed). The
-`environment.ts` `apiUrl` is set to `/api` (same-origin relative path).
-
-For external access, `otuyaglobal.duckdns.org` must resolve to the local
-machine's public IP (196.96.176.241). Update the DuckDNS record using:
-```
-https://www.duckdns.org/update?domains=otuyaglobal&token=<YOUR_TOKEN>&ip=196.96.176.241
-```
-The token is in your DuckDNS account at https://www.duckdns.org/ (log in,
-find the token next to your `otuyaglobal` domain).
+relative `/api` when the page is opened from `localhost`/`127.0.0.1` (dev
+proxy → local Laravel) and the compiled-in Render URL otherwise. The live
+site has no backend until the Render service is deployed (below).
 
 ## Contact form behaviour
 
@@ -94,10 +81,10 @@ find the token next to your `otuyaglobal` domain).
    Delivery is **email only, no database row**. The user never sees a
    button; the fallback is automatic.
 
-## Deploying the site (local Apache)
+## Deploying the site (GitHub Pages)
 
-The frontend is served directly from Apache's DocumentRoot. To rebuild
-and redeploy after frontend code changes:
+The `gh-pages` branch holds the built SPA. `dist/` is gitignored, so deploys
+use a temporary worktree:
 
 ```powershell
 # 1. Commit source, push main
@@ -106,57 +93,54 @@ git add -A; git commit -m "message"; git push origin main
 # 2. Build (postbuild auto-copies index.html -> 404.html)
 cd frontend; npm run build
 
-# 3. Apache serves from dist/frontend/browser/ (already configured)
+# 3. Publish dist/ to gh-pages
+$deploy = "$env:TEMP\gh-deploy"
+Remove-Item -Recurse -Force $deploy -ErrorAction SilentlyContinue
+git fetch origin gh-pages
+git worktree add -f --detach $deploy origin/gh-pages
+Get-ChildItem -Force $deploy | ? { $_.Name -ne '.git' } | Remove-Item -Recurse -Force
+Copy-Item -Recurse -Force dist\frontend\browser\* $deploy
+git -C $deploy add -A
+git -C $deploy commit -m "Deploy: <what changed>"
+git -C $deploy push origin HEAD:gh-pages
+git worktree remove --force $deploy; git worktree prune
 ```
 
-Apache configuration is in `C:\xampp\apache\conf\extra\httpd-vhosts.conf`:
-- Port 80: serves frontend, proxies `/api` to Laravel
-- Port 443: same as port 80 but over HTTPS (mkcert self-signed cert)
+Verify: `curl http://otuyaglobal.duckdns.org/` returns 200 and the HTML
+references the new `main-*.js` hash. GitHub Pages propagates in ~1 minute.
 
-## Deploying the API (local Apache proxy)
+## Deploying the API (Render — one-time, needs your Render login)
 
-The API runs as `php artisan serve --host=0.0.0.0 --port=8001` in the
-`backend/` directory. Apache's `ProxyPass` directive forwards
-`http://localhost/api/` → `http://127.0.0.1:8001/api/`.
+The `render.yaml` at the repo root defines the `otuya-api` Docker web service
+(php:8.2-cli + pdo_pgsql) and a free PostgreSQL database `otuya-db`.
 
-No separate API deploy step needed — just restart the Laravel server
-after backend code changes:
+1. https://render.com → sign in with GitHub → **New +** → **Web Service**.
+2. Connect **Fanu3kp/Fanuels-website**; Render detects `render.yaml`
+   (creates the service + database). Click **Create Web Service** (free).
+3. After the build: **Environment** tab → replace the placeholder
+   `MAIL_PASSWORD` with a real Gmail **app password** (Google Account →
+   Security → App passwords) → Save (auto-redeploys).
+4. Verify: `https://otuya-api.onrender.com/api/settings` returns JSON.
 
-```powershell
-# Restart Laravel
-cd "C:\xampp\htdocs\Fanuels website\backend"
-php artisan serve --host=0.0.0.0 --port=8001
-```
-
-## Public HTTPS tunnel (temporary)
-
-For external access without DNS/firewall changes, localtunnel provides
-a public HTTPS URL:
-
-```powershell
-npx localtunnel --port 80 --subdomain otuya-global
-```
-
-This gives `https://otuya-global.loca.lt` which serves both the frontend
-and the proxied API.
+Until this is done, the live site delivers contact messages by email only
+(FormSubmit) and the live admin panel cannot log in.
 
 ## Troubleshooting
 
-**Site not loading at http://localhost**
-- Confirm Apache is running: `Get-Process -Name httpd` should show processes.
-  Start with `C:\xampp\apache\apache_start.bat` or `httpd.exe`.
-- Confirm Laravel is running: `curl http://127.0.0.1:8001/api/settings`
-  should return JSON. Restart with:
-  `php artisan serve --host=0.0.0.0 --port=8001` in the `backend/` directory.
+**Admin login shows "Something went wrong"**
+- Local: confirm Laravel is listening on 127.0.0.1:8001 and you are browsing
+  via `localhost:4200` (not a built copy — the relative `/api` path needs the
+  ng-serve proxy). Test: `Invoke-RestMethod http://127.0.0.1:8001/api/login -Method Post ...`.
+- Live: the Render API is not deployed yet (see above).
 
-**API returns "Something went wrong"**
-- Check Laravel logs: `tail backend/storage/logs/laravel.log`
-- Verify MySQL is running on port 3307
-- Confirm `backend/.env` has `APP_URL=http://127.0.0.1:8001`
+**"This site can't be reached — localhost refused to connect"**
+- Nothing is listening on the port. Start the dev server (`npm start` in
+  `frontend/`) or the Laravel server (step 2 above).
 
-**Admin login (admin panel at http://localhost/admin/login)**
-- Ensure the Angular built files are being served (not `ng serve`).
-  Test: `curl http://127.0.0.1/api/me` should return 401 without a token.
+**GitHub Pages "File not found" on pages like /services/otuya-pos**
+- The SPA's `404.html` fallback is missing. It is generated automatically by
+  the `postbuild` npm script (copy of `index.html`). Rebuild and redeploy.
+  Never delete `404.html` from `gh-pages`.
 
 **phpMyAdmin won't open / shows login error**
 - Use http://localhost/phpmyadmin (Apache must be running on port 80). Its
@@ -165,13 +149,22 @@ and the proxied API.
   do not point the site at it.
 
 **Contact messages arrive by email but not in the database**
-- This happens when the FormSubmit fallback is triggered. Verify the API is
-  running: `curl http://127.0.0.1:8001/api/contact -Method Post ...`.
+- Expected while the Render API is down: the FormSubmit fallback is email-only.
+  Deploy the API to get database storage.
+
+**FormSubmit fallback silently delivers nothing**
+- FormSubmit requires a one-time confirmation: open the first message in
+  fanuelotuya2@gmail.com and click the confirmation link. Until then
+  submissions bounce.
+
+**TypeScript errors after pulling/switching branches**
+- Run `npx tsc --noEmit --project tsconfig.json` in `frontend/`; fix locally,
+  rebuild, redeploy. (Historical bug: a stale `this.networkError` reference in
+  contact.component.ts — already removed; do not reintroduce it.)
 
 **Stale site after deploy**
-- Hard-refresh (Ctrl+F5). If old assets are still cached, the rebuild didn't
-  take effect — check `dist/frontend/browser/` was regenerated and Apache
-  DocumentRoot points to it.
+- Hard-refresh (Ctrl+F5). If the old `main-*.js` is still referenced, the
+  gh-pages push didn't land — redo step 3 and check `git log origin/gh-pages`.
 
 **Dev server or API port already in use**
 - `Get-NetTCPConnection -LocalPort 4200 -State Listen` (and 8001) to find the
@@ -179,9 +172,5 @@ and the proxied API.
 
 ## Background processes (this machine)
 
-- Apache HTTP Server: `httpd.exe` (started by `apache_start.bat`)
-  - Listens on ports 80 (HTTP) and 443 (HTTPS)
-  - Config: `C:\xampp\apache\conf\extra\httpd-vhosts.conf`
-- Laravel API: `php artisan serve --host=0.0.0.0 --port=8001`
-- MySQL: `127.0.0.1:3307` (database `fanuel_website`, user `root`, no password)
-- LocalTunnel (temporary public HTTPS): `npx localtunnel --port 80 --subdomain otuya-global`
+- Angular dev server: `npx ng serve --host 0.0.0.0 --port 4200 --proxy-config proxy.conf.json`
+- Laravel API: `php artisan serve --host=127.0.0.1 --port=8001`

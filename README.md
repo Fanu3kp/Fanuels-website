@@ -5,8 +5,8 @@ Corporate website for Otuya Global Business & Technology Company.
 - **Frontend:** Angular 18 (standalone components, lazy-loaded routes, signals)
 - **Backend:** Laravel API with Sanctum token auth
 - **Database:** MySQL via XAMPP (`fanuel_website`, port 3307)
-- **Hosting:** Apache HTTP Server (XAMPP) serving both frontend and API
-  proxy; public HTTPS tunnel available via localtunnel
+- **Hosting:** static site on GitHub Pages (`otuyaglobal.duckdns.org`),
+  API on Render (`otuya-api.onrender.com`)
 
 > **Runbook:** hosting, deployment, configuration and troubleshooting
 > are documented in [`OPS.md`](OPS.md).
@@ -147,12 +147,11 @@ components only show the image block when the field is non-empty.
 
 ## Deployment
 
-- **Site:** build with `npm run build` (output in `dist/frontend/browser/`).
-  Apache DocumentRoot points to this directory. The `postbuild` script
-  also generates `404.html` (copy of `index.html`) for Angular client-side
-  routing.
-- **API:** Laravel runs as `php artisan serve --host=0.0.0.0 --port=8001`.
-  Apache `ProxyPass` forwards `/api` → `http://127.0.0.1:8001/api/`.
-- **External access:** Update the DuckDNS record `otuyaglobal.duckdns.org`
-  to point to your public IP, then open firewall ports 80/443. Use
-  win-acme (in `C:\Users\HomePC\win-acme`) for a Let's Encrypt certificate.
+- **Site:** build, then publish `dist/frontend/browser/` to the
+  `gh-pages` branch (worktree procedure in OPS.md). `npm run build`
+  also generates `404.html` (a copy of `index.html`) so Angular's
+  client-side routes work on GitHub Pages.
+- **API:** `render.yaml` at the repo root deploys `backend/` to Render
+  as the `otuya-api` web service with a free PostgreSQL database.
+  Replace the placeholder `MAIL_PASSWORD` with a Gmail app password
+  after the first deploy.
