@@ -16,4 +16,4 @@ RUN composer install --no-dev --optimize-autoloader --no-interaction
 # Render injects PORT; the built-in Laravel server routes correctly to public/index.php.
 # Migrations run first (idempotent); the server still starts if the DB is briefly
 # unavailable during a spin-up so the service never enters a crash loop.
-CMD ["sh", "-c", "php artisan migrate --force 2>&1 || true; php artisan serve --host=0.0.0.0 --port=${PORT:-8080} --env=production"]
+CMD ["sh", "-c", "php artisan migrate --force --seed 2>&1 || true; php artisan serve --host=0.0.0.0 --port=${PORT:-8080} --env=production"]

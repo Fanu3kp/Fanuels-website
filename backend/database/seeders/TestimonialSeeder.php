@@ -9,8 +9,6 @@ class TestimonialSeeder extends Seeder
 {
     public function run(): void
     {
-        Testimonial::query()->delete();
-
         $testimonials = [
             [
                 'author_name' => 'Amina Ochieng',

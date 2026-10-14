@@ -9,10 +9,9 @@ class TeamSeeder extends Seeder
 {
     public function run(): void
     {
-        TeamMember::query()->delete();
-
         // The founding team. More people are added through the admin panel
-        // as the company grows.
+        // as the company grows — re-seeding updates existing rows in place
+        // (idempotent) so admin-added members are never clobbered.
         TeamMember::query()->create([
             'name' => 'Fanuel Otuya',
             'role' => 'Founder & Chief Executive Officer',

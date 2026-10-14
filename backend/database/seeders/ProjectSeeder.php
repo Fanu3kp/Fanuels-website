@@ -9,8 +9,6 @@ class ProjectSeeder extends Seeder
 {
     public function run(): void
     {
-        Project::query()->delete();
-
         $projects = [
             [
                 'title' => 'Otuya POS rollout for Kilimanjaro Retail Group',
