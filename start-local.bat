@@ -40,7 +40,8 @@ echo.
 echo Access the site at:
 echo   Local HTTPS:  https://localhost
 echo   Local HTTP:   http://localhost
-echo   Cloudflare:   https://draw-dod-basically-projectors.trycloudflare.com
+echo   Cloudflare:   https://airfare-lift-dave-world.trycloudflare.com
+echo   (URL changes each restart — check the Cloudflare Tunnel window)
 echo.
 echo Production (firewall must be open for external access):
 echo   http://otuyaglobal.duckdns.org
