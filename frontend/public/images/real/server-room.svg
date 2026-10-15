@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800">
+  <defs>
+    <linearGradient id="bg2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="100%" style="stop-color:#1e3a5f"/>
+    </linearGradient>
+    <linearGradient id="rackGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1e293b"/>
+      <stop offset="50%" style="stop-color:#0f172a"/>
+      <stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+    <filter id="ledGlow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg2)"/>
+  
+  <!-- Server rack left -->
+  <rect x="150" y="100" width="220" height="600" fill="#111827" rx="8" stroke="#334155" stroke-width="2"/>
+  <rect x="160" y="110" width="200" height="580" fill="url(#rackGrad)" rx="4"/>
+  
+  <!-- Rack units -->
+  <g fill="#1e293b" stroke="#334155" stroke-width="1">
+    <rect x="170" y="120" width="180" height="80" rx="4"/>
+    <rect x="170" y="210" width="180" height="80" rx="4"/>
+    <rect x="170" y="300" width="180" height="80" rx="4"/>
+    <rect x="170" y="390" width="180" height="80" rx="4"/>
+    <rect x="170" y="480" width="180" height="80" rx="4"/>
+    <rect x="170" y="570" width="180" height="80" rx="4"/>
+  </g>
+  
+  <!-- LED indicators on rack -->
+  <g filter="url(#ledGlow)">
+    <circle cx="310" cy="140" r="6" fill="#22c55e"/>
+    <circle cx="310" cy="155" r="6" fill="#22c55e"/>
+    <circle cx="310" cy="230" r="6" fill="#22c55e"/>
+    <circle cx="310" cy="245" r="6" fill="#22c55e"/>
+    <circle cx="310" cy="320" r="6" fill="#3b82f6"/>
+    <circle cx="310" cy="335" r="6" fill="#3b82f6"/>
+    <circle cx="310" cy="410" r="6" fill="#22c55e"/>
+    <circle cx="310" cy="425" r="6" fill="#22c55e"/>
+    <circle cx="310" cy="500" r="6" fill="#f59e0b"/>
+    <circle cx="310" cy="515" r="6" fill="#22c55e"/>
+    <circle cx="310" cy="590" r="6" fill="#22c55e"/>
+    <circle cx="310" cy="605" r="6" fill="#22c55e"/>
+  </g>
+  
+  <!-- Server rack right -->
+  <rect x="830" y="100" width="220" height="600" fill="#111827" rx="8" stroke="#334155" stroke-width="2"/>
+  <rect x="840" y="110" width="200" height="580" fill="url(#rackGrad)" rx="4"/>
+  
+  <g fill="#1e293b" stroke="#334155" stroke-width="1">
+    <rect x="850" y="120" width="180" height="80" rx="4"/>
+    <rect x="850" y="210" width="180" height="80" rx="4"/>
+    <rect x="850" y="300" width="180" height="80" rx="4"/>
+    <rect x="850" y="390" width="180" height="80" rx="4"/>
+    <rect x="850" y="480" width="180" height="80" rx="4"/>
+    <rect x="850" y="570" width="180" height="80" rx="4"/>
+  </g>
+  
+  <g filter="url(#ledGlow)">
+    <circle cx="990" cy="140" r="6" fill="#22c55e"/>
+    <circle cx="990" cy="155" r="6" fill="#22c55e"/>
+    <circle cx="990" cy="230" r="6" fill="#3b82f6"/>
+    <circle cx="990" cy="245" r="6" fill="#3b82f6"/>
+    <circle cx="990" cy="320" r="6" fill="#22c55e"/>
+    <circle cx="990" cy="335" r="6" fill="#22c55e"/>
+    <circle cx="990" cy="410" r="6" fill="#22c55e"/>
+    <circle cx="990" cy="425" r="6" fill="#22c55e"/>
+    <circle cx="990" cy="500" r="6" fill="#22c55e"/>
+    <circle cx="990" cy="515" r="6" fill="#22c55e"/>
+    <circle cx="990" cy="590" r="6" fill="#22c55e"/>
+    <circle cx="990" cy="605" r="6" fill="#22c55e"/>
+  </g>
+  
+  <!-- Network cables between racks -->
+  <g stroke="#22d3ee" stroke-width="2" fill="none" opacity="0.6">
+    <path d="M 370 160 Q 600 100 830 160"/>
+    <path d="M 370 250 Q 600 200 830 250"/>
+    <path d="M 370 340 Q 600 300 830 340"/>
+    <path d="M 370 430 Q 600 400 830 430"/>
+    <path d="M 370 520 Q 600 500 830 520"/>
+    <path d="M 370 610 Q 600 600 830 610"/>
+  </g>
+  
+  <!-- Central monitoring station -->
+  <rect x="450" y="250" width="300" height="200" fill="#0f172a" rx="12" stroke="#334155" stroke-width="2"/>
+  <rect x="460" y="260" width="280" height="180" fill="#020617" rx="8"/>
+  
+  <!-- Dashboard -->
+  <text x="600" y="290" fill="#22d3ee" font-family="monospace" font-size="16" text-anchor="middle" font-weight="bold">INFRASTRUCTURE MONITORING</text>
+  
+  <!-- Metrics -->
+  <g font-family="monospace" font-size="14">
+    <text x="480" y="330" fill="#4ade80">● CPU Cluster 1    67%</text>
+    <rect x="480" y="338" width="200" height="8" rx="4" fill="#1e293b"/>
+    <rect x="480" y="338" width="134" height="8" rx="4" fill="#22c55e"/>
+    
+    <text x="480" y="370" fill="#4ade80">● Memory          72%</text>
+    <rect x="480" y="378" width="200" height="8" rx="4" fill="#1e293b"/>
+    <rect x="480" y="378" width="144" height="8" rx="4" fill="#3b82f6"/>
+    
+    <text x="480" y="410" fill="#fde047">● Network I/O     45%</text>
+    <rect x="480" y="418" width="200" height="8" rx="4" fill="#1e293b"/>
+    <rect x="480" y="418" width="90" height="8" rx="4" fill="#f59e0b"/>
+    
+    <text x="480" y="450" fill="#4ade80">● Storage         38%</text>
+    <rect x="480" y="458" width="200" height="8" rx="4" fill="#1e293b"/>
+    <rect x="480" y="458" width="76" height="8" rx="4" fill="#22c55e"/>
+  </g>
+  
+  <!-- Floor tiles -->
+  <g fill="#0f172a" stroke="#1e293b" stroke-width="1">
+    <rect x="0" y="720" width="1200" height="80"/>
+  </g>
+  
+  <!-- Cooling vents -->
+  <g fill="#1e293b">
+    <rect x="200" y="730" width="100" height="10" rx="2"/>
+    <rect x="350" y="730" width="100" height="10" rx="2"/>
+    <rect x="500" y="730" width="100" height="10" rx="2"/>
+    <rect x="650" y="730" width="100" height="10" rx="2"/>
+    <rect x="800" y="730" width="100" height="10" rx="2"/>
+    <rect x="950" y="730" width="100" height="10" rx="2"/>
+  </g>
+</svg>

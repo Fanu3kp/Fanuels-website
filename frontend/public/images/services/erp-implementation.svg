@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="800" y2="450">
+      <stop offset="0%" stop-color="#0b1b33"/>
+      <stop offset="100%" stop-color="#0f9d58"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg2)"/>
+  <text x="400" y="210" font-family="Inter, system-ui" font-size="32" font-weight="700" fill="white" text-anchor="middle" opacity="0.9">ERP Implementation</text>
+  <text x="400" y="250" font-family="Inter, system-ui" font-size="16" fill="white" text-anchor="middle" opacity="0.7">Integrated • Automated • Insightful</text>
+  <rect x="360" y="300" width="80" height="80" rx="12" fill="white" fill-opacity="0.15"/>
+  <rect x="375" y="315" width="15" height="50" rx="3" fill="white" opacity="0.9"/>
+  <rect x="395" y="315" width="15" height="35" rx="3" fill="white" opacity="0.7"/>
+  <rect x="415" y="315" width="15" height="42" rx="3" fill="white" opacity="0.9"/>
+</svg>
