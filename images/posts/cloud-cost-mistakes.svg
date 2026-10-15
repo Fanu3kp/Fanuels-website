@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <defs>
+    <linearGradient id="p2" x1="0" y1="0" x2="800" y2="450">
+      <stop offset="0%" stop-color="#12294a"/>
+      <stop offset="100%" stop-color="#0d7d77"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#p2)"/>
+  <text x="400" y="190" font-family="Inter, system-ui" font-size="30" font-weight="700" fill="white" text-anchor="middle" opacity="0.95">Three cloud cost mistakes</text>
+  <text x="400" y="228" font-family="Inter, system-ui" font-size="30" font-weight="700" fill="white" text-anchor="middle" opacity="0.95">we see in every audit</text>
+  <text x="400" y="278" font-family="Inter, system-ui" font-size="14" fill="white" text-anchor="middle" opacity="0.7">Cloud</text>
+  <rect x="350" y="312" width="100" height="4" rx="2" fill="white" opacity="0.3"/>
+  <rect x="350" y="312" width="55" height="4" rx="2" fill="white" opacity="0.9"/>
+</svg>

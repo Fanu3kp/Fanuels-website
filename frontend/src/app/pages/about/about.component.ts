@@ -25,13 +25,13 @@ interface MissionItem {
   icon: string;
 }
 
-const MOCK_TEAM: TeamMember[] = [
+  const MOCK_TEAM: TeamMember[] = [
   {
     id: 1,
     name: 'Fanuel Otuya',
     role: 'Group Founder & CEO',
-    bio: 'Founder & CEO of Otuya Global. Started his career in software engineering, later specialising in cloud architecture and technology delivery leadership. Built and led teams delivering enterprise-scale systems across finance, healthcare and enterprise software in Kenya before forming the group.',
-    image: null,
+    bio: 'Founder & CEO of Otuya Global...',
+    image: '/images/team/fanuel-otuya.svg?v=4',
     email: null,
     linkedin_url: null,
     x_url: null,
@@ -42,8 +42,8 @@ const MOCK_TEAM: TeamMember[] = [
     id: 2,
     name: 'Amina Odhiambo',
     role: 'Head of Engineering',
-    bio: 'Oversees the shared engineering, cloud and data platform used across every business unit. Former AWS and fintech veteran.',
-    image: null,
+    bio: 'Oversees the shared engineering, cloud and data platform...',
+    image: '/images/team/ayanda-dlamini.svg?v=4',
     email: null,
     linkedin_url: null,
     x_url: null,
@@ -54,8 +54,8 @@ const MOCK_TEAM: TeamMember[] = [
     id: 3,
     name: 'Raj Patel',
     role: 'Head of Product',
-    bio: 'Drives the product and delivery methodology that keeps every unit accountable to measurable outcomes.',
-    image: null,
+    bio: 'Drives the product and delivery methodology...',
+    image: '/images/team/riaan-van-wyk.svg?v=4',
     email: null,
     linkedin_url: null,
     x_url: null,
@@ -66,8 +66,8 @@ const MOCK_TEAM: TeamMember[] = [
     id: 4,
     name: 'Grace Mwangi',
     role: 'Head of Advisory',
-    bio: 'Brings domain expertise in digital transformation across financial services, healthcare and retail.',
-    image: null,
+    bio: 'Brings domain expertise in digital transformation...',
+    image: '/images/team/chloe-adams.svg?v=4',
     email: null,
     linkedin_url: null,
     x_url: null,

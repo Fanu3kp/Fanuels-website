@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800">
+  <defs>
+    <linearGradient id="acadBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#064e3b"/>
+      <stop offset="55%" stop-color="#065f46"/>
+      <stop offset="100%" stop-color="#0f766e"/>
+    </linearGradient>
+    <linearGradient id="acadGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+    <linearGradient id="acadCard" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#065f46"/>
+      <stop offset="100%" stop-color="#115e59"/>
+    </linearGradient>
+    <filter id="acadGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="800" fill="url(#acadBg)"/>
+
+  <!-- grid -->
+  <g stroke="#34d399" stroke-width="0.5" opacity="0.08">
+    <g>
+      <line x1="0" y1="100" x2="1200" y2="100"/>
+      <line x1="0" y1="200" x2="1200" y2="200"/>
+      <line x1="0" y1="300" x2="1200" y2="300"/>
+      <line x1="0" y1="400" x2="1200" y2="400"/>
+      <line x1="0" y1="500" x2="1200" y2="500"/>
+      <line x1="0" y1="600" x2="1200" y2="600"/>
+      <line x1="0" y1="700" x2="1200" y2="700"/>
+    </g>
+    <g>
+      <line x1="100" y1="0" x2="100" y2="800"/>
+      <line x1="200" y1="0" x2="200" y2="800"/>
+      <line x1="300" y1="0" x2="300" y2="800"/>
+      <line x1="400" y1="0" x2="400" y2="800"/>
+      <line x1="500" y1="0" x2="500" y2="800"/>
+      <line x1="600" y1="0" x2="600" y2="800"/>
+      <line x1="700" y1="0" x2="700" y2="800"/>
+      <line x1="800" y1="0" x2="800" y2="800"/>
+      <line x1="900" y1="0" x2="900" y2="800"/>
+      <line x1="1000" y1="0" x2="1000" y2="800"/>
+      <line x1="1100" y1="0" x2="1100" y2="800"/>
+    </g>
+  </g>
+
+  <!-- campus skyline silhouette -->
+  <g fill="#022c22" opacity="0.55">
+    <rect x="60" y="470" width="150" height="290"/>
+    <polygon points="60,470 135,410 210,470"/>
+    <rect x="240" y="520" width="110" height="240"/>
+    <polygon points="240,520 295,475 350,520"/>
+    <rect x="380" y="440" width="180" height="320"/>
+    <polygon points="380,440 470,370 560,440"/>
+    <rect x="590" y="500" width="120" height="260"/>
+    <polygon points="590,500 650,450 710,500"/>
+    <rect x="740" y="450" width="170" height="310"/>
+    <polygon points="740,450 825,385 910,450"/>
+    <rect x="940" y="530" width="100" height="230"/>
+    <polygon points="940,530 990,485 1040,530"/>
+    <rect x="1070" y="490" width="90" height="270"/>
+    <polygon points="1070,490 1115,450 1160,490"/>
+  </g>
+
+  <!-- sun / glow -->
+  <circle cx="600" cy="330" r="185" fill="#fbbf24" opacity="0.10"/>
+  <circle cx="600" cy="330" r="120" fill="#fbbf24" opacity="0.08"/>
+
+  <!-- graduation cap -->
+  <g filter="url(#acadGlow)">
+    <!-- tassel -->
+    <line x1="700" y1="252" x2="700" y2="330" stroke="#fbbf24" stroke-width="5" stroke-linecap="round"/>
+    <circle cx="700" cy="345" r="12" fill="url(#acadGold)"/>
+    <!-- mortarboard top -->
+    <polygon points="600,180 760,252 600,324 440,252" fill="url(#acadGold)" stroke="#fde68a" stroke-width="3"/>
+    <!-- cap base -->
+    <path d="M500 300 L600 356 L700 300 L700 336 L600 392 L500 336 Z" fill="#b45309"/>
+    <path d="M500 300 L600 356 L700 300 L700 318 L600 374 L500 318 Z" fill="#d97706"/>
+    <!-- button on top -->
+    <circle cx="600" cy="252" r="10" fill="#92400e"/>
+  </g>
+
+  <!-- open book -->
+  <g filter="url(#acadGlow)">
+    <path d="M330 560 Q465 520 600 560 Q735 520 870 560 L870 640 Q735 600 600 640 Q465 600 330 640 Z" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="3"/>
+    <line x1="600" y1="560" x2="600" y2="640" stroke="#a7f3d0" stroke-width="3"/>
+    <g stroke="#6ee7b7" stroke-width="4" stroke-linecap="round" opacity="0.8">
+      <line x1="380" y1="585" x2="540" y2="585"/>
+      <line x1="380" y1="605" x2="540" y2="605"/>
+      <line x1="380" y1="625" x2="500" y2="625"/>
+      <line x1="660" y1="585" x2="820" y2="585"/>
+      <line x1="660" y1="605" x2="820" y2="605"/>
+      <line x1="660" y1="625" x2="780" y2="625"/>
+    </g>
+  </g>
+
+  <!-- floating feature chips -->
+  <g font-family="system-ui, sans-serif">
+    <rect x="120" y="120" width="240" height="64" rx="14" fill="url(#acadCard)" stroke="#34d399" stroke-width="1.5"/>
+    <circle cx="152" cy="152" r="16" fill="#34d399" opacity="0.25" stroke="#34d399" stroke-width="2"/>
+    <path d="M145 152 L150 157 L160 146" stroke="#6ee7b7" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="180" y="158" fill="#d1fae5" font-size="17" font-weight="600">Course Management</text>
+
+    <rect x="840" y="120" width="250" height="64" rx="14" fill="url(#acadCard)" stroke="#34d399" stroke-width="1.5"/>
+    <circle cx="872" cy="152" r="16" fill="#34d399" opacity="0.25" stroke="#34d399" stroke-width="2"/>
+    <path d="M865 152 L870 157 L880 146" stroke="#6ee7b7" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="900" y="158" fill="#d1fae5" font-size="17" font-weight="600">Virtual Classrooms</text>
+
+    <rect x="120" y="690" width="240" height="64" rx="14" fill="url(#acadCard)" stroke="#34d399" stroke-width="1.5"/>
+    <circle cx="152" cy="722" r="16" fill="#34d399" opacity="0.25" stroke="#34d399" stroke-width="2"/>
+    <path d="M145 722 L150 727 L160 716" stroke="#6ee7b7" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="180" y="728" fill="#d1fae5" font-size="17" font-weight="600">Assessments</text>
+
+    <rect x="840" y="690" width="250" height="64" rx="14" fill="url(#acadCard)" stroke="#34d399" stroke-width="1.5"/>
+    <circle cx="872" cy="722" r="16" fill="#34d399" opacity="0.25" stroke="#34d399" stroke-width="2"/>
+    <path d="M865 722 L870 727 L880 716" stroke="#6ee7b7" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="900" y="728" fill="#d1fae5" font-size="17" font-weight="600">Certification</text>
+  </g>
+
+  <!-- sparkles -->
+  <g fill="#fde68a">
+    <path d="M250 300 l6 14 14 6 -14 6 -6 14 -6 -14 -14 -6 14 -6 z" opacity="0.9"/>
+    <path d="M950 320 l5 12 12 5 -12 5 -5 12 -5 -12 -12 -5 12 -5 z" opacity="0.9"/>
+    <path d="M420 150 l4 10 10 4 -10 4 -4 10 -4 -10 -10 -4 10 -4 z" opacity="0.7"/>
+    <path d="M790 160 l4 10 10 4 -10 4 -4 10 -4 -10 -10 -4 10 -4 z" opacity="0.7"/>
+  </g>
+</svg>

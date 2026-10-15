@@ -9,7 +9,7 @@
 
 .footer__grid {
   display: grid;
-  grid-template-columns: 1.5fr repeat(2, 1fr) 1fr 1.3fr;
+  grid-template-columns: 1.5fr repeat(2, 1fr) 1fr 1.1fr 1.2fr;
   gap: 36px;
 }
 
@@ -23,13 +23,14 @@
 .footer__grid > *:nth-child(3) { animation-delay: 0.3s; }
 .footer__grid > *:nth-child(4) { animation-delay: 0.4s; }
 .footer__grid > *:nth-child(5) { animation-delay: 0.5s; }
+.footer__grid > *:nth-child(6) { animation-delay: 0.6s; }
 
 .footer__brand {
   display: flex;
   align-items: center;
   gap: 11px;
   color: var(--white);
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   margin-bottom: 16px;
 }
 
@@ -50,7 +51,7 @@
   box-shadow: var(--shadow-lg);
 }
 
-.footer__blurb { font-size: 0.95rem; max-width: 320px; line-height: 1.7; color: var(--slate-300); transition: opacity 0.3s ease; }
+.footer__blurb { font-size: 1.15rem; max-width: 340px; line-height: 1.7; color: var(--slate-300); transition: opacity 0.3s ease; }
 
 .footer__brand:hover .footer__blurb {
   opacity: 0.8;
@@ -58,8 +59,8 @@
 
 .footer h4 {
   color: var(--white);
-  font-size: 1rem;
-  margin-bottom: 16px;
+  font-size: 1.4rem;
+  margin-bottom: 20px;
   position: relative;
   display: inline-block;
 }
@@ -88,17 +89,17 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  font-size: 0.95rem;
+  gap: 14px;
+  font-size: 1.15rem;
 }
 
-.footer a { 
-  color: var(--slate-300); 
+.footer a {
+  color: var(--slate-200);
   transition: color var(--transition-fast), padding-left var(--transition-fast);
   display: inline-block;
 }
-.footer a:hover { 
-  color: var(--pink-400); 
+.footer a:hover {
+  color: var(--pink-400);
   padding-left: 6px;
 }
 .footer a:focus-visible {
@@ -109,43 +110,44 @@
 }
 
 .footer__contact { font-style: normal; }
-.footer__hours { font-size: 0.84rem; color: var(--slate-400); transition: opacity 0.3s ease; }
+.footer__social-blurb { font-size: 0.95rem; max-width: 240px; line-height: 1.6; color: var(--slate-300); margin-bottom: 16px; }
+.footer__social-hint { font-size: 0.85rem; color: var(--slate-400); margin-top: 8px; }
+.footer__hours { font-size: 1.1rem; color: var(--slate-300); transition: opacity 0.3s ease; }
 
-.footer__social {
+.footer__social-grid {
   display: flex;
+  flex-wrap: wrap;
   gap: 10px;
-  margin-top: 20px;
+  margin-top: 14px;
 }
 
-.footer__social a {
-  width: 38px;
-  height: 38px;
-  display: grid;
-  place-items: center;
-  background: var(--white);
+.social-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 16px;
+  border-radius: var(--radius-md);
   border: 1px solid var(--slate-200);
-  border-radius: var(--radius-sm);
+  background: var(--white);
   color: var(--slate-700);
-  transition: all 0.3s ease;
-  padding: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
 }
 
-.footer__social a:hover { 
-  background: linear-gradient(135deg, var(--pink-500), var(--teal-400));
-  border-color: transparent;
-  color: var(--white);
-  transform: translateY(-3px) rotate(5deg);
-  box-shadow: var(--shadow-lg);
+.social-pill:hover {
+  color: var(--pink-600);
+  border-color: var(--pink-300);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(11, 27, 51, 0.08);
 }
 
-.footer__social a:hover img {
-  filter: brightness(0) invert(1);
-}
-
-.footer__social img {
+.social-pill img {
   width: 22px;
   height: 22px;
-  display: block;
+  object-fit: contain;
+  filter: grayscale(0);
 }
 
 .footer__bottom {
@@ -155,7 +157,7 @@
   border-top: 1px solid var(--navy-800);
   margin-top: 46px;
   padding-top: 22px;
-  font-size: 0.85rem;
+  font-size: 1rem;
   flex-wrap: wrap;
   gap: 10px;
   animation: fadeInUp 0.6s ease-out forwards;
@@ -181,7 +183,7 @@
   border: none;
   padding: 0;
   font: inherit;
-  font-size: 0.85rem;
+  font-size: 1rem;
   color: var(--slate-400);
   cursor: pointer;
   transition: color 0.2s ease;
@@ -206,8 +208,4 @@
 
 .footer-business-link:hover .external-icon {
   opacity: 1;
-}
-
-@media (max-width: 900px) {
-  .footer__grid { grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 34px; }
 }

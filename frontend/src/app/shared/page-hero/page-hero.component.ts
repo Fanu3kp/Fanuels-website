@@ -21,7 +21,7 @@ import { RevealDirective } from '../reveal/reveal.directive';
       .hero {
         position: relative;
         background: linear-gradient(120deg, var(--navy-900) 0%, var(--navy-700) 55%, var(--blue-600) 130%);
-        padding: 84px 0 76px;
+        padding: 110px 0 90px;
         color: #cbd5e1;
         overflow: hidden;
       }
@@ -31,7 +31,7 @@ import { RevealDirective } from '../reveal/reveal.directive';
         width: 100%;
         height: 100%;
         object-fit: cover;
-        opacity: 0.55;
+        opacity: 0.25;
         z-index: 0;
       }
       .hero .container {
@@ -40,18 +40,21 @@ import { RevealDirective } from '../reveal/reveal.directive';
       }
       h1 {
         color: var(--white);
-        margin-bottom: 14px;
+        margin-bottom: 16px;
         max-width: 760px;
+        font-size: clamp(2rem, 5vw, 3rem);
+        line-height: 1.15;
       }
       .eyebrow {
-        font-size: 1.3rem;
+        font-size: 1.4rem;
         letter-spacing: 0.14em;
       }
       p {
-        font-size: 1.25rem;
+        font-size: 1.4rem;
         max-width: 640px;
         margin: 0;
         color: #dbe4f0;
+        line-height: 1.6;
       }
     `,
   ],

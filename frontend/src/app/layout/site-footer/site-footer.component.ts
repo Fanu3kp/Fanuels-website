@@ -19,27 +19,10 @@ import { CookieConsentService } from '../../shared/cookie-consent/cookie-consent
               <span class="footer__mark">OG</span>
               <strong>{{ config.siteName }}</strong>
             </div>
-            <p class="footer__blurb">
-              {{ settings()?.['tagline'] || config.tagline }}
-            </p>
-<div class="footer__social">
-              <a [href]="social('facebook')" target="_blank" rel="noopener" aria-label="Facebook">
-                <img src="/images/social/facebook.svg" alt="Facebook" />
-              </a>
-              <a [href]="social('linkedin')" target="_blank" rel="noopener" aria-label="LinkedIn">
-                <img src="/images/social/linkedin.svg" alt="LinkedIn" />
-              </a>
-              <a [href]="social('instagram')" target="_blank" rel="noopener" aria-label="Instagram">
-                <img src="/images/social/instagram.svg" alt="Instagram" />
-              </a>
-              <a [href]="social('tiktok')" target="_blank" rel="noopener" aria-label="TikTok">
-                <img src="/images/social/tiktok.svg" alt="TikTok" />
-              </a>
-              <a [href]="social('youtube')" target="_blank" rel="noopener" aria-label="YouTube">
-                <img src="/images/social/youtube.svg" alt="YouTube" />
-              </a>
-            </div>
-          </div>
+             <p class="footer__blurb">
+               {{ settings()?.['tagline'] || config.tagline }}
+             </p>
+           </div>
 
           <div>
             <h4>Quick Links</h4>
@@ -72,18 +55,45 @@ import { CookieConsentService } from '../../shared/cookie-consent/cookie-consent
             </ul>
           </div>
 
-          <div>
-            <h4>Contact Us</h4>
-            <ul class="footer__contact">
-              <li *ngIf="settings()?.['contact_address']">{{ settings()?.['contact_address'] }}</li>
-              <li *ngIf="settings()?.['contact_phone']">{{ settings()?.['contact_phone'] }}</li>
-              <li *ngIf="settings()?.['contact_email']">
-                <a [href]="'mailto:' + settings()?.['contact_email']">{{ settings()?.['contact_email'] }}</a>
-              </li>
-              <li *ngIf="settings()?.['office_hours']" class="footer__hours">{{ settings()?.['office_hours'] }}</li>
-            </ul>
-          </div>
-        </div>
+           <div>
+             <h4>Contact Us</h4>
+             <ul class="footer__contact">
+               <li *ngIf="settings()?.['contact_address']">{{ settings()?.['contact_address'] }}</li>
+               <li *ngIf="settings()?.['contact_phone']">{{ settings()?.['contact_phone'] }}</li>
+               <li *ngIf="settings()?.['contact_email']">
+                 <a [href]="'mailto:' + settings()?.['contact_email']">{{ settings()?.['contact_email'] }}</a>
+               </li>
+               <li *ngIf="settings()?.['office_hours']" class="footer__hours">{{ settings()?.['office_hours'] }}</li>
+             </ul>
+           </div>
+
+           <div>
+             <h4>Follow us</h4>
+             <p class="footer__social-blurb">Demos, tutorials, product updates and behind-the-scenes content.</p>
+             <div class="footer__social-grid">
+                <a *ngIf="social('tiktok')" [href]="social('tiktok')" target="_blank" rel="noopener" class="social-pill" aria-label="TikTok">
+                  <img src="/images/social/tiktok.png?v=4" alt="TikTok" loading="eager" />
+                  <span>TikTok</span>
+                </a>
+                <a *ngIf="social('youtube')" [href]="social('youtube')" target="_blank" rel="noopener" class="social-pill" aria-label="YouTube">
+                  <img src="/images/social/youtube.jpeg?v=4" alt="YouTube" loading="eager" />
+                  <span>YouTube</span>
+                </a>
+                <a *ngIf="social('linkedin')" [href]="social('linkedin')" target="_blank" rel="noopener" class="social-pill" aria-label="LinkedIn">
+                  <img src="/images/social/linkedin.svg?v=4" alt="LinkedIn" loading="eager" />
+                  <span>LinkedIn</span>
+                </a>
+                <a *ngIf="social('facebook')" [href]="social('facebook')" target="_blank" rel="noopener" class="social-pill" aria-label="Facebook">
+                  <img src="/images/social/facebook.svg?v=4" alt="Facebook" loading="eager" />
+                  <span>Facebook</span>
+                </a>
+                <a *ngIf="social('instagram')" [href]="social('instagram')" target="_blank" rel="noopener" class="social-pill" aria-label="Instagram">
+                  <img src="/images/social/instagram.svg?v=4" alt="Instagram" loading="eager" />
+                  <span>Instagram</span>
+                </a>
+             </div>
+           </div>
+         </div>
 
         <div class="footer__bottom">
           <span>&copy; {{ currentYear }} {{ config.siteName }}. All rights reserved.</span>

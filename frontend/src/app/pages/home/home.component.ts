@@ -12,19 +12,19 @@ import { RevealDirective } from '../../shared/reveal/reveal.directive';
 import { ProcessStep, Service, SiteSettings, Testimonial, Project, Post, Paginated } from '../../core/models';
 
 const MOCK_SERVICES: Service[] = [
-  { id: 1, title: 'Digital Transformation', slug: 'digital-transformation', summary: 'End-to-end transformation programs that align people, process, and technology around measurable business outcomes.', body: '', icon: 'strategy', image: '/images/real/cloud-architecture.svg', highlights: null, sort_order: 1, is_featured: true, is_active: true },
-  { id: 2, title: 'Custom Software Development', slug: 'custom-software-development', summary: 'Product-minded engineering teams delivering scalable, maintainable software — from greenfield products to platform modernization.', body: '', icon: 'code', image: '/images/real/coding-session.svg', highlights: null, sort_order: 2, is_featured: true, is_active: true },
-  { id: 3, title: 'ERP Implementation', slug: 'erp-implementation', summary: 'Proven methodology for ERP deployments that minimize risk, accelerate time-to-value, and ensure user adoption.', body: '', icon: 'erp', image: '/images/solutions/erp-supply-chain.jpg', highlights: null, sort_order: 3, is_featured: true, is_active: true },
-  { id: 4, title: 'Cloud Migration', slug: 'cloud-migration', summary: 'Structured migration programs that reduce cost, improve resilience, and unlock cloud-native capabilities.', body: '', icon: 'cloud', image: '/images/real/server-room.svg', highlights: null, sort_order: 4, is_featured: false, is_active: true },
-  { id: 5, title: 'Vertical Solutions', slug: 'vertical-solutions', summary: 'Industry-specific platforms and accelerators for financial services, healthcare, manufacturing, retail, public sector, and energy.', body: '', icon: 'products', image: '/images/real/data-pipeline.svg', highlights: null, sort_order: 5, is_featured: false, is_active: true },
+  { id: 1, title: 'Digital Transformation', slug: 'digital-transformation', summary: 'End-to-end transformation programs that align people, process, and technology around measurable business outcomes.', body: '', icon: 'strategy', image: '/images/real/cloud-architecture.svg?v=4', highlights: null, sort_order: 1, is_featured: true, is_active: true },
+  { id: 2, title: 'Custom Software Development', slug: 'custom-software-development', summary: 'Product-minded engineering teams delivering scalable, maintainable software — from greenfield products to platform modernization.', body: '', icon: 'code', image: '/images/real/coding-session.svg?v=4', highlights: null, sort_order: 2, is_featured: true, is_active: true },
+  { id: 3, title: 'ERP Implementation', slug: 'erp-implementation', summary: 'Proven methodology for ERP deployments that minimize risk, accelerate time-to-value, and ensure user adoption.', body: '', icon: 'erp', image: '/images/solutions/erp-supply-chain.jpg?v=4', highlights: null, sort_order: 3, is_featured: true, is_active: true },
+  { id: 4, title: 'Cloud Migration', slug: 'cloud-migration', summary: 'Structured migration programs that reduce cost, improve resilience, and unlock cloud-native capabilities.', body: '', icon: 'cloud', image: '/images/real/server-room.svg?v=4', highlights: null, sort_order: 4, is_featured: false, is_active: true },
+  { id: 5, title: 'Vertical Solutions', slug: 'vertical-solutions', summary: 'Industry-specific platforms and accelerators for financial services, healthcare, manufacturing, retail, public sector, and energy.', body: '', icon: 'products', image: '/images/real/data-pipeline.svg?v=4', highlights: null, sort_order: 5, is_featured: false, is_active: true },
 ];
 
 const MOCK_PROCESS_STEPS: ProcessStep[] = [
-  { id: 1, step_number: 1, title: 'Discover & Align', slug: 'discover-align', summary: 'Stakeholder interviews, value-stream mapping, and outcome-based OKR definition.', body: '', icon: null, image: '/images/real/video-call.svg', sort_order: 1, is_active: true },
-  { id: 2, step_number: 2, title: 'Architect & Plan', slug: 'architect-plan', summary: 'Target architecture, migration waves, risk register, and investment business case.', body: '', icon: null, image: '/images/real/coding-session.svg', sort_order: 2, is_active: true },
-  { id: 3, step_number: 3, title: 'Foundations First', slug: 'foundations-first', summary: 'Landing zone, identity, observability, and CI/CD platform — the prerequisite layer.', body: '', icon: null, image: '/images/real/cloud-architecture.svg', sort_order: 3, is_active: true },
-  { id: 4, step_number: 4, title: 'Migrate & Modernize', slug: 'migrate-modernize', summary: 'Workload-by-workload execution with automated validation and rollback capability.', body: '', icon: null, image: '/images/real/server-room.svg', sort_order: 4, is_active: true },
-  { id: 5, step_number: 5, title: 'Operate & Optimize', slug: 'operate-optimize', summary: 'SLO-driven operations, FinOps discipline, and continuous architecture evolution.', body: '', icon: null, image: '/images/real/data-pipeline.svg', sort_order: 5, is_active: true },
+  { id: 1, step_number: 1, title: 'Discover & Align', slug: 'discover-align', summary: 'Stakeholder interviews, value-stream mapping, and outcome-based OKR definition.', body: '', icon: null, image: '/images/real/video-call.svg?v=4', sort_order: 1, is_active: true },
+  { id: 2, step_number: 2, title: 'Architect & Plan', slug: 'architect-plan', summary: 'Target architecture, migration waves, risk register, and investment business case.', body: '', icon: null, image: '/images/real/coding-session.svg?v=4', sort_order: 2, is_active: true },
+  { id: 3, step_number: 3, title: 'Foundations First', slug: 'foundations-first', summary: 'Landing zone, identity, observability, and CI/CD platform — the prerequisite layer.', body: '', icon: null, image: '/images/real/cloud-architecture.svg?v=4', sort_order: 3, is_active: true },
+  { id: 4, step_number: 4, title: 'Migrate & Modernize', slug: 'migrate-modernize', summary: 'Workload-by-workload execution with automated validation and rollback capability.', body: '', icon: null, image: '/images/real/server-room.svg?v=4', sort_order: 4, is_active: true },
+  { id: 5, step_number: 5, title: 'Operate & Optimize', slug: 'operate-optimize', summary: 'SLO-driven operations, FinOps discipline, and continuous architecture evolution.', body: '', icon: null, image: '/images/real/data-pipeline.svg?v=4', sort_order: 5, is_active: true },
 ];
 
 @Component({
@@ -108,21 +108,21 @@ const MOCK_PROCESS_STEPS: ProcessStep[] = [
         <div class="solutions-grid">
           <div class="solution-item" appReveal="up" [appRevealDelay]="0">
             <div class="solution-item__media">
-               <img src="/images/solutions/erp-supply-chain.jpg" alt="ERP systems for supply chain management" loading="lazy" decoding="async" />
+                <img src="/images/solutions/erp-supply-chain.jpg?v=4" alt="ERP systems for supply chain management" loading="lazy" decoding="async" />
             </div>
             <h3>ERP <br/>Implementation</h3>
             <p>End-to-end ERP deployments that minimize risk and accelerate time-to-value.</p>
           </div>
           <div class="solution-item" appReveal="up" [appRevealDelay]="80">
             <div class="solution-item__media">
-               <img src="/images/solutions/pos-software.jpg" alt="Point of Sale (POS) software" loading="lazy" decoding="async" />
+                <img src="/images/solutions/pos-software.jpg?v=4" alt="Point of Sale (POS) software" loading="lazy" decoding="async" />
             </div>
             <h3>POS <br/>Systems</h3>
             <p>Custom point-of-sale platforms built for retail, hospitality, and field operations.</p>
           </div>
           <div class="solution-item" appReveal="up" [appRevealDelay]="160">
             <div class="solution-item__media">
-              <img src="/images/solutions/apps-photo.jpg" alt="Mobile app development" loading="lazy" />
+              <img src="/images/solutions/apps-photo.jpg?v=4" alt="Mobile app development" loading="lazy" />
             </div>
             <h3>Mobile <br/>Applications</h3>
             <p>iOS and Android apps that deliver seamless experiences across devices.</p>

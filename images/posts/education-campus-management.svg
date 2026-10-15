@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800">
+  <defs>
+    <linearGradient id="campBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e1b4b"/>
+      <stop offset="55%" stop-color="#312e81"/>
+      <stop offset="100%" stop-color="#4338ca"/>
+    </linearGradient>
+    <linearGradient id="campGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fcd34d"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
+    </linearGradient>
+    <linearGradient id="campCard" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#312e81"/>
+      <stop offset="100%" stop-color="#3730a3"/>
+    </linearGradient>
+    <filter id="campGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="800" fill="url(#campBg)"/>
+
+  <!-- grid -->
+  <g stroke="#a5b4fc" stroke-width="0.5" opacity="0.08">
+    <g>
+      <line x1="0" y1="100" x2="1200" y2="100"/>
+      <line x1="0" y1="200" x2="1200" y2="200"/>
+      <line x1="0" y1="300" x2="1200" y2="300"/>
+      <line x1="0" y1="400" x2="1200" y2="400"/>
+      <line x1="0" y1="500" x2="1200" y2="500"/>
+      <line x1="0" y1="600" x2="1200" y2="600"/>
+      <line x1="0" y1="700" x2="1200" y2="700"/>
+    </g>
+    <g>
+      <line x1="100" y1="0" x2="100" y2="800"/>
+      <line x1="300" y1="0" x2="300" y2="800"/>
+      <line x1="500" y1="0" x2="500" y2="800"/>
+      <line x1="700" y1="0" x2="700" y2="800"/>
+      <line x1="900" y1="0" x2="900" y2="800"/>
+      <line x1="1100" y1="0" x2="1100" y2="800"/>
+    </g>
+  </g>
+
+  <!-- campus building -->
+  <g filter="url(#campGlow)">
+    <rect x="330" y="330" width="540" height="300" fill="#1e1b4b" stroke="#818cf8" stroke-width="2"/>
+    <polygon points="300,330 600,230 900,330" fill="url(#campGold)"/>
+    <!-- columns -->
+    <g fill="#c7d2fe">
+      <rect x="380" y="380" width="26" height="250"/>
+      <rect x="452" y="380" width="26" height="250"/>
+      <rect x="524" y="380" width="26" height="250"/>
+      <rect x="596" y="380" width="26" height="250"/>
+      <rect x="668" y="380" width="26" height="250"/>
+      <rect x="740" y="380" width="26" height="250"/>
+    </g>
+    <rect x="350" y="360" width="500" height="22" fill="#818cf8" opacity="0.5"/>
+    <rect x="350" y="630" width="500" height="22" fill="#818cf8" opacity="0.5"/>
+    <!-- door -->
+    <path d="M560 680 L560 560 Q600 520 640 560 L640 680 Z" fill="#4f46e5" stroke="#a5b4fc" stroke-width="2"/>
+    <!-- clock -->
+    <circle cx="600" cy="292" r="26" fill="#1e1b4b" stroke="#fcd34d" stroke-width="3"/>
+    <line x1="600" y1="292" x2="600" y2="276" stroke="#fcd34d" stroke-width="3" stroke-linecap="round"/>
+    <line x1="600" y1="292" x2="612" y2="298" stroke="#fcd34d" stroke-width="3" stroke-linecap="round"/>
+  </g>
+
+  <!-- graduation cap above building -->
+  <g filter="url(#campGlow)">
+    <line x1="648" y1="120" x2="648" y2="168" stroke="#fcd34d" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="648" cy="180" r="9" fill="url(#campGold)"/>
+    <polygon points="600,96 648,120 600,144 552,120" fill="url(#campGold)" stroke="#fef3c7" stroke-width="2.5"/>
+    <path d="M560 138 L600 166 L640 138 L640 152 L600 180 L560 152 Z" fill="#b45309"/>
+  </g>
+
+  <!-- analytics panel -->
+  <g font-family="system-ui, sans-serif">
+    <rect x="90" y="120" width="200" height="230" rx="16" fill="url(#campCard)" stroke="#818cf8" stroke-width="1.5"/>
+    <text x="112" y="152" fill="#c7d2fe" font-size="14" font-weight="600">Student Progress</text>
+    <rect x="112" y="175" width="26" height="90" rx="5" fill="#818cf8" opacity="0.85"/>
+    <rect x="152" y="150" width="26" height="115" rx="5" fill="#a5b4fc" opacity="0.9"/>
+    <rect x="192" y="165" width="26" height="100" rx="5" fill="#818cf8" opacity="0.85"/>
+    <rect x="232" y="135" width="26" height="130" rx="5" fill="url(#campGold)"/>
+    <line x1="112" y1="278" x2="266" y2="278" stroke="#818cf8" stroke-width="2"/>
+
+    <!-- checklist panel -->
+    <rect x="910" y="120" width="200" height="230" rx="16" fill="url(#campCard)" stroke="#818cf8" stroke-width="1.5"/>
+    <text x="932" y="152" fill="#c7d2fe" font-size="14" font-weight="600">Campus Tasks</text>
+    <g>
+      <rect x="932" y="172" width="18" height="18" rx="4" fill="#34d399" opacity="0.25" stroke="#34d399" stroke-width="2"/>
+      <path d="M936 181 L940 185 L948 175" stroke="#6ee7b7" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <rect x="960" y="176" width="120" height="10" rx="5" fill="#a5b4fc" opacity="0.6"/>
+
+      <rect x="932" y="208" width="18" height="18" rx="4" fill="#34d399" opacity="0.25" stroke="#34d399" stroke-width="2"/>
+      <path d="M936 217 L940 221 L948 211" stroke="#6ee7b7" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <rect x="960" y="212" width="100" height="10" rx="5" fill="#a5b4fc" opacity="0.6"/>
+
+      <rect x="932" y="244" width="18" height="18" rx="4" fill="#34d399" opacity="0.25" stroke="#34d399" stroke-width="2"/>
+      <path d="M936 253 L940 257 L948 247" stroke="#6ee7b7" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <rect x="960" y="248" width="110" height="10" rx="5" fill="#a5b4fc" opacity="0.6"/>
+
+      <rect x="932" y="280" width="18" height="18" rx="4" fill="none" stroke="#818cf8" stroke-width="2"/>
+      <rect x="960" y="284" width="90" height="10" rx="5" fill="#818cf8" opacity="0.45"/>
+    </g>
+  </g>
+
+  <!-- ground line with students -->
+  <g>
+    <line x1="120" y1="700" x2="1080" y2="700" stroke="#818cf8" stroke-width="2" opacity="0.4"/>
+    <!-- student figures -->
+    <g fill="#c7d2fe">
+      <circle cx="300" cy="640" r="12"/>
+      <path d="M282 680 Q300 655 318 680 Z"/>
+      <circle cx="360" cy="648" r="10"/>
+      <path d="M344 680 Q360 660 376 680 Z"/>
+      <circle cx="840" cy="648" r="10"/>
+      <path d="M824 680 Q840 660 856 680 Z"/>
+      <circle cx="900" cy="640" r="12"/>
+      <path d="M882 680 Q900 655 918 680 Z"/>
+    </g>
+  </g>
+
+  <!-- sparkles -->
+  <g fill="#fde68a">
+    <path d="M180 420 l5 12 12 5 -12 5 -5 12 -5 -12 -12 -5 12 -5 z" opacity="0.8"/>
+    <path d="M1020 430 l5 12 12 5 -12 5 -5 12 -5 -12 -12 -5 12 -5 z" opacity="0.8"/>
+    <path d="M240 240 l4 10 10 4 -10 4 -4 10 -4 -10 -10 -4 10 -4 z" opacity="0.6"/>
+    <path d="M960 250 l4 10 10 4 -10 4 -4 10 -4 -10 -10 -4 10 -4 z" opacity="0.6"/>
+  </g>
+</svg>

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="Connected business modules">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1b33"/>
+      <stop offset="0.55" stop-color="#1b3a63"/>
+      <stop offset="1" stop-color="#1f6fd0"/>
+    </linearGradient>
+    <pattern id="dots" width="28" height="28" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.6" fill="#ffffff" opacity="0.12"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <rect width="800" height="600" fill="url(#dots)"/>
+  <g stroke="#7dd3fc" stroke-width="2" fill="none" opacity="0.65">
+    <path d="M400 300 L170 150"/><path d="M400 300 L630 150"/><path d="M400 300 L170 450"/><path d="M400 300 L630 450"/>
+  </g>
+  <circle cx="400" cy="300" r="74" fill="#ffffff" opacity="0.95"/>
+  <circle cx="400" cy="300" r="48" fill="none" stroke="#1f6fd0" stroke-width="3"/>
+  <path d="M376 300 L394 318 L428 282" fill="none" stroke="#1f6fd0" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <g fill="#0b1b33" opacity="0.9">
+    <rect x="106" y="106" width="128" height="88" rx="12"/>
+    <rect x="566" y="106" width="128" height="88" rx="12"/>
+    <rect x="106" y="406" width="128" height="88" rx="12"/>
+    <rect x="566" y="406" width="128" height="88" rx="12"/>
+  </g>
+  <g fill="#7dd3fc">
+    <rect x="126" y="128" width="88" height="9" rx="4.5"/>
+    <rect x="126" y="150" width="60" height="9" rx="4.5" opacity="0.7"/>
+    <rect x="586" y="128" width="88" height="9" rx="4.5"/>
+    <rect x="586" y="150" width="60" height="9" rx="4.5" opacity="0.7"/>
+    <rect x="126" y="428" width="88" height="9" rx="4.5"/>
+    <rect x="126" y="450" width="60" height="9" rx="4.5" opacity="0.7"/>
+    <rect x="586" y="428" width="88" height="9" rx="4.5"/>
+    <rect x="586" y="450" width="60" height="9" rx="4.5" opacity="0.7"/>
+  </g>
+</svg>

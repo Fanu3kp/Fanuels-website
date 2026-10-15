@@ -283,23 +283,29 @@ const BUDGET_OPTIONS = [
         </div>
 
         <aside class="contact__side" appReveal="right" [appRevealDelay]="110">
-          <div class="card">
-            <h3>Contact Information</h3>
-              <ul class="details">
-              <li *ngIf="settings()?.['contact_phone']">
-                <strong>Phone</strong>
-                <span>{{ settings()?.['contact_phone'] }}</span>
-              </li>
-              <li *ngIf="settings()?.['contact_address']">
-                <strong>Address</strong>
-                <span>{{ settings()?.['contact_address'] }}</span>
-              </li>
-              <li *ngIf="settings()?.['office_hours']">
-                <strong>Office hours</strong>
-                <span>{{ settings()?.['office_hours'] }}</span>
-              </li>
-            </ul>
-          </div>
+           <div class="card">
+             <h3>Contact Information</h3>
+               <ul class="details">
+               <li *ngIf="settings()?.['contact_phone']">
+                 <strong>Phone</strong>
+                 <span>{{ settings()?.['contact_phone'] }}</span>
+               </li>
+               <li *ngIf="settings()?.['contact_address']">
+                 <strong>Address</strong>
+                 <span>{{ settings()?.['contact_address'] }}</span>
+               </li>
+               <li *ngIf="settings()?.['contact_email']">
+                 <strong>Email</strong>
+                 <a [href]="'mailto:' + settings()?.['contact_email']">{{ settings()?.['contact_email'] }}</a>
+               </li>
+               <li *ngIf="settings()?.['office_hours']">
+                 <strong>Office hours</strong>
+                 <span>{{ settings()?.['office_hours'] }}</span>
+               </li>
+             </ul>
+           </div>
+
+
 
           <div class="card contact__map" *ngIf="mapEmbed()">
             <h3>Find us</h3>
@@ -337,7 +343,30 @@ const BUDGET_OPTIONS = [
         top: 30px;
       }
       .row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-      .contact__map iframe { width: 100%; height: 300px; border: 0; border-radius: var(--radius-md); }
+       .contact__map iframe { width: 100%; height: 300px; border: 0; border-radius: var(--radius-md); }
+       .contact__social p { color: var(--slate-600); font-size: 0.94rem; line-height: 1.6; margin: 0 0 14px; }
+       .social-grid { display: flex; flex-wrap: wrap; gap: 12px; }
+       .social-link {
+         display: inline-flex;
+         align-items: center;
+         gap: 8px;
+         padding: 10px 16px;
+         border-radius: var(--radius-md);
+         border: 1px solid var(--slate-200);
+         background: var(--white);
+         color: var(--slate-700);
+         font-size: 0.95rem;
+         font-weight: 500;
+         transition: all 0.2s ease;
+         text-decoration: none;
+       }
+       .social-link:hover {
+         color: var(--pink-600);
+         border-color: var(--pink-300);
+         transform: translateY(-2px);
+         box-shadow: 0 4px 12px rgba(11, 27, 51, 0.06);
+       }
+       .social-link img { width: 24px; height: 24px; object-fit: contain; }
       .trap { position: absolute; left: -9999px; opacity: 0; height: 0; }
       .required { color: var(--rose-500); margin-left: 2px; }
 
@@ -483,6 +512,22 @@ export class ContactComponent {
     readonly cfg = computed(() => CONTACT_CONTEXTS[this.context()]);
   readonly interestAreas = INTEREST_AREAS;
   readonly budgetOptions = BUDGET_OPTIONS;
+
+  private static readonly DEFAULT_SOCIALS: Record<string, string> = {
+    facebook: 'https://www.facebook.com/otuyaelite',
+    linkedin: 'https://www.linkedin.com/company/otuyaelite',
+    instagram: 'https://www.instagram.com/otuyaelite',
+    tiktok: 'https://www.tiktok.com/@otuyaelite',
+    youtube: 'https://www.youtube.com/@otuyaelite',
+  };
+
+  social(key: string): string {
+    return this.settings()?.[`social_${key}`] || ContactComponent.DEFAULT_SOCIALS[key] || '';
+  }
+
+  hasSocialLinks(): boolean {
+    return ['tiktok', 'youtube', 'linkedin', 'facebook', 'instagram'].some((key) => !!this.social(key));
+  }
 
   private readonly sanitizer = inject(DomSanitizer);
 
