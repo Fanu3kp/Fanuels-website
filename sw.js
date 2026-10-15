@@ -5,7 +5,7 @@
  * Bump CACHE whenever the deploy changes and the old
  * caches are purged automatically on activation. */
 
-const CACHE = 'otuya-v4';
+const CACHE = 'otuya-v1';
 const CORE = ['/', '/404.html'];
 
 self.addEventListener('install', (event) => {
