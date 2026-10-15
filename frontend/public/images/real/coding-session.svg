@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800">
+  <defs>
+    <linearGradient id="bg1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+    <linearGradient id="screen" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e293b"/>
+      <stop offset="100%" style="stop-color:#0f172a"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg1)"/>
+  
+  <!-- Desk -->
+  <rect x="100" y="550" width="1000" height="80" fill="#1e293b" rx="4"/>
+  <rect x="100" y="550" width="1000" height="4" fill="#334155"/>
+  
+  <!-- Monitor 1 -->
+  <rect x="200" y="200" width="320" height="220" fill="#0f172a" rx="8" stroke="#334155" stroke-width="2"/>
+  <rect x="210" y="210" width="300" height="200" fill="url(#screen)" rx="4"/>
+  <rect x="230" y="230" width="260" height="20" fill="#0f172a" rx="2"/>
+  <rect x="230" y="260" width="200" height="14" fill="#1e293b" rx="2"/>
+  <rect x="230" y="284" width="160" height="14" fill="#1e293b" rx="2"/>
+  <rect x="230" y="308" width="220" height="14" fill="#1e293b" rx="2"/>
+  <text x="360" y="350" fill="#22d3ee" font-family="monospace" font-size="14" text-anchor="middle">const deploy = await pipeline.run();</text>
+  <text x="360" y="370" fill="#a78bfa" font-family="monospace" font-size="14" text-anchor="middle">console.log('Build successful ✓');</text>
+  <rect x="330" y="440" width="60" height="8" fill="#334155" rx="4"/>
+  
+  <!-- Monitor 2 -->
+  <rect x="560" y="200" width="320" height="220" fill="#0f172a" rx="8" stroke="#334155" stroke-width="2"/>
+  <rect x="570" y="210" width="300" height="200" fill="url(#screen)" rx="4"/>
+  <rect x="590" y="230" width="260" height="20" fill="#0f172a" rx="2"/>
+  <rect x="590" y="260" width="180" height="14" fill="#1e293b" rx="2"/>
+  <rect x="590" y="284" width="220" height="14" fill="#1e293b" rx="2"/>
+  <rect x="590" y="308" width="140" height="14" fill="#1e293b" rx="2"/>
+  <text x="720" y="350" fill="#22d3ee" font-family="monospace" font-size="14" text-anchor="middle">git commit -m "feat: add auth"</text>
+  <text x="720" y="370" fill="#4ade80" font-family="monospace" font-size="14" text-anchor="middle">▶ Tests passing (47/47)</text>
+  <rect x="690" y="440" width="60" height="8" fill="#334155" rx="4"/>
+  
+  <!-- Monitor 3 -->
+  <rect x="920" y="200" width="220" height="220" fill="#0f172a" rx="8" stroke="#334155" stroke-width="2"/>
+  <rect x="930" y="210" width="200" height="200" fill="url(#screen)" rx="4"/>
+  <circle cx="1030" cy="310" r="50" fill="none" stroke="#22d3ee" stroke-width="3" stroke-dasharray="10 5"/>
+  <text x="1030" y="315" fill="#22d3ee" font-family="monospace" font-size="12" text-anchor="middle">CPU</text>
+  <text x="1030" y="330" fill="#22d3ee" font-family="monospace" font-size="14" text-anchor="middle" font-weight="bold">67%</text>
+  <rect x="1000" y="440" width="60" height="8" fill="#334155" rx="4"/>
+  
+  <!-- Keyboard -->
+  <rect x="400" y="580" width="400" height="20" fill="#1e293b" rx="4"/>
+  <rect x="410" y="584" width="380" height="12" fill="#0f172a" rx="2"/>
+  
+  <!-- Mouse -->
+  <ellipse cx="850" cy="590" rx="35" ry="20" fill="#1e293b"/>
+  <ellipse cx="850" cy="585" rx="25" ry="12" fill="#0f172a"/>
+  
+  <!-- Coffee mug -->
+  <rect x="1000" y="560" width="60" height="70" fill="#3b2f2f" rx="4"/>
+  <rect x="1055" y="570" width="15" height="50" fill="#3b2f2f" rx="2"/>
+  <ellipse cx="1030" cy="560" rx="30" ry="8" fill="#4a3737"/>
+  
+  <!-- Plant -->
+  <rect x="100" y="480" width="20" height="80" fill="#3b2f2f" rx="2"/>
+  <ellipse cx="110" cy="470" rx="35" ry="25" fill="#166534"/>
+  <ellipse cx="110" cy="470" rx="28" ry="20" fill="#15803d"/>
+  
+  <!-- Lamp -->
+  <rect x="1050" y="200" width="12" height="200" fill="#334155" rx="6"/>
+  <ellipse cx="1056" cy="180" rx="35" ry="15" fill="#fef08a" filter="url(#glow)"/>
+  <ellipse cx="1056" cy="180" rx="25" ry="10" fill="#fde047" filter="url(#glow)"/>
+  
+  <!-- Wall art / whiteboard -->
+  <rect x="100" y="100" width="150" height="100" fill="#1e293b" rx="4" stroke="#334155" stroke-width="1"/>
+  <line x1="120" y1="130" x2="230" y2="130" stroke="#64748b" stroke-width="1" stroke-dasharray="5 5"/>
+  <line x1="120" y1="150" x2="220" y2="150" stroke="#64748b" stroke-width="1" stroke-dasharray="5 5"/>
+  <line x1="120" y1="170" x2="210" y2="170" stroke="#64748b" stroke-width="1" stroke-dasharray="5 5"/>
+  
+  <!-- Window light -->
+  <rect x="0" y="0" width="1200" height="100" fill="url(#windowGrad)"/>
+  <defs>
+    <linearGradient id="windowGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#334155;stop-opacity:0.3"/>
+      <stop offset="100%" style="stop-color:#334155;stop-opacity:0"/>
+    </linearGradient>
+  </defs>
+</svg>
