@@ -1,9 +1,0 @@
-.git
-.github
-frontend
-backend/vendor
-backend/node_modules
-backend/.env
-backend/.env.example
-backend/phpunit.xml
-backend/tests
