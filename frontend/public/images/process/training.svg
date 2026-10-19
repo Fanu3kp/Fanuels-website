@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="Team training and capability growth">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1b33"/>
+      <stop offset="0.55" stop-color="#1b3a63"/>
+      <stop offset="1" stop-color="#1f6fd0"/>
+    </linearGradient>
+    <pattern id="dots" width="28" height="28" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.6" fill="#ffffff" opacity="0.12"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <rect width="800" height="600" fill="url(#dots)"/>
+  <rect x="180" y="392" width="440" height="18" rx="9" fill="#ffffff" opacity="0.35"/>
+  <g fill="#ffffff">
+    <circle cx="280" cy="252" r="40" opacity="0.95"/>
+    <rect x="228" y="304" width="104" height="92" rx="22" opacity="0.95"/>
+    <circle cx="400" cy="212" r="48" opacity="0.95"/>
+    <rect x="340" y="270" width="120" height="104" rx="24"/>
+    <circle cx="520" cy="252" r="40" opacity="0.95"/>
+    <rect x="468" y="304" width="104" height="92" rx="22" opacity="0.95"/>
+  </g>
+  <g fill="#1f6fd0">
+    <rect x="266" y="336" width="28" height="10" rx="5" opacity="0.7"/>
+    <rect x="266" y="356" width="46" height="10" rx="5" opacity="0.5"/>
+    <rect x="384" y="310" width="32" height="10" rx="5" opacity="0.7"/>
+    <rect x="384" y="330" width="52" height="10" rx="5" opacity="0.5"/>
+    <rect x="506" y="336" width="28" height="10" rx="5" opacity="0.7"/>
+    <rect x="506" y="356" width="46" height="10" rx="5" opacity="0.5"/>
+  </g>
+  <g fill="#7dd3fc">
+    <path d="M604 300 l26 -30 l22 24 l20 -30" fill="none" stroke="#7dd3fc" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M648 264 l24 -6 l-2 24" fill="none" stroke="#7dd3fc" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="ogMark" x1="0" y1="0" x2="1" y2="1" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#e85c9d"/>
+      <stop offset="0.5" stop-color="#ad45b8"/>
+      <stop offset="1" stop-color="#c41f72"/>
+    </linearGradient>
+    <linearGradient id="ogMarkInner" x1="0" y1="0" x2="1" y2="1" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#c41f72"/>
+      <stop offset="1" stop-color="#00acc1"/>
+    </linearGradient>
+  </defs>
+  <path d="M32 4 L56.7 16 L56.7 48 L32 60 L7.3 48 L7.3 16 Z" fill="#0a0214" stroke="url(#ogMark)" stroke-width="2.5"/>
+  <path d="M32 12 L48.3 22 L48.3 42 L32 52 L15.7 42 L15.7 22 Z" fill="none" stroke="url(#ogMarkInner)" stroke-width="1.5" opacity="0.6"/>
+  <text x="32" y="39" text-anchor="middle" dominant-baseline="central" font-family="Georgia, serif" font-size="27" font-weight="700" fill="url(#ogMark)" letter-spacing="-1">OG</text>
+</svg>
