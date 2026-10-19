@@ -67,4 +67,4 @@ databases:
   - name: otuya-db
     databaseName: otuya
     user: otuya
-    free: true
+    plan: free
