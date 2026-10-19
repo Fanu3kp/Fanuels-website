@@ -55,7 +55,7 @@ services:
       - key: MAIL_USERNAME
         value: fanuelotuya2@gmail.com
       - key: MAIL_PASSWORD
-        value: replace-with-your-16-char-app-password
+        value: ""
       - key: MAIL_FROM_ADDRESS
         value: fanuelotuya2@gmail.com
       - key: MAIL_FROM_NAME
