@@ -335,3 +335,85 @@ Configured via render.yaml: APP_ENV=production, DB_CONNECTION=pgsql, CORS_ALLOWE
 - Admin login fails on live site: Render API not deployed yet
 - Cold starts: Render free tier sleeps after 15 min inactivity (~30s wake time)
 - phpMyAdmin not loading: Apache vhosts intercepts; use http://127.0.0.1/phpmyadmin
+
+---
+
+## Database Configuration
+
+### Local Development (SQLite)
+The local `.env` uses SQLite for fast development without internet:
+
+```env
+DB_CONNECTION=sqlite
+DB_DATABASE=database.sqlite
+```
+
+Setup:
+```powershell
+cd backend
+php artisan migrate --force
+php artisan db:seed --force
+```
+
+Database file: `backend/database/database.sqlite`
+
+### Production (Render PostgreSQL)
+Render uses PostgreSQL (configured in `render.yaml`):
+- Database: `otuya-db` (PostgreSQL 18, free tier)
+- Expires: 90 days (upgrade to paid to keep permanently)
+- Connection: configured automatically via Render environment variables
+
+### Local-to-Production Database Sync
+Local (SQLite) and production (PostgreSQL) are **separate databases**. Data syncs via Laravel migrations and seeders:
+
+```powershell
+# Push local schema changes to production
+cd backend
+php artisan migrate --force   # runs on Render during deploy (Dockerfile CMD)
+
+# Seed sample data
+php artisan db:seed --force  # runs on Render during deploy
+```
+
+**Note:** Windows PHP does not support SNI, which Render PostgreSQL requires. Therefore, local development cannot connect directly to the Render PostgreSQL database. Use SQLite locally and let Render handle PostgreSQL in production.
+
+### Accessing Databases
+
+#### Local (SQLite)
+- **Laravel Tinker:** `php artisan tinker` then `App\Models\Service::all();`
+- **DB Browser for SQLite:** https://sqlitebrowser.org/dl/ (open database.sqlite)
+- **VS Code:** Install "SQLite Viewer" extension
+
+#### Production (PostgreSQL on Render)
+- **DBeaver:** https://dbeaver.io/download/ (free) -> New Connection -> PostgreSQL
+  - Host: dpg-dbb3d2m7bikc73bjfh4g-a.oregon-postgres.render.com
+  - Port: 5432, Database: otuya, Username: otuya
+  - Password: (from Render dashboard -> otuya-db -> Show)
+  - SSL: Required
+- **pgAdmin:** https://www.pgadmin.org/download/pgadmin-4-windows/
+
+### Database Tables
+Created by Laravel migrations and seeders:
+- `users` - Admin accounts
+- `services` - Service offerings
+- `projects` - Portfolio projects
+- `posts` - Blog posts
+- `categories` - Blog categories
+- `team_members` - Team profiles
+- `testimonials` - Client testimonials
+- `contact_messages` - Contact form submissions
+- `settings` - Site settings (company name, contact info, social links)
+- `personal_access_tokens` - Sanctum auth tokens
+
+### Contact Form Data Flow
+1. Customer submits contact form on live site
+2. Frontend calls `POST /api/contact` -> Render Laravel API
+3. API stores message in `contact_messages` table (PostgreSQL)
+4. API emails notification via Gmail SMTP
+5. If API is down (cold start): frontend auto-fallbacks to FormSubmit (email only, no DB row)
+
+### Admin Data Management
+- Admin panel: http://otuyaglobal.duckdns.org/admin/login
+- Login: admin@otuyaelite.com / password
+- Admin can: create/edit/delete services, projects, posts, categories, team members, testimonials, settings
+- All changes saved to Render PostgreSQL database
