@@ -56,36 +56,48 @@ const MOCK_PROCESS_STEPS: ProcessStep[] = [
             <a [routerLink]="['/contact']" [queryParams]="{ type: 'apps' }" class="btn btn--outline btn--sm hero__order-btn">Mobile App</a>
             <a [routerLink]="['/contact']" [queryParams]="{ type: 'websites' }" class="btn btn--outline btn--sm hero__order-btn">Web Platform</a>
             <a [routerLink]="['/contact']" [queryParams]="{ type: 'erp' }" class="btn btn--outline btn--sm hero__order-btn">ERP Implementation</a>
-          </div>
-        </div>
-
         <div class="stats-bar" appReveal="blur" [appRevealDelay]="200">
-          <div class="stat float-smooth" style="animation-delay: 0ms;">
-            <strong [appCounter]="stats()?.services_offered ?? 0" [duration]="1800" [delay]="100" [easing]="'easeOut'">{{ stats()?.services_offered ?? '--' }}</strong>
-            <span>Service lines</span>
+          <div class="stat-card-premium stat float-smooth" style="animation-delay: 0ms;">
+            <div class="stat-number-premium">{{ stats()?.projects_completed ?? 14 }}</div>
+            <div class="stat-label-premium">Projects delivered</div>
           </div>
-          <div class="stat float-smooth" style="animation-delay: 200ms;">
-            <strong [appCounter]="stats()?.team_members ?? 0" [duration]="1800" [delay]="250" [easing]="'easeOut'">{{ stats()?.team_members ?? '--' }}</strong>
-            <span>Team members</span>
+          <div class="stat-card-premium stat float-smooth" style="animation-delay: 200ms;">
+            <div class="stat-number-premium">{{ stats()?.team_members ?? 13 }}</div>
+            <div class="stat-label-premium">Team members</div>
           </div>
-          <div class="stat float-smooth" style="animation-delay: 400ms;">
-            <strong>4</strong>
-            <span>Business units</span>
+          <div class="stat-card-premium stat float-smooth" style="animation-delay: 400ms;">
+            <div class="stat-number-premium">{{ stats()?.articles_published ?? 9 }}</div>
+            <div class="stat-label-premium">Articles published</div>
           </div>
         </div>
       </div>
-    </section>
 
     <section class="section fade-in">
       <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">What we do</span>
+      </div>
+    <section class="section fade-in">
+      <div class="container">
+      <div class="container">
+    <section class="section fade-in">
+      <div class="container">
+      <div class="container">
+      <div class="container">
+    <section class="section fade-in">
+      <div class="container">
+        <div class="section-head premium-head">
+          <span class="eyebrow premium-head__eyebrow">What we do</span>
+          <div class="premium-head__divider"></div>
           <h2>Core Solutions</h2>
           <p>Five service lines — from strategy to operations. Each is delivered by senior teams who stay accountable to the outcome.</p>
         </div>
 
         <div class="services-grid">
-          <article class="service-card" *ngFor="let service of services().slice(0, 3); let i = index" appReveal="up" [appRevealDelay]="i * 70">
+          <article class="service-card premium-card" *ngFor="let service of services().slice(0, 3); let i = index" appReveal="up" [appRevealDelay]="i * 70">
+            <div class="feature-icon" appReveal="up" [appRevealDelay]="i * 70 + 20">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+              </svg>
+            </div>
             <h3><a [routerLink]="['/services/' + service.slug]">{{ service.title }}</a></h3>
             <p>{{ service.summary }}</p>
           </article>
@@ -224,11 +236,15 @@ const MOCK_PROCESS_STEPS: ProcessStep[] = [
       </div>
     </section>
 
-    <section class="cta fade-in">
+    <section class="cta-premium light fade-in">
       <div class="container cta__inner">
-        <h2>Have a problem worth solving?</h2>
-        <p>Get in touch and we'll get back to you with a proposal.</p>
-        <a routerLink="/contact" class="btn btn--primary">Contact Us</a>
+        <div class="premium-head">
+          <span class="premium-head__eyebrow">Ready to build?</span>
+          <div class="premium-head__divider"></div>
+          <h2>Have a problem worth solving?</h2>
+          <p>Get in touch and we'll get back to you with a proposal.</p>
+        </div>
+        <a routerLink="/contact" class="btn-premium btn-premium-lg">Contact Us</a>
       </div>
     </section>
   `,
@@ -291,3 +307,4 @@ export class HomeComponent {
 
   readonly featuredPosts = computed(() => this.postsFromApi().data.slice(0, 3));
 }
+

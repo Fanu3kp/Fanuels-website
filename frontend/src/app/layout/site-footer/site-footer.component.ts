@@ -60,9 +60,9 @@ import { CookieConsentService } from '../../shared/cookie-consent/cookie-consent
              <ul class="footer__contact">
                <li *ngIf="settings()?.['contact_address']">{{ settings()?.['contact_address'] }}</li>
                <li *ngIf="settings()?.['contact_phone']">{{ settings()?.['contact_phone'] }}</li>
-               <li *ngIf="settings()?.['contact_email']">
-                 <a [href]="'mailto:' + settings()?.['contact_email']">{{ settings()?.['contact_email'] }}</a>
-               </li>
+                <li *ngIf="false && settings()?.['contact_email']">
+                  <a [href]="'mailto:' + settings()?.['contact_email']">{{ settings()?.['contact_email'] }}</a>
+                </li>
                <li *ngIf="settings()?.['office_hours']" class="footer__hours">{{ settings()?.['office_hours'] }}</li>
              </ul>
            </div>

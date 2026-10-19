@@ -251,3 +251,87 @@ All return HTTP 200 with JSON.
 ## Notes
 - Apache modules: mod_rewrite, mod_proxy, mod_proxy_http, mod_deflate, mod_expires, mod_headers (all enabled)
 - Contact form stores in DB + emails via SMTP; falls back to FormSubmit if API unavailable
+---
+
+## Hosting & Deployment
+
+### Local Development (XAMPP)
+
+#### Prerequisites
+- XAMPP (Apache + MySQL) installed
+- PHP 8.2+, Node.js, npm, Composer, Git
+
+#### Backend (Laravel API)
+```powershell
+cd backend
+composer install
+cp .env.example .env
+php artisan key:generate
+php artisan migrate --force
+php artisan db:seed --force
+php artisan serve --host=0.0.0.0 --port=8001
+```
+API: http://127.0.0.1:8001/api
+
+#### Frontend (Angular)
+```powershell
+cd frontend
+npm install
+npm run build        # production build -> dist/frontend/browser/
+npm start            # dev server -> http://localhost:4200
+```
+
+#### Apache (serves built SPA + proxies /api)
+```powershell
+& "C:\xampp\apache\bin\httpd.exe"
+```
+Config: C:\xampp\apache\conf\extra\httpd-vhosts.conf
+- DocumentRoot: frontend/dist/frontend/browser/
+- ProxyPass /api -> http://127.0.0.1:8001/api
+- SPA routing via mod_rewrite + 404.html fallback
+
+#### Access URLs (Local)
+| URL | Purpose |
+|-----|---------|
+| http://localhost/ | Main site |
+| http://localhost/admin/login | Admin panel |
+| http://localhost/api/settings | API (proxied) |
+| http://127.0.0.1:8001/api | API (direct) |
+
+Admin: admin@otuyaelite.com / password
+
+---
+
+### Production Deployment
+
+#### Frontend (GitHub Pages)
+1. Build: `cd frontend && npm run build` (postbuild auto-creates 404.html)
+2. Publish dist/ to gh-pages branch using git worktree (see OPS.md for full commands)
+3. Verify: http://otuyaglobal.duckdns.org/ returns 200
+
+#### Backend (Render - Free Tier)
+1. Push code to GitHub (main branch)
+2. Go to https://render.com -> New + -> Blueprint
+3. Connect Fanu3kp/Fanuels-website repo
+4. Render reads render.yaml -> creates otuya-api (Docker) + otuya-db (PostgreSQL)
+5. Click "Deploy Blueprint" -> wait 2-5 min
+6. Set MAIL_PASSWORD in Environment tab (Gmail app password)
+7. Verify: https://otuya-api.onrender.com/api/settings returns JSON
+
+#### Database Access
+- **Local (MySQL 3307):** http://127.0.0.1/phpmyadmin or mysql CLI
+- **Production (PostgreSQL):** DBeaver/pgAdmin with credentials from Render dashboard
+
+#### Environment Variables (Production - Render)
+Configured via render.yaml: APP_ENV=production, DB_CONNECTION=pgsql, CORS_ALLOWED_ORIGINS, MAIL_*, etc.
+
+#### Contact Form Behavior
+- API up: stores in DB + emails via Gmail SMTP
+- API down (cold start): auto-fallback to FormSubmit (email only)
+- FormSubmit requires one-time confirmation click in receiving mailbox
+
+#### Troubleshooting
+- "File not found" on GitHub Pages: rebuild (postbuild creates 404.html), redeploy
+- Admin login fails on live site: Render API not deployed yet
+- Cold starts: Render free tier sleeps after 15 min inactivity (~30s wake time)
+- phpMyAdmin not loading: Apache vhosts intercepts; use http://127.0.0.1/phpmyadmin

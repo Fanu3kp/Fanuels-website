@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, computed } from '@angular/core';
 import { NgFor, NgIf } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { toSignal } from '@angular/core/rxjs-interop';
@@ -138,21 +138,9 @@ const MOCK_STATS: HomeStats = {
 
     <section class="section">
       <div class="container about__stats">
-        <div class="stat-card">
-          <strong class="stat-card__num">{{ stats()?.team_members ?? '--' }}</strong>
-          <span>Team members</span>
-        </div>
-        <div class="stat-card">
-          <strong class="stat-card__num">{{ stats()?.projects_completed ?? '--' }}</strong>
-          <span>Projects delivered</span>
-        </div>
-        <div class="stat-card">
-          <strong class="stat-card__num">{{ stats()?.services_offered ?? '--' }}</strong>
-          <span>Service lines</span>
-        </div>
-        <div class="stat-card">
-          <strong class="stat-card__num">{{ stats()?.articles_published ?? '--' }}</strong>
-          <span>Articles published</span>
+        <div class="stat-card-premium" *ngFor="let s of statsItems()">
+          <div class="stat-number-premium">{{ s.value }}</div>
+          <div class="stat-label-premium">{{ s.label }}</div>
         </div>
       </div>
     </section>
@@ -191,8 +179,9 @@ const MOCK_STATS: HomeStats = {
 
     <section class="section section--muted">
       <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">Our compass</span>
+        <div class="section-head premium-head">
+          <span class="eyebrow premium-head__eyebrow">Our compass</span>
+          <div class="premium-head__divider"></div>
           <h2>Mission, Vision & Goals</h2>
           <p>The north star that guides every decision, every project, and every partnership.</p>
         </div>
@@ -358,6 +347,13 @@ export class AboutComponent {
   readonly stats = toSignal(this.api.stats().pipe(catchError(() => of(null))), {
     initialValue: null,
   });
+
+  readonly statsItems = computed(() => [
+    { value: this.stats()?.team_members ?? '--', label: 'Team members' },
+    { value: this.stats()?.projects_completed ?? '--', label: 'Projects delivered' },
+    { value: this.stats()?.services_offered ?? '--', label: 'Service lines' },
+    { value: this.stats()?.articles_published ?? '--', label: 'Articles published' },
+  ]);
 
   readonly team = toSignal(
     this.api.team().pipe(catchError(() => of(MOCK_TEAM))),

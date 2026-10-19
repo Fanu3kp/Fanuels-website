@@ -14,6 +14,7 @@ class ProjectSeeder extends Seeder
                 'title' => 'Otuya POS rollout for Kilimanjaro Retail Group',
                 'client' => 'Kilimanjaro Retail Group',
                 'summary' => 'Deployed and integrated Otuya POS across 42 stores, tying in central inventory, loyalty and real-time analytics.',
+                'slug' => 'otuya-pos-rollout-for-kilimanjaro-retail-group',
                 'body' => "Kilimanjaro Retail Group runs 42 outlets across Nairobi and Mombasa. Their previous point-of-sale system lost sales every time the network dropped and gave them no visibility into which items were moving where.\n\nWe deployed Otuya POS on existing hardware, added offline-first resilience with background sync, and wired it to a central inventory service. The loyalty engine now drives repeat visits, and managers get a real-time dashboard per store.\n\nResult: 14 percent lift in same-store sales in the first quarter, and a 90 percent drop in end-of-day reconciliation time.\n\nTechnologies: Otuya POS, Node.js edge sync, PostgreSQL, Stripe Terminal.",
                 'technologies' => ['Otuya POS', 'Node.js', 'PostgreSQL', 'Stripe Terminal'],
                 'cover_image' => '/images/projects/retail-analytics.svg',

@@ -256,3 +256,159 @@
 .footer-business-link:hover .external-icon {
   opacity: 1;
 }
+
+/* ===== PREMIUM FOOTER ENHANCEMENTS ===== */
+.footer {
+  background: linear-gradient(180deg, var(--brand-ink) 0%, var(--brand-navy) 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 96px 0 40px;
+}
+
+.footer__grid {
+  grid-template-columns: 1fr 1fr 1fr 1fr 1.2fr 1.2fr;
+  gap: 48px;
+}
+
+@media (min-width: 769px) {
+  .footer__grid {
+    grid-template-columns: 1.5fr 1fr 1fr 1fr 1.2fr 1.2fr;
+    gap: 48px;
+  }
+}
+
+.footer h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.footer h4::after {
+  height: 3px;
+  width: 32px;
+  bottom: -8px;
+}
+
+.footer ul {
+  gap: 16px;
+  font-size: 0.95rem;
+}
+
+.footer a {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.95rem;
+}
+
+.footer a:hover {
+  color: var(--brand-pink);
+  padding-left: 8px;
+}
+
+.footer__blurb {
+  font-size: 0.95rem;
+  max-width: 280px;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.footer__brand {
+  color: var(--white);
+  font-size: 1.25rem;
+  margin-bottom: 24px;
+}
+
+.footer__mark {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, var(--brand-pink), var(--brand-teal));
+  box-shadow: var(--shadow-glow-pink);
+}
+
+.footer__contact li {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.footer__hours {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.social-pill {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--white);
+}
+
+.social-pill:hover {
+  background: var(--brand-pink);
+  border-color: var(--brand-pink);
+  color: var(--white);
+  box-shadow: var(--shadow-glow-pink);
+}
+
+.social-pill img {
+  filter: none;
+}
+
+/* Brand-specific social hover colors */
+.social-pill[aria-label="TikTok"]:hover {
+  background: #000;
+  border-color: #000;
+  color: #fff;
+  box-shadow: 0 0 20px rgba(255, 0, 80, 0.3), 0 0 20px rgba(0, 242, 234, 0.3);
+}
+
+.social-pill[aria-label="YouTube"]:hover {
+  background: #FF0000;
+  border-color: #FF0000;
+  color: #fff;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+}
+
+.social-pill[aria-label="LinkedIn"]:hover {
+  background: #0A66C2;
+  border-color: #0A66C2;
+  color: #fff;
+  box-shadow: 0 0 20px rgba(10, 102, 194, 0.3);
+}
+
+.social-pill[aria-label="Facebook"]:hover {
+  background: #1877F2;
+  border-color: #1877F2;
+  color: #fff;
+  box-shadow: 0 0 20px rgba(24, 119, 242, 0.3);
+}
+
+.social-pill[aria-label="Instagram"]:hover {
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  border-color: transparent;
+  color: #fff;
+  box-shadow: 0 0 20px rgba(225, 48, 108, 0.3);
+}
+
+.footer__bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 64px;
+  padding-top: 32px;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.footer__bottom a {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.footer__bottom a:hover {
+  color: var(--brand-pink);
+}
+
+@media (max-width: 768px) {
+  .footer__grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .footer {
+    padding: 64px 0 32px;
+  }
+}

@@ -295,7 +295,7 @@ const BUDGET_OPTIONS = [
                 <span class="detail__label">Address</span>
                 <span class="detail__value">{{ settings()?.['contact_address'] }}</span>
               </div>
-              <div class="detail__item" *ngIf="settings()?.['contact_email']">
+              <div class="detail__item" *ngIf="false">
                 <span class="detail__label">Email</span>
                 <span class="detail__value"><a [href]="'mailto:' + settings()?.['contact_email']">{{ settings()?.['contact_email'] }}</a></span>
               </div>
@@ -485,7 +485,7 @@ export class ContactComponent {
           this.fieldErrors = error.errors ?? {};
           if (error.status === 0) {
             // API unreachable — deliver the enquiry to the mailbox directly.
-            const recipient = this.settings()?.['contact_email'] || 'fanuelotuya2@gmail.com';
+            const recipient = this.settings()?.['contact_email'] || 'info@otuyaglobal.com';
             this.sending = true;
             this.api
               .sendContactByEmail(payload, recipient)

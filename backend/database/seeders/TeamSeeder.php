@@ -9,7 +9,7 @@ class TeamSeeder extends Seeder
 {
     public function run(): void
     {
-         = [
+$teamMembers = [
             ['name' => 'Fanuel Otuya', 'role' => 'Founder & Chief Executive Officer', 'bio' => 'Founded Otuya Global after fifteen years leading engineering organisations across Southern Africa. Sets the direction and spends most of his time with clients understanding what actually needs to change.', 'image' => '/images/team/fanuel-otuya.svg', 'email' => 'fanuel@otuyaelite.com', 'linkedin_url' => 'https://www.linkedin.com/in/otuyaelite', 'sort_order' => 1],
             ['name' => 'Loyce Wanjiru', 'role' => 'Project Manager', 'bio' => 'Monitors all projects in this organisation hence ensure every task is completed on time', 'image' => '/images/team/naledi-khumalo.svg', 'sort_order' => 2],
             ['name' => 'John Weche', 'role' => 'Finance Officer', 'bio' => 'He is a System software developer', 'image' => '/images/team/john-doe.svg', 'sort_order' => 3],
@@ -23,11 +23,5 @@ class TeamSeeder extends Seeder
             ['name' => 'Priya Sharma', 'role' => 'Head of Product Strategy', 'bio' => 'Priya guides product strategy and client success at Otuya Global. With a background in both business and technology, she bridges the gap between client needs and technical possibilities. She has helped launch 30+ digital products across fintech, agritech, and healthtech sectors in emerging markets.', 'image' => '/images/team/fatima-ali.svg', 'sort_order' => 11],
         ];
 
-        foreach ( as ) {
-            TeamMember::updateOrCreate(
-                ['name' => ['name']],
-                
-            );
-        }
-    }
-}
+        foreach (\ as \) {\n            TeamMember::updateOrCreate(['name' => \['name']], \);\n        }\n    }\n}\n
+

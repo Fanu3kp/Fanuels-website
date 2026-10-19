@@ -124,10 +124,10 @@ export interface Paginated<T> {
 }
 
 export interface HomeStats {
-  projects_completed: number;
+  projects_completed: number; // 14
   services_offered: number;
-  team_members: number;
-  articles_published: number;
+  team_members: number; // 13
+  articles_published: number; // 9
 }
 
 export type SiteSettings = Record<string, string | null>;

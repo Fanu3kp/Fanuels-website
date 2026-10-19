@@ -56,10 +56,9 @@ interface NavItem {
               text-anchor="middle"
               dominant-baseline="central"
               font-family="var(--font-heading), Georgia, serif"
-                  font-size="27"
-              font-weight="700"
-              fill="url(#ogMark)"
-              letter-spacing="-1"
+              font-size="30"
+              font-weight="800"
+              letter-spacing="-0.5"
             >
               OG
             </text>
