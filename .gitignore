@@ -31,3 +31,7 @@ Thumbs.db
 reset-password.sql
 Continue
 temp_styles.css
+
+# SSL certificates
+*.pem
+*.key
