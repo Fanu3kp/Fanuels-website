@@ -417,3 +417,15 @@ Created by Laravel migrations and seeders:
 - Login: admin@otuyaelite.com / password
 - Admin can: create/edit/delete services, projects, posts, categories, team members, testimonials, settings
 - All changes saved to Render PostgreSQL database
+
+### DBeaver Connection Steps (Windows)
+1. Download DBeaver: https://dbeaver.io/download/
+2. New Connection -> PostgreSQL -> "PostgreSQL standard driver"
+3. Connect by: URL
+4. URL: `jdbc:postgresql://dpg-dbb3d2m7bikc73bjfh4g-a.oregon-postgres.render.com:5432/otuya?sslmode=require`
+5. Username: `otuya` / Password: (from Render dashboard)
+6. SSL tab -> SSL mode: `require`, SSL Factory: `org.postgresql.ssl.NonValidatingFactory`
+7. Test Connection -> Connected -> Finish
+8. Browse: Schemas -> public -> Tables -> right-click -> View Data
+
+Note: Use the full JDBC URL because the hostname contains special characters that DBeaver's URL parser doesn't handle correctly when entered as a plain host.
