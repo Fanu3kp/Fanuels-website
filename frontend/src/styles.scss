@@ -543,19 +543,15 @@ img {
 }
 
 img[loading=lazy] {
-  content-visibility: auto;
+  opacity: 1;
+  filter: none;
+  transform: none;
 }
 
 @media (max-width: 768px) {
   img {
     max-height: 60vh;
   }
-}
-
-img[loading="lazy"] {
-  opacity: 1;
-  filter: none;
-  transform: none;
 }
 
 img[loading="lazy"].loaded {
