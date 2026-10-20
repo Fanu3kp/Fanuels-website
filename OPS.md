@@ -72,14 +72,11 @@ site has no backend until the Render service is deployed (below).
 
 ## Contact form behaviour
 
-1. **API up:** `POST /api/contact` → message stored in `contact_messages`
-   (or the Render PostgreSQL table) **and** emailed via Gmail SMTP to the
-   `contact_email` setting. Mail failures are caught and logged — the
-   submission still returns 201 with a `REQ-YYMMDR-XXXXX` reference.
-2. **API down:** the frontend silently falls back to FormSubmit — a
-   form-encoded POST to `https://formsubmit.co/ajax/{contact_email}`.
-   Delivery is **email only, no database row**. The user never sees a
-   button; the fallback is automatic.
+1. **Primary (live site):** Frontend submits contact forms directly to **FormSubmit** (`https://formsubmit.co/ajax/{contact_email}`) for email delivery — avoids Render cold-start timeout. **One-time confirmation required:** check the `contact_email` setting inbox (fanuelotuya2@gmail.com) for a FormSubmit activation email and click the link. Until confirmed, submissions bounce.
+
+2. **Fallback (API up):** `POST /api/contact` → message stored in `contact_messages` (or Render PostgreSQL table) **and** emailed via Gmail SMTP to the `contact_email` setting. Mail failures are caught and logged — submission still returns 201 with a `REQ-YYMMDR-XXXXX` reference.
+
+3. **Fallback (API down):** Frontend silently falls back to FormSubmit — email only, no database row.
 
 ## Deploying the site (GitHub Pages)
 

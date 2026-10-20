@@ -39,6 +39,16 @@ MAIL_FROM_NAME=Otuya Global
 MAIL_ENCRYPTION=tls
 ```
 
+> **Important:** `MAIL_PASSWORD` must be a Gmail **app password** (Google Account → Security → App passwords), not your normal account password. App passwords are account-specific — generate it while signed into the exact account listed in `MAIL_USERNAME`.
+
+## Contact Form — Email Delivery (Two Paths)
+
+**Primary path (live site):** The frontend submits contact forms directly to **FormSubmit** (`https://formsubmit.co/ajax/{contact_email}`), bypassing the API entirely to avoid Render cold-start timeouts. FormSubmit requires a one-time confirmation: check the `contact_email` inbox and click the activation link before submissions are delivered.
+
+**Fallback path:** If FormSubmit is unreachable, the frontend falls back to the Laravel API (`POST /api/contact`), which stores the message in `contact_messages` and attempts Gmail SMTP delivery. Mail failures are caught and logged — the request still returns 201 with a `REQ-YYMMDR-XXXXX` reference.
+
+**Email hidden from UI:** The contact email address is not displayed on any public page (`*ngIf="false"` on contact sidebar and footer).
+
 Seeded admin: `admin@otuyaelite.com` / `password` — change it.
 
 ## Contact submissions

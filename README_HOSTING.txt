@@ -91,8 +91,9 @@ All should return HTTP 200 with JSON data.
 
 ## Notes
 - Frontend build creates 404.html (copy of index.html) for GitHub Pages SPA support
-- Database uses SQLite locally (see ackend/.env) - migrated and seeded
-- Contact form falls back to FormSubmit if API is unreachable
+- Database uses SQLite locally (see backend/.env) - migrated and seeded
+- Contact form submits directly to FormSubmit (email delivery) to avoid Render API cold-start timeout. FormSubmit requires a one-time confirmation: check fanuelotuya2@gmail.com inbox and click the activation link.
+- Contact form falls back to Laravel API (database storage) if FormSubmit is unreachable
 - Apache modules required: mod_rewrite, mod_proxy, mod_proxy_http, mod_deflate, mod_expires, mod_headers
 
 ## Troubleshooting
