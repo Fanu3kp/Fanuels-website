@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1792530619974,
+  "timestamp": 1792531730521,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -57,7 +57,7 @@
         "/index.html",
         "/main-EROC5IX2.js",
         "/polyfills-FFHMD2TL.js",
-        "/styles-ZJ5TUY6W.css",
+        "/styles-HKOZEX2C.css",
         "/sw.js"
       ],
       "patterns": []
@@ -317,10 +317,10 @@
     "/images/team/riaan-van-wyk.svg": "1b34e556dd4dc864817cab2ac150b5e50e22953f",
     "/images/team/sipho-ndlovu.svg": "518e67ab10788e7738412fa7258939d02a156c2d",
     "/images/team/thabo-mokoena.svg": "8f23b74da4aa2ebf34dc0a71fa8cb19b75d317e6",
-    "/index.html": "577da14ce953829626c38709e4924630cf507ba1",
+    "/index.html": "df46f28b844685f13ebca2bfcb885a9eb75e688a",
     "/main-EROC5IX2.js": "f2f1f34259a014d5dc4fc7f6ed7882b72a8eb41e",
     "/polyfills-FFHMD2TL.js": "f49b49a155bc7d192db62a4c15d0a612b460a667",
-    "/styles-ZJ5TUY6W.css": "6686e3a8d6ef646e1a914ff8f1efc385280d4a20",
+    "/styles-HKOZEX2C.css": "a3fd9c536f0f49bd05ee0c64d04c2f1c5cac9740",
     "/sw.js": "af2fdf95ce82019a13590804ceb14203d57977d3"
   },
   "navigationUrls": [
