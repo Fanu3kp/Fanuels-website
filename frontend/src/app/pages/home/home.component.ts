@@ -182,31 +182,6 @@ const MOCK_PROCESS_STEPS: ProcessStep[] = [
       </div>
     </section>
 
-    <section class="section fade-in" *ngIf="featuredProjects().length">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">Projects</span>
-          <h2>Featured work</h2>
-          <p>Real problems we solved for real businesses — technology solutions that deliver results.</p>
-        </div>
-
-        <div class="projects-grid">
-          <a
-            class="project-card"
-            *ngFor="let project of featuredProjects(); let i = index"
-            [routerLink]="['/projects/' + project.slug]"
-            appReveal="up"
-            [appRevealDelay]="i * 80"
-          >
-            <span class="project-card__badge" *ngIf="project.is_featured">Featured</span>
-            <h3>{{ project.title }}</h3>
-            <p>{{ project.summary }}</p>
-            <span class="project-card__more">Learn more →</span>
-          </a>
-        </div>
-      </div>
-    </section>
-
     <section class="section section--muted fade-in" *ngIf="featuredPosts().length">
       <div class="container">
         <div class="section-head">
