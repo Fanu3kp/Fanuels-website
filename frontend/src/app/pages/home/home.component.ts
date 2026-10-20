@@ -36,26 +36,26 @@ const MOCK_PROCESS_STEPS: ProcessStep[] = [
       <div class="hero__orb hero__orb--1"></div>
       <div class="hero__orb hero__orb--2"></div>
       <div class="hero__grid">
-        <div class="hero__copy" appReveal="up">
-          <span class="eyebrow eyebrow--light" appReveal="up" [appRevealDelay]="60">Technology &amp; Business Group</span>
-          <h1 appReveal="mask" [appRevealDelay]="120">We build POS, apps, websites, ERP.<br/><span class="hero__accent">Technology solutions for modern businesses.</span></h1>
-          <p class="hero__lead" appReveal="up" [appRevealDelay]="200">
+        <div class="hero__copy">
+          <span class="eyebrow eyebrow--light">Technology &amp; Business Group</span>
+          <h1>We build POS, apps, websites, ERP.<br/><span class="hero__accent">Technology solutions for modern businesses.</span></h1>
+          <p class="hero__lead">
             Otuya Global delivers custom software — POS systems, mobile apps, web platforms, ERP implementations.
             Senior engineering teams, delivery-focused, accountable to outcomes.
           </p>
-          <div class="hero__actions" appReveal="up" [appRevealDelay]="300">
+          <div class="hero__actions">
             <a routerLink="/contact" class="btn btn--primary hero__cta">Contact Us</a>
             <a routerLink="/services" class="btn btn--ghost hero__ghost">View services</a>
           </div>
 
-          <div class="hero__orders" appReveal="up" [appRevealDelay]="400">
+          <div class="hero__orders">
             <a [routerLink]="['/contact']" [queryParams]="{ type: 'pos' }" class="btn btn--outline btn--sm hero__order-btn">POS System</a>
             <a [routerLink]="['/contact']" [queryParams]="{ type: 'apps' }" class="btn btn--outline btn--sm hero__order-btn">Mobile App</a>
             <a [routerLink]="['/contact']" [queryParams]="{ type: 'websites' }" class="btn btn--outline btn--sm hero__order-btn">Web Platform</a>
             <a [routerLink]="['/contact']" [queryParams]="{ type: 'erp' }" class="btn btn--outline btn--sm hero__order-btn">ERP Implementation</a>
           </div>
 
-          <div class="hero__stats" appReveal="blur" [appRevealDelay]="500">
+          <div class="hero__stats">
             <div class="stats-bar">
               <div class="stat">
                 <div class="stat-number">16+</div>
@@ -73,7 +73,7 @@ const MOCK_PROCESS_STEPS: ProcessStep[] = [
           </div>
         </div>
 
-        <div class="hero__visual" appReveal="up" [appRevealDelay]="350">
+        <div class="hero__visual">
           <div class="hero__visual-frame">
             <img src="/images/real/team-meeting.jpg" alt="Modern development team collaborating" loading="eager" decoding="async" />
           </div>
@@ -90,8 +90,8 @@ const MOCK_PROCESS_STEPS: ProcessStep[] = [
         </div>
 
         <div class="services-grid">
-          <article class="service-card" *ngFor="let service of services().slice(0, 3); let i = index" appReveal="up" [appRevealDelay]="i * 70">
-            <div class="service-card__icon" appReveal="up" [appRevealDelay]="i * 70 + 20">
+          <article class="service-card" *ngFor="let service of services().slice(0, 3); let i = index">
+            <div class="service-card__icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
               </svg>
@@ -150,7 +150,7 @@ const MOCK_PROCESS_STEPS: ProcessStep[] = [
         </div>
 
         <ol class="process-grid">
-          <li class="process-step" *ngFor="let step of processSteps().slice(0, 3); let i = index" appReveal="up" [appRevealDelay]="i * 70">
+          <li class="process-step" *ngFor="let step of processSteps().slice(0, 3); let i = index">
             <div class="process-num">{{ step.step_number }}</div>
             <h3>{{ step.title }}</h3>
             <p>{{ step.summary }}</p>
@@ -171,7 +171,7 @@ const MOCK_PROCESS_STEPS: ProcessStep[] = [
         </div>
 
         <div class="testimonials-grid">
-          <blockquote class="testimonial" *ngFor="let item of testimonials(); let i = index" appReveal="up" [appRevealDelay]="i * 90">
+          <blockquote class="testimonial" *ngFor="let item of testimonials(); let i = index">
             <p>"{{ item.quote }}"</p>
             <footer>
               <strong>{{ item.author_name }}</strong>
@@ -195,10 +195,8 @@ const MOCK_PROCESS_STEPS: ProcessStep[] = [
             class="insight-card"
             *ngFor="let post of featuredPosts(); let i = index"
             [routerLink]="['/insights/' + post.slug]"
-            appReveal="up"
-            [appRevealDelay]="i * 80"
           >
-            <img *ngIf="post.image" [src]="post.image" [alt]="post.title" loading="lazy" decoding="async" />
+            <img *ngIf="post.image" [src]="post.image" [alt]="post.title" loading="eager" decoding="async" />
             <div class="insight-card__body">
               <h3>{{ post.title }}</h3>
               <p class="excerpt">{{ post.excerpt || (post.body.substring(0, 120) + '...') }}</p>
