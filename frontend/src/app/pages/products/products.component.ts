@@ -36,13 +36,13 @@ import { MOCK_PRODUCTS } from '../../core/mock-catalog';
         </div>
 
         <div class="grid grid--3" *ngIf="filteredProducts().length; else spinner">
-          <article class="card svc product-card" *ngFor="let product of filteredProducts(); let i = index" appReveal="up" [appRevealDelay]="i * 80">
+          <article class="card svc product-card" *ngFor="let product of filteredProducts(); let i = index">
             <div class="product-card__header">
               <span class="badge badge--featured" *ngIf="product.is_featured">Featured</span>
               <span class="product-card__category">{{ getCategory(product.title) }}</span>
             </div>
             <div class="product-card__media" *ngIf="true">
-              <img [src]="product.image || '/images/real/coding-session.svg'" [alt]="product.title" loading="lazy" decoding="async" />
+              <img [src]="product.image || '/images/real/coding-session.svg'" [alt]="product.title" loading="eager" decoding="async" />
             </div>
             <div class="product-card__body">
               <h3>{{ product.title }}</h3>

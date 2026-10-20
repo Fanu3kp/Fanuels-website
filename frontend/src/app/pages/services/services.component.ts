@@ -221,13 +221,13 @@ const MOCK_SERVICES: Service[] = [
         </div>
 
         <div class="grid grid--3" *ngIf="filteredServices().length; else spinner">
-          <article class="card svc product-card" *ngFor="let service of filteredServices(); let i = index" appReveal="up" [appRevealDelay]="i * 80">
+          <article class="card svc product-card" *ngFor="let service of filteredServices(); let i = index">
             <div class="product-card__header">
               <span class="badge badge--featured" *ngIf="service.is_featured">Featured</span>
               <span class="product-card__category">{{ getCategory(service.title) }}</span>
             </div>
             <div class="product-card__media" *ngIf="service.image">
-              <img [src]="service.image" [alt]="service.title" loading="lazy" decoding="async" />
+              <img [src]="service.image" [alt]="service.title" loading="eager" decoding="async" />
             </div>
             <div class="product-card__body">
               <h3>{{ service.title }}</h3>
