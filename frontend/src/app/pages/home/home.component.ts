@@ -118,21 +118,21 @@ const MOCK_PROCESS_STEPS: ProcessStep[] = [
         <div class="solutions-grid">
           <div class="solution-item">
             <div class="solution-item__media">
-              <img src="/images/solutions/erp-supply-chain.jpg?v=4" alt="ERP systems for supply chain management" loading="lazy" decoding="async" />
+              <img src="/images/solutions/erp-supply-chain.jpg?v=4" alt="ERP systems for supply chain management" decoding="async" />
             </div>
             <h3>ERP <br/>Implementation</h3>
             <p>End-to-end ERP deployments that minimize risk and accelerate time-to-value.</p>
           </div>
           <div class="solution-item">
             <div class="solution-item__media">
-              <img src="/images/solutions/pos-software.jpg?v=4" alt="Point of Sale (POS) software" loading="lazy" decoding="async" />
+              <img src="/images/solutions/pos-software.jpg?v=4" alt="Point of Sale (POS) software" decoding="async" />
             </div>
             <h3>POS <br/>Systems</h3>
             <p>Custom point-of-sale platforms built for retail, hospitality, and field operations.</p>
           </div>
           <div class="solution-item">
             <div class="solution-item__media">
-              <img src="/images/solutions/apps-photo.jpg?v=4" alt="Mobile app development" loading="lazy" decoding="async" />
+              <img src="/images/solutions/apps-photo.jpg?v=4" alt="Mobile app development" decoding="async" />
             </div>
             <h3>Mobile <br/>Applications</h3>
             <p>iOS and Android apps that deliver seamless experiences across devices.</p>
