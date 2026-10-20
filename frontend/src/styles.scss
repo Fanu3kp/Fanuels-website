@@ -183,13 +183,13 @@
   --transition-smooth: var(--motion-duration-slow) var(--motion-ease-smooth);
 
   /* Layout */
-  --container: 900px;
+  --container: 1280px;
   --container-narrow: 760px;
   --font-sans: 'Plus Jakarta Sans', 'Segoe UI', system-ui, -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
 
   /* Base font size scale */
-  --text-base: 1.25rem;      /* 20px */
+  --text-base: 1.375rem;      /* 20px */
   --text-lg: 1.375rem;       /* 22px */
   --text-xl: 1.75rem;        /* 28px */
   --text-2xl: 2.125rem;      /* 34px */
@@ -333,7 +333,8 @@ body {
   border-radius: var(--radius-xl);
   padding: 32px;
   position: relative;
-  overflow: hidden;
+  z-index: 10;
+  overflow: visible;
   transition: all var(--transition-smooth);
 }
 
@@ -369,7 +370,7 @@ body {
 }
 
 .section-head h2 {
-  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-size: clamp(2.2rem, 4.5vw, 3.2rem);
   font-weight: 800;
   letter-spacing: -0.02em;
   color: var(--navy-900);
@@ -378,7 +379,7 @@ body {
 
 .section-head p {
   color: var(--slate-600);
-  font-size: 1.05rem;
+  font-size: 1.25rem;
   line-height: 1.7;
   max-width: 640px;
   margin: 0 auto;
@@ -552,14 +553,15 @@ img[loading=lazy] {
 }
 
 img[loading="lazy"] {
-  filter: blur(8px);
-  transform: scale(1.01);
+  opacity: 1;
+  filter: none;
+  transform: none;
 }
 
 img[loading="lazy"].loaded {
   opacity: 1;
-  filter: blur(0);
-  transform: scale(1);
+  filter: none;
+  transform: none;
 }
 
 .container {
@@ -568,7 +570,7 @@ img[loading="lazy"].loaded {
   margin: 0 auto;
   padding: 0 40px;
   min-width: 0;
-  overflow-x: clip;
+  overflow-x: visible;
 }
 
 .section {
@@ -577,6 +579,8 @@ img[loading="lazy"].loaded {
 }
 .section--muted { background: var(--gold-200); }
 .section--dark { background: var(--navy-900); color: var(--slate-200); }
+.section--dark .section-head h2 { color: var(--white); }
+.section--dark .section-head p { color: #cbd5e1; }
 .section--dark h2, .section--dark h3 { color: var(--white); }
 
 .section-head {
@@ -1390,13 +1394,13 @@ textarea { resize: vertical; min-height: 130px; }
   inset: 0;
   background-size: cover;
   background-position: center;
-  z-index: 0;
+  z-index: -1;
   animation: parallax-slow 20s ease-in-out infinite alternate;
 }
 
 .parallax-fg {
   position: relative;
-  z-index: 1;
+  z-index: 10;
 }
 
 .decorative-orb {
@@ -1595,15 +1599,15 @@ img {
 }
 
 img[loading="lazy"] {
-  filter: blur(6px);
-  transform: scale(1.01);
   opacity: 1;
+  filter: none;
+  transform: none;
 }
 
 img[loading="lazy"].loaded {
   opacity: 1;
-  filter: blur(0);
-  transform: scale(1);
+  filter: none;
+  transform: none;
 }
 
 .image-wrap {
@@ -1639,7 +1643,8 @@ img[loading="lazy"].loaded {
   border-radius: var(--radius-xl);
   padding: 32px;
   position: relative;
-  overflow: hidden;
+  z-index: 10;
+  overflow: visible;
   transition: all var(--transition-smooth);
   box-shadow: var(--shadow-sm);
 }
@@ -1676,7 +1681,7 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
 }
 
-h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); margin-bottom: 1rem; }
+h2 { font-size: clamp(2.2rem, 4.5vw, 3.2rem); margin-bottom: 1rem; }
 h3 { font-size: clamp(1.4rem, 3vw, 1.8rem); margin-bottom: 0.75rem; }
 h4 { font-size: clamp(1.2rem, 2.5vw, 1.4rem); margin-bottom: 0.5rem; }
 
@@ -1687,7 +1692,7 @@ h4 { font-size: clamp(1.2rem, 2.5vw, 1.4rem); margin-bottom: 0.5rem; }
 
 .section-head p {
   color: var(--slate-600);
-  font-size: 1.05rem;
+  font-size: 1.25rem;
   line-height: 1.7;
   max-width: 640px;
   margin: 0 auto;
@@ -1871,16 +1876,20 @@ p {
 }
 
 .hero__grid {
-  text-align: center;
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+  gap: 48px;
+  align-items: center;
+  text-align: left;
 }
 
-.hero .eyebrow,
-.hero h1,
-.hero__lead,
-.hero__actions {
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
+.hero.parallax-container .eyebrow,
+.hero.parallax-container h1,
+.hero.parallax-container .hero__lead,
+.hero.parallax-container .hero__actions {
+  text-align: left;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .footer__bottom {
@@ -2274,3 +2283,18 @@ p {
 }
 .skip-link:focus { top: 20px; }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
