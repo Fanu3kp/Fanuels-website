@@ -56,7 +56,7 @@ interface NavItem {
               text-anchor="middle"
               dominant-baseline="central"
               font-family="var(--font-heading), Georgia, serif"
-              font-size="30"
+              font-size="34"
               font-weight="800"
               letter-spacing="-0.5"
             >

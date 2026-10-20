@@ -349,10 +349,10 @@ export class AboutComponent {
   });
 
   readonly statsItems = computed(() => [
-    { value: this.stats()?.team_members ?? '--', label: 'Team members' },
-    { value: this.stats()?.projects_completed ?? '--', label: 'Projects delivered' },
+    { value: this.stats()?.team_members || 14, label: 'Team members' },
+    { value: 16, label: 'Projects delivered' },
     { value: this.stats()?.services_offered ?? '--', label: 'Service lines' },
-    { value: this.stats()?.articles_published ?? '--', label: 'Articles published' },
+    { value: 13, label: 'Articles published' },
   ]);
 
   readonly team = toSignal(
@@ -448,3 +448,5 @@ export class AboutComponent {
     }
   }
 }
+
+

@@ -14,7 +14,7 @@ export const MOCK_PRODUCTS: Service[] = [
     summary: 'Comprehensive point-of-sale and retail management system for modern retail operations.',
     body: '',
     icon: 'pos',
-    image: '/images/solutions/pos-software.jpg',
+    image: '/images/real/custom-img.jpg',
     highlights: [
       'Multi-store POS Management',
       'Real-time Inventory Tracking & Management',
@@ -34,7 +34,7 @@ export const MOCK_PRODUCTS: Service[] = [
     summary: 'A robust savings, credit, and pension management solution for financial institutions.',
     body: '',
     icon: 'finance',
-    image: '/images/solutions/erp-business-central.svg',
+    image: '/images/real/custom-img-2.jpg',
     highlights: [
       'Client/Member Portfolio Management',
       'Savings & Loans Modules with Risk Analysis',
@@ -54,7 +54,7 @@ export const MOCK_PRODUCTS: Service[] = [
     summary: 'Comprehensive hospital management system for multi-hospital networks.',
     body: '',
     icon: 'health',
-    image: '/images/solutions/erp-supply-chain.jpg',
+    image: '/images/real/custom-img-3.jpg',
     highlights: [
       'Centralized Patient Management across multiple hospitals',
       'Electronic Health Records (EHR) with lab/imaging integration',
@@ -74,7 +74,7 @@ export const MOCK_PRODUCTS: Service[] = [
     summary: 'End-to-end insurance SaaS technology for insurance distribution and management.',
     body: '',
     icon: 'insure',
-    image: '/images/solutions/apps-photo.jpg',
+    image: '/images/real/custom-img-4.jpg',
     highlights: [
       'Insurance Master Data Management',
       'Multi-Product Definition Engine',
@@ -94,7 +94,7 @@ export const MOCK_PRODUCTS: Service[] = [
     summary: 'Comprehensive pension administration and management solution.',
     body: '',
     icon: 'pension',
-    image: '/images/solutions/website-photo.jpg',
+    image: '/images/real/custom-img-5.jpg',
     highlights: [
       'Member Registration & Lifecycle Management',
       'Contribution Processing & Reconciliation',
@@ -114,7 +114,7 @@ export const MOCK_PRODUCTS: Service[] = [
     summary: 'Smart manufacturing ERP with real-time production monitoring and AI-driven insights.',
     body: '',
     icon: 'manufacturing',
-    image: '/images/solutions/erp-supply-chain.jpg',
+    image: '/images/real/custom-img-6.jpg',
     highlights: [
       'Real-time Production Monitoring Dashboard',
       'Predictive Maintenance Scheduling',

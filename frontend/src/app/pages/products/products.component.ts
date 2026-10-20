@@ -41,8 +41,8 @@ import { MOCK_PRODUCTS } from '../../core/mock-catalog';
               <span class="badge badge--featured" *ngIf="product.is_featured">Featured</span>
               <span class="product-card__category">{{ getCategory(product.title) }}</span>
             </div>
-            <div class="product-card__media" *ngIf="product.image">
-              <img [src]="product.image" [alt]="product.title" loading="lazy" decoding="async" appLazyImage />
+            <div class="product-card__media" *ngIf="true">
+              <img [src]="product.image || '/images/real/coding-session.svg'" [alt]="product.title" loading="lazy" decoding="async" />
             </div>
             <div class="product-card__body">
               <h3>{{ product.title }}</h3>
@@ -386,3 +386,4 @@ export class ProductsComponent {
     return map[slug] ?? 'other';
   }
 }
+

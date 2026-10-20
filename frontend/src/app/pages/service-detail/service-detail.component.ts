@@ -131,7 +131,7 @@ Retail & Commerce: Unified commerce, order management, personalization engines, 
 Public Sector: Citizen services, case management, open data platforms, WCAG accessibility.
 Energy & Utilities: Smart grid analytics, asset performance management, decarbonization tracking, regulatory compliance.`,
     icon: 'products',
-    image: '/images/real/data-pipeline.svg',
+    image: '/images/real/vertical-hero.jpg',
     highlights: [
       'Financial Services: Core banking, payments, regulatory reporting',
       'Healthcare: FHIR, clinical trials, patient engagement',

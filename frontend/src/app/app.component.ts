@@ -51,7 +51,7 @@ function routeRank(url: string): number {
   styles: [`
     :host { display: flex; flex-direction: column; min-height: 100vh; }
 
-    .app-main { flex: 1; position: relative; overflow-x: clip; }
+    .app-main { flex: 1; position: relative; overflow-x: visible; }
 
     .page-transition { position: relative; }
 

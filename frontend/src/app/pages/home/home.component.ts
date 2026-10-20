@@ -16,7 +16,7 @@ const MOCK_SERVICES: Service[] = [
   { id: 2, title: 'Custom Software Development', slug: 'custom-software-development', summary: 'Product-minded engineering teams delivering scalable, maintainable software — from greenfield products to platform modernization.', body: '', icon: 'code', image: '/images/real/coding-session.svg?v=4', highlights: null, sort_order: 2, is_featured: true, is_active: true },
   { id: 3, title: 'ERP Implementation', slug: 'erp-implementation', summary: 'Proven methodology for ERP deployments that minimize risk, accelerate time-to-value, and ensure user adoption.', body: '', icon: 'erp', image: '/images/solutions/erp-supply-chain.jpg?v=4', highlights: null, sort_order: 3, is_featured: true, is_active: true },
   { id: 4, title: 'Cloud Migration', slug: 'cloud-migration', summary: 'Structured migration programs that reduce cost, improve resilience, and unlock cloud-native capabilities.', body: '', icon: 'cloud', image: '/images/real/server-room.svg?v=4', highlights: null, sort_order: 4, is_featured: false, is_active: true },
-  { id: 5, title: 'Vertical Solutions', slug: 'vertical-solutions', summary: 'Industry-specific platforms and accelerators for financial services, healthcare, manufacturing, retail, public sector, and energy.', body: '', icon: 'products', image: '/images/real/data-pipeline.svg?v=4', highlights: null, sort_order: 5, is_featured: false, is_active: true },
+  { id: 5, title: 'Vertical Solutions', slug: 'vertical-solutions', summary: 'Industry-specific platforms and accelerators for financial services, healthcare, manufacturing, retail, public sector, and energy.', body: '', icon: 'products', image: '/images/real/vertical-hero.jpg?v=4', highlights: null, sort_order: 5, is_featured: false, is_active: true },
 ];
 
 const MOCK_PROCESS_STEPS: ProcessStep[] = [
@@ -75,7 +75,7 @@ const MOCK_PROCESS_STEPS: ProcessStep[] = [
 
         <div class="hero__visual" appReveal="up" [appRevealDelay]="350">
           <div class="hero__visual-frame">
-            <img src="/images/real/hero-office.jpg" alt="Modern development team collaborating" loading="lazy" decoding="async" />
+            <img src="/images/real/team-meeting.jpg" alt="Modern development team collaborating" loading="lazy" decoding="async" />
           </div>
         </div>
       </div>

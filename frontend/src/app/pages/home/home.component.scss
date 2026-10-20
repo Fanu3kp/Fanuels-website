@@ -70,16 +70,17 @@
 .hero .eyebrow {
   color: var(--pink-300);
   display: block;
-  margin-bottom: 14px;
-  font-size: 0.85rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
+  margin-bottom: 18px;
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
+  opacity: 0.95;
 }
 
 .hero h1 {
   color: var(--white);
-  font-size: clamp(2.6rem, 6vw, 4.2rem);
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
   line-height: 1.05;
   margin: 0 0 20px !important;
   font-weight: 800;
@@ -95,7 +96,7 @@
 }
 
 .hero__lead {
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   max-width: 100%;
   color: #e2e8f0;
   margin: 0 0 32px !important;
@@ -112,12 +113,55 @@
   justify-content: flex-start !important;
 }
 
+.hero__cta {
+  background: var(--pink-500) !important;
+  border-color: var(--pink-500) !important;
+  color: var(--white) !important;
+}
+
+.hero__cta:hover {
+  background: var(--pink-600) !important;
+  border-color: var(--pink-600) !important;
+  color: var(--white) !important;
+}
+
+.hero__ghost {
+  background: rgba(255, 255, 255, 0.12) !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  color: var(--white) !important;
+  backdrop-filter: blur(8px);
+}
+
+.hero__ghost:hover {
+  background: rgba(255, 255, 255, 0.25) !important;
+  border-color: var(--pink-300) !important;
+  color: var(--white) !important;
+}
+
 .hero__orders {
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
   justify-content: flex-start !important;
   margin-bottom: 0 !important;
+}
+
+.hero__order-btn {
+  background: rgba(255, 255, 255, 0.12) !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  color: var(--white) !important;
+  padding: 8px 16px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  backdrop-filter: blur(8px);
+}
+
+.hero__order-btn:hover {
+  background: rgba(255, 255, 255, 0.25) !important;
+  border-color: var(--pink-300) !important;
+  color: var(--white) !important;
+  transform: translateY(-2px);
 }
 
 .stats-bar {

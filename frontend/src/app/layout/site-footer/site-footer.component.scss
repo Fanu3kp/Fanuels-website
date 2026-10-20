@@ -198,6 +198,38 @@
   filter: grayscale(0);
 }
 
+/* Brand-specific base colors so TikTok and YouTube show in color by default */
+.social-pill[aria-label="TikTok"] {
+  background: #000;
+  border-color: #000;
+  color: #fff;
+}
+
+.social-pill[aria-label="TikTok"]:hover {
+  background: #000;
+  border-color: #000;
+  color: #fff;
+  box-shadow: 0 0 20px rgba(255, 0, 80, 0.3), 0 0 20px rgba(0, 242, 234, 0.3);
+}
+
+.social-pill[aria-label="YouTube"] {
+  background: #FF0000;
+  border-color: #FF0000;
+  color: #fff;
+}
+
+.social-pill[aria-label="YouTube"]:hover {
+  background: #FF0000;
+  border-color: #FF0000;
+  color: #fff;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+}
+
+.social-pill[aria-label="TikTok"] img,
+.social-pill[aria-label="YouTube"] img {
+  filter: invert(1) grayscale(1) contrast(100);
+}
+
 .footer__bottom {
   display: flex;
   justify-content: space-between;
@@ -351,6 +383,24 @@
   filter: none;
 }
 
+/* Brand-specific base colors (dark theme) */
+.social-pill[aria-label="TikTok"] {
+  background: #000;
+  border-color: #000;
+  color: #fff;
+}
+
+.social-pill[aria-label="YouTube"] {
+  background: #FF0000;
+  border-color: #FF0000;
+  color: #fff;
+}
+
+.social-pill[aria-label="TikTok"] img,
+.social-pill[aria-label="YouTube"] img {
+  filter: none;
+}
+
 /* Brand-specific social hover colors */
 .social-pill[aria-label="TikTok"]:hover {
   background: #000;
@@ -364,6 +414,11 @@
   border-color: #FF0000;
   color: #fff;
   box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+}
+
+.social-pill[aria-label="TikTok"] img,
+.social-pill[aria-label="YouTube"] img {
+  filter: none;
 }
 
 .social-pill[aria-label="LinkedIn"]:hover {
