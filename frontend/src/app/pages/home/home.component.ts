@@ -33,67 +33,65 @@ const MOCK_PROCESS_STEPS: ProcessStep[] = [
    imports: [RouterLink, NgFor, NgIf, LazyImageDirective, CounterDirective, RevealDirective],
   template: `
     <section class="hero parallax-container fade-in">
-      <div class="hero__gradient"></div>
-      <div class="hero__bg" appReveal="blur"></div>
-      <div class="decorative-orb decorative-orb--pink" style="top: -100px; right: -80px; width: 320px; height: 320px;"></div>
-      <div class="decorative-orb decorative-orb--teal" style="bottom: -120px; left: -100px; width: 280px; height: 280px;"></div>
-      <div class="hero__decoration parallax-fast" appReveal="blur" [appRevealDelay]="100"></div>
-      <div class="container hero__grid">
-        <div class="hero__copy" appReveal="mask">
-          <span class="eyebrow eyebrow--light" appReveal="mask">Technology & Business Group</span>
-          <h1 appReveal="mask" [appRevealDelay]="70">We build POS, apps, websites, ERP. Technology solutions for modern businesses.</h1>
-          <p class="hero__lead" appReveal="mask" [appRevealDelay]="150">
+      <div class="hero__orb hero__orb--1"></div>
+      <div class="hero__orb hero__orb--2"></div>
+      <div class="hero__grid">
+        <div class="hero__copy" appReveal="up">
+          <span class="eyebrow eyebrow--light" appReveal="up" [appRevealDelay]="60">Technology &amp; Business Group</span>
+          <h1 appReveal="mask" [appRevealDelay]="120">We build POS, apps, websites, ERP.<br/><span class="hero__accent">Technology solutions for modern businesses.</span></h1>
+          <p class="hero__lead" appReveal="up" [appRevealDelay]="200">
             Otuya Global delivers custom software — POS systems, mobile apps, web platforms, ERP implementations.
             Senior engineering teams, delivery-focused, accountable to outcomes.
           </p>
-          <div class="hero__actions" appReveal="mask" [appRevealDelay]="230">
-            <a routerLink="/contact" class="btn btn--light hero__cta">Contact Us</a>
-            <a routerLink="/services" class="btn btn--ghost hero__ghost hero__cta">View services</a>
+          <div class="hero__actions" appReveal="up" [appRevealDelay]="300">
+            <a routerLink="/contact" class="btn btn--primary hero__cta">Contact Us</a>
+            <a routerLink="/services" class="btn btn--ghost hero__ghost">View services</a>
           </div>
 
-          <div class="hero__orders" appReveal="up" [appRevealDelay]="300">
+          <div class="hero__orders" appReveal="up" [appRevealDelay]="400">
             <a [routerLink]="['/contact']" [queryParams]="{ type: 'pos' }" class="btn btn--outline btn--sm hero__order-btn">POS System</a>
             <a [routerLink]="['/contact']" [queryParams]="{ type: 'apps' }" class="btn btn--outline btn--sm hero__order-btn">Mobile App</a>
             <a [routerLink]="['/contact']" [queryParams]="{ type: 'websites' }" class="btn btn--outline btn--sm hero__order-btn">Web Platform</a>
             <a [routerLink]="['/contact']" [queryParams]="{ type: 'erp' }" class="btn btn--outline btn--sm hero__order-btn">ERP Implementation</a>
-        <div class="stats-bar" appReveal="blur" [appRevealDelay]="200">
-          <div class="stat-card-premium stat float-smooth" style="animation-delay: 0ms;">
-            <div class="stat-number-premium">{{ stats()?.projects_completed ?? 14 }}</div>
-            <div class="stat-label-premium">Projects delivered</div>
           </div>
-          <div class="stat-card-premium stat float-smooth" style="animation-delay: 200ms;">
-            <div class="stat-number-premium">{{ stats()?.team_members ?? 13 }}</div>
-            <div class="stat-label-premium">Team members</div>
+
+          <div class="hero__stats" appReveal="blur" [appRevealDelay]="500">
+            <div class="stats-bar">
+              <div class="stat">
+                <div class="stat-number">16+</div>
+                <div class="stat-label">Projects delivered</div>
+              </div>
+              <div class="stat">
+                <div class="stat-number">{{ stats()?.team_members || 14 }}</div>
+                <div class="stat-label">Team members</div>
+              </div>
+              <div class="stat">
+                <div class="stat-number">13</div>
+                <div class="stat-label">Articles published</div>
+              </div>
+            </div>
           </div>
-          <div class="stat-card-premium stat float-smooth" style="animation-delay: 400ms;">
-            <div class="stat-number-premium">{{ stats()?.articles_published ?? 9 }}</div>
-            <div class="stat-label-premium">Articles published</div>
+        </div>
+
+        <div class="hero__visual" appReveal="up" [appRevealDelay]="350">
+          <div class="hero__visual-frame">
+            <img src="/images/real/hero-office.jpg" alt="Modern development team collaborating" loading="lazy" decoding="async" />
           </div>
         </div>
       </div>
+    </section>
 
     <section class="section fade-in">
       <div class="container">
-      </div>
-    <section class="section fade-in">
-      <div class="container">
-      <div class="container">
-    <section class="section fade-in">
-      <div class="container">
-      <div class="container">
-      <div class="container">
-    <section class="section fade-in">
-      <div class="container">
-        <div class="section-head premium-head">
-          <span class="eyebrow premium-head__eyebrow">What we do</span>
-          <div class="premium-head__divider"></div>
+        <div class="section-head">
+          <span class="eyebrow">What we do</span>
           <h2>Core Solutions</h2>
           <p>Five service lines — from strategy to operations. Each is delivered by senior teams who stay accountable to the outcome.</p>
         </div>
 
         <div class="services-grid">
-          <article class="service-card premium-card" *ngFor="let service of services().slice(0, 3); let i = index" appReveal="up" [appRevealDelay]="i * 70">
-            <div class="feature-icon" appReveal="up" [appRevealDelay]="i * 70 + 20">
+          <article class="service-card" *ngFor="let service of services().slice(0, 3); let i = index" appReveal="up" [appRevealDelay]="i * 70">
+            <div class="service-card__icon" appReveal="up" [appRevealDelay]="i * 70 + 20">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
               </svg>
@@ -112,22 +110,22 @@ const MOCK_PROCESS_STEPS: ProcessStep[] = [
     <section class="section section--muted fade-in">
       <div class="container">
         <div class="section-head">
-          <span class="eyebrow" appReveal="up">Solutions at a glance</span>
-          <h2 appReveal="mask" [appRevealDelay]="70">ERP, POS, and mobile app platforms</h2>
-          <p appReveal="mask" [appRevealDelay]="150">Technology solutions built for modern businesses — from enterprise resource planning to point-of-sale and mobile apps.</p>
+          <span class="eyebrow">Solutions at a glance</span>
+          <h2>ERP, POS, and mobile app platforms</h2>
+          <p>Technology solutions built for modern businesses — from enterprise resource planning to point-of-sale and mobile apps.</p>
         </div>
 
         <div class="solutions-grid">
           <div class="solution-item" appReveal="up" [appRevealDelay]="0">
             <div class="solution-item__media">
-                <img src="/images/solutions/erp-supply-chain.jpg?v=4" alt="ERP systems for supply chain management" loading="lazy" decoding="async" />
+              <img src="/images/solutions/erp-supply-chain.jpg?v=4" alt="ERP systems for supply chain management" loading="lazy" decoding="async" />
             </div>
             <h3>ERP <br/>Implementation</h3>
             <p>End-to-end ERP deployments that minimize risk and accelerate time-to-value.</p>
           </div>
           <div class="solution-item" appReveal="up" [appRevealDelay]="80">
             <div class="solution-item__media">
-                <img src="/images/solutions/pos-software.jpg?v=4" alt="Point of Sale (POS) software" loading="lazy" decoding="async" />
+              <img src="/images/solutions/pos-software.jpg?v=4" alt="Point of Sale (POS) software" loading="lazy" decoding="async" />
             </div>
             <h3>POS <br/>Systems</h3>
             <p>Custom point-of-sale platforms built for retail, hospitality, and field operations.</p>
@@ -187,9 +185,9 @@ const MOCK_PROCESS_STEPS: ProcessStep[] = [
     <section class="section fade-in" *ngIf="featuredProjects().length">
       <div class="container">
         <div class="section-head">
-          <span class="eyebrow" appReveal="up">Projects</span>
-          <h2 appReveal="mask" [appRevealDelay]="70">Featured work</h2>
-          <p appReveal="mask" [appRevealDelay]="150">Real problems we solved for real businesses — technology solutions that deliver results.</p>
+          <span class="eyebrow">Projects</span>
+          <h2>Featured work</h2>
+          <p>Real problems we solved for real businesses — technology solutions that deliver results.</p>
         </div>
 
         <div class="projects-grid">
@@ -212,9 +210,9 @@ const MOCK_PROCESS_STEPS: ProcessStep[] = [
     <section class="section section--muted fade-in" *ngIf="featuredPosts().length">
       <div class="container">
         <div class="section-head">
-          <span class="eyebrow" appReveal="up">Insights</span>
-          <h2 appReveal="mask" [appRevealDelay]="70">What we've learned</h2>
-          <p appReveal="mask" [appRevealDelay]="150">Lessons from building software and delivering technology solutions across industries.</p>
+          <span class="eyebrow">Insights</span>
+          <h2>What we've learned</h2>
+          <p>Lessons from building software and delivering technology solutions across industries.</p>
         </div>
 
         <div class="insights-grid">
@@ -244,7 +242,7 @@ const MOCK_PROCESS_STEPS: ProcessStep[] = [
           <h2>Have a problem worth solving?</h2>
           <p>Get in touch and we'll get back to you with a proposal.</p>
         </div>
-        <a routerLink="/contact" class="btn-premium btn-premium-lg">Contact Us</a>
+        <a routerLink="/contact" class="btn btn--primary btn--lg">Contact Us</a>
       </div>
     </section>
   `,
@@ -307,4 +305,10 @@ export class HomeComponent {
 
   readonly featuredPosts = computed(() => this.postsFromApi().data.slice(0, 3));
 }
+
+
+
+
+
+
 
