@@ -47,6 +47,7 @@
             ],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
+            "serviceWorker": "ngsw.json",
             "assets": [
               {
                 "glob": "**/*",
