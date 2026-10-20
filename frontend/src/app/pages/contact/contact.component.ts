@@ -473,38 +473,34 @@ export class ContactComponent {
       payload.budget = this.form.value.budget || null;
     }
 
+    // Submit directly via FormSubmit (email) to avoid Render cold-start timeout.
+    // Falls back to Laravel API if FormSubmit is unreachable.
+    const recipient = this.settings()?.['contact_email'] || 'info@otuyaglobal.com';
+
     this.api
-      .sendContact(payload)
+      .sendContactByEmail(payload, recipient)
       .pipe(finalize(() => this.sending = false))
       .subscribe({
-        next: (res) => {
-          this.success = res.message + (res.reference ? ` Reference: ${res.reference}.` : '');
+        next: () => {
+          this.success = 'Thanks — your message was sent to our team by email.';
           this.form.reset();
         },
-        error: (error: ApiError) => {
-          this.fieldErrors = error.errors ?? {};
-          if (error.status === 0) {
-            // API unreachable — deliver the enquiry to the mailbox directly.
-            const recipient = this.settings()?.['contact_email'] || 'info@otuyaglobal.com';
-            this.sending = true;
-            this.api
-              .sendContactByEmail(payload, recipient)
-              .pipe(finalize(() => (this.sending = false)))
-              .subscribe({
-                next: () => {
-                  this.success = 'Thanks — your message was sent to our team by email.';
-                  this.form.reset();
-                },
-                error: () => {
-                  this.serverError =
-                    'We couldn\'t send your message just now. Please check your connection and try again.';
-                },
-              });
-            return;
-          }
-
-          this.serverError = this.fieldErrors['name']?.[0] ?? error.firstError ?? error.message;
-          this.sending = false;
+        error: () => {
+          // FormSubmit unreachable — fall back to Laravel API (database storage).
+          this.api
+            .sendContact(payload)
+            .pipe(finalize(() => this.sending = false))
+            .subscribe({
+              next: (res) => {
+                this.success = res.message + (res.reference ? ` Reference: ${res.reference}.` : '');
+                this.form.reset();
+              },
+              error: (error: ApiError) => {
+                this.fieldErrors = error.errors ?? {};
+                this.serverError = this.fieldErrors['name']?.[0] ?? error.firstError ?? error.message;
+                this.sending = false;
+              },
+            });
         },
       });
   }
