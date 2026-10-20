@@ -2,7 +2,7 @@ import { Component, inject, computed } from '@angular/core';
 import { NgFor, NgIf } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { catchError, of } from 'rxjs';
+import { catchError, map, of } from 'rxjs';
 import { ApiService } from '../../core/api.service';
 import { TeamMember, Testimonial, HomeStats } from '../../core/models';
 import { PageHeroComponent } from '../../shared/page-hero/page-hero.component';
@@ -356,7 +356,10 @@ export class AboutComponent {
   ]);
 
   readonly team = toSignal(
-    this.api.team().pipe(catchError(() => of(MOCK_TEAM))),
+    this.api.team().pipe(
+      catchError(() => of(MOCK_TEAM)),
+      map(members => members.length > 0 ? members : MOCK_TEAM),
+    ),
     { initialValue: MOCK_TEAM },
   );
 
