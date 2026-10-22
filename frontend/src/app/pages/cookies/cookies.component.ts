@@ -10,7 +10,7 @@ import { PageHeroComponent } from '../../shared/page-hero/page-hero.component';
       eyebrow="Legal"
       title="Cookie Policy"
       subtitle="How we use cookies and similar technologies on our website"
-      backgroundImage="/images/backgrounds/hero-bg.svg"
+      backgroundImage="images/backgrounds/hero-bg.svg"
     />
 
     <section class="section">

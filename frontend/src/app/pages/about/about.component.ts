@@ -31,7 +31,7 @@ interface MissionItem {
     name: 'Fanuel Otuya',
     role: 'Founder & Chief Executive Officer',
     bio: 'Founder & CEO of Otuya Global...',
-    image: '/images/team/fanuel-otuya.svg',
+    image: 'images/team/fanuel-otuya.svg',
     email: null,
     linkedin_url: null,
     x_url: null,
@@ -43,7 +43,7 @@ interface MissionItem {
     name: 'Loyce Wanjiru',
     role: 'Project Manager',
     bio: 'Monitors all projects in this organisation hence ensure every task is completed on time',
-    image: '/images/team/naledi-khumalo.svg',
+    image: 'images/team/naledi-khumalo.svg',
     email: null,
     linkedin_url: null,
     x_url: null,
@@ -55,7 +55,7 @@ interface MissionItem {
     name: 'John Weche',
     role: 'Finance Officer',
     bio: 'He is a System software developer',
-    image: '/images/team/john-doe.svg',
+    image: 'images/team/john-doe.svg',
     email: null,
     linkedin_url: null,
     x_url: null,
@@ -67,7 +67,7 @@ interface MissionItem {
     name: 'Daniel Owino',
     role: 'HR',
     bio: 'Directs and Manages human Resources',
-    image: '/images/team/sipho-ndlovu.svg',
+    image: 'images/team/sipho-ndlovu.svg',
     email: null,
     linkedin_url: null,
     x_url: null,
@@ -133,7 +133,7 @@ const MOCK_STATS: HomeStats = {
       eyebrow="About Otuya Global"
       title="We build technology that stays accountable to your outcomes ✨"
       subtitle="A technology and business group delivering measurable results across software, systems, cloud, and advisory."
-      backgroundImage="/images/backgrounds/about-bg.svg"
+      backgroundImage="images/backgrounds/about-bg.svg"
     />
 
     <section class="section">
@@ -451,5 +451,6 @@ export class AboutComponent {
     }
   }
 }
+
 
 

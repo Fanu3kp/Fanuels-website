@@ -74,7 +74,7 @@ const CATEGORIES = ['All', 'General', 'Products', 'Technical', 'Support', 'Compa
       eyebrow="Support"
       title="Frequently Asked Questions"
       subtitle="Find answers to common questions about our services, products, and how we can help your business thrive."
-      backgroundImage="/images/backgrounds/contact-bg.svg"
+      backgroundImage="images/backgrounds/contact-bg.svg"
     />
 
     <section class="section">

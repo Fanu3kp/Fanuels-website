@@ -61,7 +61,7 @@ const CONTACT_CONTEXTS: Record<ContactContext, ContactContextConfig> = {
       eyebrow: 'Contact',
       title: "Let's build something that works",
       subtitle: 'Message us, schedule a discovery call, or ask us anything. We respond within one business day.',
-      backgroundImage: '/images/backgrounds/contact-bg.svg',
+      backgroundImage: 'images/backgrounds/contact-bg.svg',
     },
     submitLabel: 'Send Message',
     messageLabel: 'Project details',
@@ -82,7 +82,7 @@ const CONTACT_CONTEXTS: Record<ContactContext, ContactContextConfig> = {
       eyebrow: 'Careers',
       title: 'Get in touch',
       subtitle: "We're not hiring at the moment, but we'd love to hear about your background. Send your details and we'll keep them on file for future openings.",
-      backgroundImage: '/images/backgrounds/hero-bg.svg',
+      backgroundImage: 'images/backgrounds/hero-bg.svg',
     },
     submitLabel: 'Submit Application',
     messageLabel: 'About you',
@@ -103,7 +103,7 @@ const CONTACT_CONTEXTS: Record<ContactContext, ContactContextConfig> = {
       eyebrow: "Let's Talk",
       title: 'Ready to Transform Your Business?',
       subtitle: "Let's discuss how our tailored solutions can drive growth and efficiency for your organization.",
-      backgroundImage: '/images/backgrounds/contact-bg.svg',
+      backgroundImage: 'images/backgrounds/contact-bg.svg',
     },
     submitLabel: 'Send Message',
     messageLabel: 'Project details',
@@ -505,3 +505,4 @@ export class ContactComponent {
       });
   }
 }
+

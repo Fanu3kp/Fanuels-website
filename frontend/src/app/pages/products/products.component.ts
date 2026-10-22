@@ -18,7 +18,7 @@ import { MOCK_PRODUCTS } from '../../core/mock-catalog';
       eyebrow="Products"
       title="Our Software Portfolio"
       subtitle="Discover our comprehensive suite of innovative software products designed to transform your business operations and drive digital excellence."
-      backgroundImage="/images/backgrounds/services-bg.svg"
+      backgroundImage="images/backgrounds/services-bg.svg"
     />
 
     <section class="section">
@@ -42,7 +42,7 @@ import { MOCK_PRODUCTS } from '../../core/mock-catalog';
               <span class="product-card__category">{{ getCategory(product.title) }}</span>
             </div>
             <div class="product-card__media" *ngIf="true">
-              <img [src]="product.image || '/images/real/coding-session.svg'" [alt]="product.title" loading="eager" decoding="async" />
+              <img [src]="product.image || 'images/real/coding-session.svg'" [alt]="product.title" loading="eager" decoding="async" />
             </div>
             <div class="product-card__body">
               <h3>{{ product.title }}</h3>
@@ -386,4 +386,5 @@ export class ProductsComponent {
     return map[slug] ?? 'other';
   }
 }
+
 

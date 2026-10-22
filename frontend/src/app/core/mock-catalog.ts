@@ -14,7 +14,7 @@ export const MOCK_PRODUCTS: Service[] = [
     summary: 'Comprehensive point-of-sale and retail management system for modern retail operations.',
     body: '',
     icon: 'pos',
-    image: '/images/real/custom-img.jpg',
+    image: 'images/real/custom-img.jpg',
     highlights: [
       'Multi-store POS Management',
       'Real-time Inventory Tracking & Management',
@@ -34,7 +34,7 @@ export const MOCK_PRODUCTS: Service[] = [
     summary: 'A robust savings, credit, and pension management solution for financial institutions.',
     body: '',
     icon: 'finance',
-    image: '/images/real/custom-img-2.jpg',
+    image: 'images/real/custom-img-2.jpg',
     highlights: [
       'Client/Member Portfolio Management',
       'Savings & Loans Modules with Risk Analysis',
@@ -54,7 +54,7 @@ export const MOCK_PRODUCTS: Service[] = [
     summary: 'Comprehensive hospital management system for multi-hospital networks.',
     body: '',
     icon: 'health',
-    image: '/images/real/custom-img-3.jpg',
+    image: 'images/real/custom-img-3.jpg',
     highlights: [
       'Centralized Patient Management across multiple hospitals',
       'Electronic Health Records (EHR) with lab/imaging integration',
@@ -74,7 +74,7 @@ export const MOCK_PRODUCTS: Service[] = [
     summary: 'End-to-end insurance SaaS technology for insurance distribution and management.',
     body: '',
     icon: 'insure',
-    image: '/images/real/custom-img-4.jpg',
+    image: 'images/real/custom-img-4.jpg',
     highlights: [
       'Insurance Master Data Management',
       'Multi-Product Definition Engine',
@@ -94,7 +94,7 @@ export const MOCK_PRODUCTS: Service[] = [
     summary: 'Comprehensive pension administration and management solution.',
     body: '',
     icon: 'pension',
-    image: '/images/real/custom-img-5.jpg',
+    image: 'images/real/custom-img-5.jpg',
     highlights: [
       'Member Registration & Lifecycle Management',
       'Contribution Processing & Reconciliation',
@@ -114,7 +114,7 @@ export const MOCK_PRODUCTS: Service[] = [
     summary: 'Smart manufacturing ERP with real-time production monitoring and AI-driven insights.',
     body: '',
     icon: 'manufacturing',
-    image: '/images/real/custom-img-6.jpg',
+    image: 'images/real/custom-img-6.jpg',
     highlights: [
       'Real-time Production Monitoring Dashboard',
       'Predictive Maintenance Scheduling',
@@ -134,7 +134,7 @@ export const MOCK_PRODUCTS: Service[] = [
     summary: 'Customized CRM solution for streamlined customer engagement and data-driven insights.',
     body: '',
     icon: 'crm',
-    image: '/images/real/coding-session.svg',
+    image: 'images/real/coding-session.svg',
     highlights: [
       'Lead & Opportunity Management',
       'Contact & Account Management',
@@ -154,7 +154,7 @@ export const MOCK_PRODUCTS: Service[] = [
     summary: 'Web-based system for efficient case and contract management with notification engine.',
     body: '',
     icon: 'legal',
-    image: '/images/real/meeting-room.jpg',
+    image: 'images/real/meeting-room.jpg',
     highlights: [
       'Case Lifecycle Management',
       'Contract Creation & Templates',
@@ -174,7 +174,7 @@ export const MOCK_PRODUCTS: Service[] = [
     summary: 'Microservice-powered e-learning platform for delivering quality education.',
     body: '',
     icon: 'education',
-    image: '/images/products/otuya-academics.svg',
+    image: 'images/products/otuya-academics.svg',
     highlights: [
       'Course Creation & Management',
       'Student Progress Tracking',
@@ -188,3 +188,4 @@ export const MOCK_PRODUCTS: Service[] = [
     is_active: true
   }
 ];
+

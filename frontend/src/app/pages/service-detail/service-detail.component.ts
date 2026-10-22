@@ -32,7 +32,7 @@ Our approach starts with understanding your strategic objectives, mapping value 
 
 Each engagement includes executive alignment workshops, architecture review boards, and change management programs designed to ensure adoption at every level of the organization.`,
     icon: 'strategy',
-    image: '/images/real/cloud-architecture.svg',
+    image: 'images/real/cloud-architecture.svg',
     highlights: [
       'Outcome-based roadmap with measurable OKRs',
       'Legacy decomposition and API-first architecture',
@@ -56,7 +56,7 @@ Whether you're launching a new digital product, modernizing a critical platform,
 
 Our engineers are fluent across the modern stack — TypeScript/React/Next.js on the frontend, .NET/Java/Go on the backend, PostgreSQL/Redis for data, Kubernetes for orchestration — and we select the right tools for your context, not our preferences.`,
     icon: 'code',
-    image: '/images/real/coding-session.svg',
+    image: 'images/real/coding-session.svg',
     highlights: [
       'Product discovery and validated learning cycles',
       'Full-stack delivery: frontend, backend, mobile, infrastructure',
@@ -80,7 +80,7 @@ We partner with you from selection through stabilization, bringing deep expertis
 
 Every engagement includes process mining for current-state analysis, automated data migration tooling, integration architecture for your ecosystem, and a 90-day hypercare program with SLA-backed support.`,
     icon: 'erp',
-    image: '/images/real/cloud-server.jpg',
+    image: 'images/real/cloud-server.jpg',
     highlights: [
       'Process mining and fit-gap analysis',
       'Industry templates for accelerated deployment',
@@ -104,7 +104,7 @@ We assess every workload, model the economics, and design a wave plan that match
 
 Our cloud foundation includes multi-account landing zones, policy-as-code governance, FinOps discipline, and GitOps delivery — so you're not just in the cloud, you're operating effectively in it.`,
     icon: 'cloud',
-    image: '/images/real/server-room.svg',
+    image: 'images/real/server-room.svg',
     highlights: [
       'Workload profiling, dependency mapping, and TCO modeling',
       'Lift-and-shift, replatform, or refactor per workload',
@@ -131,7 +131,7 @@ Retail & Commerce: Unified commerce, order management, personalization engines, 
 Public Sector: Citizen services, case management, open data platforms, WCAG accessibility.
 Energy & Utilities: Smart grid analytics, asset performance management, decarbonization tracking, regulatory compliance.`,
     icon: 'products',
-    image: '/images/real/vertical-hero.jpg',
+    image: 'images/real/vertical-hero.jpg',
     highlights: [
       'Financial Services: Core banking, payments, regulatory reporting',
       'Healthcare: FHIR, clinical trials, patient engagement',
@@ -220,7 +220,7 @@ Energy & Utilities: Smart grid analytics, asset performance management, decarbon
             <div class="card">
               <h3>Technology & Partners</h3>
               <div class="tech-partners" *ngIf="resolvedService()?.slug === 'erp-implementation'">
-                 <img src="/images/solutions/erp-business-central.svg" alt="Business Central ERP platform" class="tech-platform-img" decoding="async" />
+                 <img src="images/solutions/erp-business-central.svg" alt="Business Central ERP platform" class="tech-platform-img" decoding="async" />
               </div>
                 <div class="tech-tags" *ngFor="let tech of technologies()">
                 <span class="tech-tag" [attr.data-category]="tech.category">{{ tech.name }}</span>

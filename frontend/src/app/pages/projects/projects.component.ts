@@ -17,7 +17,7 @@ import { ApiService } from '../../core/api.service';
       eyebrow="Projects"
       title="Technology solutions engineered for real businesses"
       subtitle="Systems we have built for clients across industries. Same discipline, same accountability."
-      backgroundImage="/images/backgrounds/section-bg.svg"
+      backgroundImage="images/backgrounds/section-bg.svg"
     />
 
     <section class="section" id="case-studies">

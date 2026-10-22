@@ -12,7 +12,7 @@ import { RevealDirective } from '../../shared/reveal/reveal.directive';
       eyebrow="Careers"
       title="Join Our Team"
       subtitle="Work where you're inspired, challenged & recognised."
-      backgroundImage="/images/backgrounds/hero-bg.svg"
+      backgroundImage="images/backgrounds/hero-bg.svg"
     />
 
     <section class="section">

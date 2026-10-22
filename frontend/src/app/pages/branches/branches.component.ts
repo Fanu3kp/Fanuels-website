@@ -31,7 +31,7 @@ interface OrderOption {
       eyebrow="Business Units"
       title="Four specialist units, one shared engineering core"
       subtitle="Otuya Global operates four technology-focused business units — Software, Systems, Cloud, and Advisory. Each has its own commercial focus, all powered by one shared engineering and delivery layer."
-      backgroundImage="/images/backgrounds/section-bg.svg"
+      backgroundImage="images/backgrounds/section-bg.svg"
     />
 
     <nav class="platform-nav" aria-label="Business platform sections">
@@ -279,3 +279,4 @@ export class BranchesComponent {
     return map[key] ?? 'other';
   }
 }
+

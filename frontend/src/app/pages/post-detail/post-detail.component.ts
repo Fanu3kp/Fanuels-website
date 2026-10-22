@@ -15,12 +15,12 @@ const MOCK_POSTS: Post[] = [
     slug: 'microservices-at-scale-when-to-decompose-and-when-to-hold-back',
     excerpt: 'The decision to split a monolith is not just technical. It changes team dynamics, deployment complexity, and operational overhead.',
     body: 'The decision to split a monolith is not just technical. It changes team dynamics, deployment complexity, and operational overhead. This guide covers when to decompose, when to hold back, and how to make the transition successfully.',
-    image: '/images/posts/legacy-rewrite-or-retire.svg?v=4',
+    image: 'images/posts/legacy-rewrite-or-retire.svg?v=4',
     is_published: true,
     published_at: '2026-10-14',
     views: 3200,
     category: { id: 1, name: 'Engineering', slug: 'engineering', description: null },
-    author: { id: 1, name: 'Michael TechLead', avatar: '/images/team/john-doe.svg' },
+    author: { id: 1, name: 'Michael TechLead', avatar: 'images/team/john-doe.svg' },
   },
   {
     id: 2,
@@ -28,12 +28,12 @@ const MOCK_POSTS: Post[] = [
     slug: 'data-privacy-africa-gdpr-kenya-dpa-sector-regulations',
     excerpt: 'African businesses handling EU or Kenyan citizen data must comply with overlapping regulations. Here\'s how to build compliance into your product from day one.',
     body: 'African businesses handling EU or Kenyan citizen data must comply with overlapping regulations. Here\'s how to build compliance into your product from day one.',
-    image: '/images/posts/infrastructure-as-code.svg?v=4',
+    image: 'images/posts/infrastructure-as-code.svg?v=4',
     is_published: true,
     published_at: '2026-10-12',
     views: 2800,
     category: { id: 2, name: 'Security', slug: 'security', description: null },
-    author: { id: 2, name: 'Abdullahi Suleiman', avatar: '/images/team/sipho-ndlovu.svg' },
+    author: { id: 2, name: 'Abdullahi Suleiman', avatar: 'images/team/sipho-ndlovu.svg' },
   },
   {
     id: 3,
@@ -41,12 +41,12 @@ const MOCK_POSTS: Post[] = [
     slug: 'building-inclusive-products-east-africa-linguistic-diversity',
     excerpt: 'With over 100 languages spoken in East Africa, designing inclusive digital products requires more than translation.',
     body: 'With over 100 languages spoken in East Africa, designing inclusive digital products requires more than translation.',
-    image: '/images/real/team-meeting.jpg?v=4',
+    image: 'images/real/team-meeting.jpg?v=4',
     is_published: true,
     published_at: '2026-10-10',
     views: 1900,
     category: { id: 1, name: 'Engineering', slug: 'engineering', description: null },
-    author: { id: 3, name: 'Diana Mutua', avatar: '/images/team/chloe-adams.svg' },
+    author: { id: 3, name: 'Diana Mutua', avatar: 'images/team/chloe-adams.svg' },
   },
   {
     id: 4,
@@ -54,12 +54,12 @@ const MOCK_POSTS: Post[] = [
     slug: 'digital-transformation-in-education-next-generation-campus-management',
     excerpt: 'How educational institutions across Africa are embracing technology for better student management and improved learning outcomes.',
     body: 'How educational institutions across Africa are embracing technology for better student management and improved learning outcomes.',
-    image: '/images/posts/education-campus-management.svg?v=4',
+    image: 'images/posts/education-campus-management.svg?v=4',
     is_published: true,
     published_at: '2026-05-17',
     views: 5400,
     category: { id: 3, name: 'Education', slug: 'education', description: null },
-    author: { id: 4, name: 'Prof. Linda Akinyi', avatar: '/images/team/mary-smith.svg' },
+    author: { id: 4, name: 'Prof. Linda Akinyi', avatar: 'images/team/mary-smith.svg' },
   },
   {
     id: 5,
@@ -67,12 +67,12 @@ const MOCK_POSTS: Post[] = [
     slug: 'zero-trust-architecture-practical-adoption-guide-african-businesses',
     excerpt: 'Zero-trust is no longer a buzzword. Here\'s how to adopt it without shutting down your business.',
     body: 'Zero-trust is no longer a buzzword. Here\'s how to adopt it without shutting down your business.',
-    image: '/images/posts/infrastructure-as-code.svg?v=4',
+    image: 'images/posts/infrastructure-as-code.svg?v=4',
     is_published: true,
     published_at: '2026-10-11',
     views: 2100,
     category: { id: 2, name: 'Security', slug: 'security', description: null },
-    author: { id: 5, name: 'Abdullahi Suleiman', avatar: '/images/team/sipho-ndlovu.svg' },
+    author: { id: 5, name: 'Abdullahi Suleiman', avatar: 'images/team/sipho-ndlovu.svg' },
   },
   {
     id: 6,
@@ -80,12 +80,12 @@ const MOCK_POSTS: Post[] = [
     slug: 'why-we-write-tests-before-we-write-features',
     excerpt: 'The real return on testing is not fewer bugs. It is the confidence to change code you did not write.',
     body: 'The real return on testing is not fewer bugs. It is the confidence to change code you did not write.',
-    image: '/images/posts/tests-before-features.svg?v=4',
+    image: 'images/posts/tests-before-features.svg?v=4',
     is_published: true,
     published_at: '2026-10-02',
     views: 1750,
     category: { id: 1, name: 'Engineering', slug: 'engineering', description: null },
-    author: { id: 6, name: 'Kevin Omondi', avatar: '/images/team/riaan-van-wyk.svg' },
+    author: { id: 6, name: 'Kevin Omondi', avatar: 'images/team/riaan-van-wyk.svg' },
   },
   {
     id: 7,
@@ -93,12 +93,12 @@ const MOCK_POSTS: Post[] = [
     slug: 'three-cloud-cost-mistakes-we-see-in-every-audit',
     excerpt: 'Orphaned storage, always-on non-production, and missing shutdown policies. Usually 20 to 40 percent of the bill.',
     body: 'Orphaned storage, always-on non-production, and missing shutdown policies. Usually 20 to 40 percent of the bill.',
-    image: '/images/posts/cloud-cost-mistakes.svg?v=4',
+    image: 'images/posts/cloud-cost-mistakes.svg?v=4',
     is_published: true,
     published_at: '2026-09-14',
     views: 3800,
     category: { id: 4, name: 'Cloud', slug: 'cloud', description: null },
-    author: { id: 7, name: 'Kevin Omondi', avatar: '/images/team/riaan-van-wyk.svg' },
+    author: { id: 7, name: 'Kevin Omondi', avatar: 'images/team/riaan-van-wyk.svg' },
   },
   {
     id: 8,
@@ -106,12 +106,12 @@ const MOCK_POSTS: Post[] = [
     slug: 'buy-versus-build-is-a-staffing-decision',
     excerpt: 'The licence fee is the small part of the total. Ongoing maintenance is what decides it.',
     body: 'The licence fee is the small part of the total. Ongoing maintenance is what decides it.',
-    image: '/images/posts/buy-versus-build.svg?v=4',
+    image: 'images/posts/buy-versus-build.svg?v=4',
     is_published: true,
     published_at: '2026-08-27',
     views: 1420,
     category: { id: 5, name: 'Business', slug: 'business', description: null },
-    author: { id: 8, name: 'Fanuel Otuya', avatar: '/images/team/fanuel-otuya.svg' },
+    author: { id: 8, name: 'Fanuel Otuya', avatar: 'images/team/fanuel-otuya.svg' },
   },
   {
     id: 9,
@@ -119,12 +119,12 @@ const MOCK_POSTS: Post[] = [
     slug: 'your-backups-are-not-tested-until-you-have-restored-one',
     excerpt: 'A green backup dashboard proves the job ran. It says nothing about whether the data is recoverable.',
     body: 'A green backup dashboard proves the job ran. It says nothing about whether the data is recoverable.',
-    image: '/images/posts/backup-restore-drill.svg?v=4',
+    image: 'images/posts/backup-restore-drill.svg?v=4',
     is_published: true,
     published_at: '2026-08-08',
     views: 2210,
     category: { id: 2, name: 'Security', slug: 'security', description: null },
-    author: { id: 9, name: 'Abdullahi Suleiman', avatar: '/images/team/sipho-ndlovu.svg' },
+    author: { id: 9, name: 'Abdullahi Suleiman', avatar: 'images/team/sipho-ndlovu.svg' },
   },
 ];
 
@@ -135,7 +135,7 @@ const MOCK_POSTS: Post[] = [
   template: `
     <ng-container *ngIf="resolvedPost() as p; else loading">
       <article class="section article">
-        <div class="article__hero" [style.background-image]="'url(' + (p.image || '/images/placeholders/blog-placeholder.svg') + ')'"></div>
+        <div class="article__hero" [style.background-image]="'url(' + (p.image || 'images/placeholders/blog-placeholder.svg') + ')'"></div>
         <div class="container article__inner">
           <nav class="crumbs">
             <a routerLink="/insights">Insights</a>

@@ -10,7 +10,7 @@ import { PageHeroComponent } from '../../shared/page-hero/page-hero.component';
       eyebrow="Legal"
       title="Terms of Service"
       subtitle="Terms and conditions governing the use of our website and services"
-      backgroundImage="/images/backgrounds/hero-bg.svg"
+      backgroundImage="images/backgrounds/hero-bg.svg"
     />
 
     <section class="section">

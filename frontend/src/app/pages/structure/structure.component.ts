@@ -20,7 +20,7 @@ interface SharedService {
       eyebrow="Group structure"
       title="One group, four technology units, shared engineering core"
       subtitle="Otuya Global is the parent company. Four specialist technology units serve their own markets, and one shared services layer keeps them all moving."
-      backgroundImage="/images/backgrounds/section-bg.svg"
+      backgroundImage="images/backgrounds/section-bg.svg"
     />
 
     <section class="section section--first">
@@ -221,3 +221,4 @@ export class StructureComponent {
     { name: 'Business Services', desc: 'Finance, HR and legal run once for the whole group.', icon: 'shared' },
   ];
 }
+

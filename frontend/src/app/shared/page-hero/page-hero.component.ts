@@ -85,5 +85,5 @@ export class PageHeroComponent {
   @Input({ required: true }) eyebrow = '';
   @Input({ required: true }) title = '';
   @Input() subtitle?: string;
-  @Input() backgroundImage = '/images/backgrounds/section-bg.svg';
+  @Input() backgroundImage = 'images/backgrounds/section-bg.svg';
 }

@@ -10,7 +10,7 @@ import { PageHeroComponent } from '../../shared/page-hero/page-hero.component';
       eyebrow="Legal"
       title="Privacy Policy"
       subtitle="How we collect, use, and protect your personal information"
-      backgroundImage="/images/backgrounds/hero-bg.svg"
+      backgroundImage="images/backgrounds/hero-bg.svg"
     />
 
     <section class="section">
