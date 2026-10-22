@@ -154,7 +154,7 @@ Energy & Utilities: Smart grid analytics, asset performance management, decarbon
     <ng-container *ngIf="resolvedService() as svc; else loading">
       <!-- Hero Section -->
       <section class="hero">
-        <div class="hero__bg" [style.background-image]="'url(' + svc.image + ')'"></div>
+        <div class="hero__bg" [style.background-image]="'url(' + ((svc.image && svc.image.indexOf('/') === 0) ? svc.image.substring(1) : (svc.image || '')) + ')'"></div>
         <div class="container">
           <nav class="crumbs">
             <a routerLink="/services">Services</a>

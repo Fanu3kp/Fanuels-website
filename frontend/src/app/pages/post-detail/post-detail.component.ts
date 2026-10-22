@@ -135,7 +135,7 @@ const MOCK_POSTS: Post[] = [
   template: `
     <ng-container *ngIf="resolvedPost() as p; else loading">
       <article class="section article">
-        <div class="article__hero" [style.background-image]="'url(' + (p.image || 'images/placeholders/blog-placeholder.svg') + ')'"></div>
+        <div class="article__hero" [style.background-image]="'url(' + ((p.image && p.image.startsWith('/') ? p.image.substring(1) : p.image) || 'images/placeholders/blog-placeholder.svg') + ')'"></div>
         <div class="container article__inner">
           <nav class="crumbs">
             <a routerLink="/insights">Insights</a>

@@ -499,7 +499,20 @@ export class ServicesComponent {
 
   readonly services = computed(() => {
     const apiData = this.servicesFromApi();
-    return apiData.length > 0 ? apiData : MOCK_SERVICES;
+    const data = apiData.length > 0 ? apiData : MOCK_SERVICES;
+    // Normalize image paths for GitHub Pages subpath
+    return data.map(s => {
+      let img = s.image;
+      if (img) {
+        if (img.startsWith('/')) {
+          img = img.substring(1); // remove leading slash
+        }
+        if (!img.startsWith('images/')) {
+          // if it's just a filename or different path, try to find it
+        }
+      }
+      return { ...s, image: img };
+    });
   });
 
   searchTerm = '';

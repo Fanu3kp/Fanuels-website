@@ -306,7 +306,16 @@ import { MOCK_PRODUCTS } from '../../core/mock-catalog';
   `],
 })
 export class ProductsComponent {
-  readonly products = computed(() => MOCK_PRODUCTS as Service[]);
+  readonly products = computed(() => {
+    const data = MOCK_PRODUCTS as Service[];
+    return data.map(p => {
+      let img = p.image;
+      if (img && img.startsWith('/')) {
+        img = img.substring(1);
+      }
+      return { ...p, image: img };
+    });
+  });
 
   searchTerm = '';
 

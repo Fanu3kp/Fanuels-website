@@ -8,7 +8,7 @@ import { RevealDirective } from '../reveal/reveal.directive';
   imports: [NgIf, RevealDirective],
   template: `
     <section class="hero">
-      <img class="hero__bg-image" [src]="backgroundImage" alt="" aria-hidden="true" decoding="async" />
+      <img class="hero__bg-image" [src]="backgroundImage?.startsWith('/') ? backgroundImage.substring(1) : backgroundImage" alt="" aria-hidden="true" decoding="async" />
       <div class="container">
         <span class="eyebrow eyebrow--light" appReveal="mask">{{ eyebrow }}</span>
         <h1 appReveal="mask" [appRevealDelay]="70">{{ title }}</h1>

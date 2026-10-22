@@ -15,7 +15,7 @@ import { Project } from '../../core/models';
   template: `
     <ng-container *ngIf="resolvedProject() as p; else loading">
       <section class="hero">
-        <div class="hero__bg" [style.background-image]="'url(' + (p.cover_image || 'images/placeholders/project-placeholder.svg') + ')'"></div>
+        <div class="hero__bg" [style.background-image]="'url(' + ((p.cover_image?.startsWith('/') ? p.cover_image.substring(1) : p.cover_image) || 'images/placeholders/project-placeholder.svg') + ')'"></div>
         <div class="container">
           <nav class="crumbs">
             <a routerLink="/projects">Projects</a>
