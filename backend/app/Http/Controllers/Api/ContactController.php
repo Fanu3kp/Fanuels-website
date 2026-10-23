@@ -88,6 +88,7 @@ class ContactController extends Controller
         // Normalise boolean flag.
         $data['nda_required'] = (bool) ($data['nda_required'] ?? false);
 
+        // Ensure message is always saved to database first
         $contactMessage = ContactMessage::query()->create($data);
 
         $recipient = trim((string) Setting::get('contact_email'));
@@ -95,17 +96,19 @@ class ContactController extends Controller
             $recipient = (string) config('mail.from.address');
         }
 
+        // Send email notification
         try {
             Mail::to($recipient)->send(new ContactMessageMail($contactMessage));
         } catch (\Throwable $e) {
-            Log::warning('Contact notification email failed.', [
+            Log::error('Contact notification email failed.', [
                 'message_id' => $contactMessage->id,
                 'error' => $e->getMessage(),
+                'trace' => $e->getTraceAsString(),
             ]);
         }
 
         return response()->json([
-            'message' => 'Thanks, your request has been received.',
+            'message' => 'Thanks, your request has been received and saved.',
             'reference' => $contactMessage->request_reference,
             'id' => $contactMessage->id,
         ], 201);
